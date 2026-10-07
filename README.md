@@ -1,59 +1,99 @@
-# Portfolio
+<div align="center">
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+# tb.dev
 
-## Development server
+### A personal software portfolio, built with care.
 
-To start a local development server, run:
+A bilingual portfolio showcasing projects, professional experience, and a little personality through four interactive themes.
+
+[![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![SCSS](https://img.shields.io/badge/Styles-SCSS-CF649A?logo=sass&logoColor=white)](https://sass-lang.com/)
+
+</div>
+
+---
+
+## Overview
+
+`tb.dev` is a responsive portfolio website for presenting software projects and professional background. It is built as a standalone Angular application with lazy-loaded pages, typed English and German translations, and theme preferences saved in the browser.
+
+## Highlights
+
+- **Four visual themes:** Futuristic, Personal, Thunder, and Matrix
+- **English and German:** language selection with browser-language detection
+- **Project catalogue:** featured carousel, project cards, category filtering, and platform labels
+- **Dedicated pages:** Home, About, Projects, Terms, and Privacy
+- **Responsive layout:** adapts to desktop and mobile screen sizes
+- **Motion overlays:** animated lightning and Matrix-style digital rain
+- **Accessible foundations:** semantic page structure and labelled interactive controls
+
+## Built with
+
+| Area | Technology |
+| --- | --- |
+| Application | Angular 20, TypeScript 5.9 |
+| UI | Angular Material |
+| Styling | SCSS, CSS custom properties |
+| State | Angular signals |
+| Tests | Karma and Jasmine |
+
+## Getting started
+
+### Requirements
+
+- Node.js and npm compatible with Angular 20
+- Git
+
+### Install and run
 
 ```bash
-ng serve
+git clone https://github.com/getOne21/MyPortfolioWebApp.git
+cd MyPortfolioWebApp
+npm ci
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open [http://localhost:4200](http://localhost:4200). The development server reloads when source files change.
 
-## Code scaffolding
+## Commands
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Command | Description |
+| --- | --- |
+| `npm start` | Start the local development server |
+| `npm run build` | Create an optimized production build |
+| `npm run watch` | Rebuild continuously in development mode |
+| `npm test` | Run the unit tests with Karma |
 
-```bash
-ng generate component component-name
+Production build output is written to `dist/portfolio/browser/` and can be hosted as a static site.
+
+## Project layout
+
+```text
+src/
+├── app/
+│   ├── pages/           # Home, About, Projects, Terms, Privacy
+│   ├── shared/          # Reusable UI components
+│   ├── services/        # Project data, themes, translations
+│   ├── i18n/            # English and German copy and types
+│   ├── navbar/          # Site navigation and preferences
+│   ├── footer/          # Site footer
+│   ├── matrix-overlay/  # Matrix theme animation
+│   └── thunder-overlay/ # Thunder theme animation
+├── index.html
+├── main.ts
+└── styles.scss          # Global styles and theme tokens
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Updating the portfolio
 
-```bash
-ng generate --help
-```
+- **Project catalogue:** edit the project entries in `src/app/services/app-data.ts`. Each entry contains its display copy, category, tags, features, and platform download metadata.
+- **Translations:** update both `src/app/i18n/en.ts` and `src/app/i18n/de.ts`; the shared shape is defined in `translations.model.ts`.
+- **Themes:** change the theme definitions in `src/app/services/theme.service.ts` and the corresponding CSS tokens in `src/styles.scss`.
+- **Page content and layout:** edit the matching component files under `src/app/pages/`.
 
-## Building
+Before publishing, replace sample project content and placeholder download URLs with your own verified information.
 
-To build the project run:
+## License
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+No license has been specified for this repository. Contact the repository owner before reusing or redistributing its contents.
