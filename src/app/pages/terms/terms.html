@@ -1,0 +1,55 @@
+<div class="terms-page">
+  <!-- Page header -->
+  <div class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="page-hero-content">
+      <span class="section-tag">{{ t().terms.pageTag }}</span>
+      <h1>{{ t().terms.title }}</h1>
+      <p>{{ t().terms.subtitle }}</p>
+      <div class="last-updated">
+        <mat-icon>event</mat-icon>
+        {{ t().terms.lastUpdated }}: {{ formatDate(lastUpdated) }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary banner -->
+  <div class="terms-summary">
+    <div class="summary-inner">
+      <mat-icon class="summary-icon">info</mat-icon>
+      <div>
+        <strong>{{ t().terms.summaryBold }}</strong>
+        <span>{{ t().terms.summaryText }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion sections from translation -->
+  <div class="terms-container">
+    <mat-accordion class="terms-accordion" multi>
+      @for (section of t().terms.sections; track section.title) {
+        <mat-expansion-panel class="terms-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="section-icon">{{ section.icon }}</mat-icon>
+              {{ section.title }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="section-body">{{ section.content }}</p>
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </div>
+
+  <!-- Contact -->
+  <div class="terms-contact">
+    <div class="contact-card">
+      <mat-icon>mail</mat-icon>
+      <div>
+        <h4>{{ t().terms.contactTitle }}</h4>
+        <p>{{ t().terms.contactSubtitle }}</p>
+        <a href="mailto:legal@example.com" class="contact-email">legal&#64;example.com</a>
+      </div>
+    </div>
+  </div>
+</div>

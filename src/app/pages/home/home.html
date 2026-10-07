@@ -1,0 +1,168 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      {{ t().hero.badge }}
+    </div>
+    <h1 class="hero-title">
+      {{ t().hero.title1 }}<br>
+      <span class="gradient-text">{{ t().hero.title2 }}</span>
+    </h1>
+    <p class="hero-subtitle">{{ t().hero.subtitle }}</p>
+    <div class="hero-actions">
+      <a mat-flat-button routerLink="/projects" class="btn-primary">
+        <mat-icon>apps</mat-icon>
+        {{ t().hero.exploreProjects }}
+      </a>
+      <a mat-stroked-button routerLink="/terms" class="btn-secondary">
+        <mat-icon>gavel</mat-icon>
+        {{ t().hero.termsConditions }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    @for (stat of stats(); track stat.label) {
+      <div class="stat-item">
+        <span class="stat-value">{{ stat.value }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ──────── Carousel Section ──────── -->
+<section class="carousel-section">
+  <div class="section-header">
+    <span class="section-tag">{{ t().carousel.tag }}</span>
+    <h2>{{ t().carousel.title }}</h2>
+    <p>{{ t().carousel.subtitle }}</p>
+  </div>
+
+  <div class="carousel-wrapper" (mouseenter)="stopAutoPlay()" (mouseleave)="startAutoPlay()">
+    <div class="carousel-track">
+      @for (app of featuredApps; track app.id; let i = $index) {
+        <div
+          class="carousel-slide"
+          [class.active]="i === currentSlide()"
+          [class.prev]="i === (currentSlide() - 1 + featuredApps.length) % featuredApps.length"
+          [style.--accent]="app.colorAccent"
+          [style.--grad-start]="app.gradientStart"
+          [style.--grad-end]="app.gradientEnd"
+        >
+          <div class="slide-visual">
+            <div class="app-icon-large" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
+              <span class="app-emoji">{{ app.icon }}</span>
+            </div>
+            <div class="slide-rings">
+              <div class="ring ring-1"></div>
+              <div class="ring ring-2"></div>
+              <div class="ring ring-3"></div>
+            </div>
+          </div>
+          <div class="slide-content">
+            @if (app.isNew) {
+              <span class="badge-new">{{ t().carousel.new }}</span>
+            }
+            <span class="slide-category">{{ app.category }}</span>
+            <h3 class="slide-title">{{ app.name }}</h3>
+            <p class="slide-tagline">{{ app.tagline }}</p>
+            <p class="slide-desc">{{ app.description }}</p>
+            <div class="slide-tags">
+              @for (tag of app.tags.slice(0, 3); track tag) {
+                <span class="tag" [style.border-color]="app.colorAccent + '55'" [style.color]="app.colorAccent">{{ tag }}</span>
+              }
+            </div>
+            <div class="slide-actions">
+              <a class="btn-slide-primary" routerLink="/projects"
+                 [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
+                <mat-icon>download</mat-icon>
+                {{ t().carousel.download }}
+              </a>
+              <span class="slide-version">v{{ app.version }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Navigation arrows -->
+    <button class="carousel-arrow carousel-prev" (click)="prev()" aria-label="Previous">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button class="carousel-arrow carousel-next" (click)="next()" aria-label="Next">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+
+    <!-- Dots -->
+    <div class="carousel-dots">
+      @for (app of featuredApps; track app.id; let i = $index) {
+        <button
+          class="dot"
+          [class.active]="i === currentSlide()"
+          (click)="goTo(i)"
+          [style.background]="i === currentSlide() ? currentApp.colorAccent : ''"
+          [attr.aria-label]="'Slide ' + (i + 1)"
+        ></button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ──────── All Apps Grid ──────── -->
+<section class="apps-preview-section">
+  <div class="section-header">
+    <span class="section-tag">{{ t().allApps.tag }}</span>
+    <h2>{{ t().allApps.title }}</h2>
+    <p>{{ t().allApps.subtitle }}</p>
+  </div>
+
+  <div class="apps-grid">
+    @for (app of allApps; track app.id) {
+      <div class="app-mini-card" [style.--accent]="app.colorAccent">
+        <div class="mini-icon" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
+          {{ app.icon }}
+        </div>
+        <div class="mini-info">
+          <h4>{{ app.name }}</h4>
+          <span class="mini-cat">{{ catLabel(app.category) }}</span>
+          <p>{{ app.tagline }}</p>
+        </div>
+        @if (app.isNew) {
+          <span class="badge-new-mini">{{ t().carousel.new }}</span>
+        }
+        <a class="mini-cta" routerLink="/projects">
+          <mat-icon>arrow_forward</mat-icon>
+        </a>
+      </div>
+    }
+  </div>
+
+  <div class="view-all-wrap">
+    <a mat-flat-button routerLink="/projects" class="btn-primary">
+      <mat-icon>apps</mat-icon>
+      {{ t().allApps.viewAll }}
+    </a>
+  </div>
+</section>
+
+<!-- ──────── CTA Band ──────── -->
+<section class="cta-band">
+  <div class="cta-glow"></div>
+  <div class="cta-content">
+    <h2>{{ t().cta.title }}</h2>
+    <p>{{ t().cta.subtitle }}</p>
+    <a mat-flat-button routerLink="/projects" class="btn-primary">
+      <mat-icon>rocket_launch</mat-icon>
+      {{ t().cta.button }}
+    </a>
+  </div>
+</section>

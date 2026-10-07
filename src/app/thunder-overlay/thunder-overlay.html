@@ -1,0 +1,44 @@
+@if (isThunder()) {
+  <div class="thunder-overlay" aria-hidden="true">
+
+    <!-- Ambient storm sky -->
+    <div class="storm-sky"></div>
+
+    <!-- Lightning bolts -->
+    <div class="bolt-group bolt-1">
+      <div class="bolt-shape"></div>
+      <div class="bolt-branch"></div>
+    </div>
+    <div class="bolt-group bolt-2">
+      <div class="bolt-shape"></div>
+    </div>
+    <div class="bolt-group bolt-3">
+      <div class="bolt-shape"></div>
+      <div class="bolt-branch"></div>
+    </div>
+    <div class="bolt-group bolt-4">
+      <div class="bolt-shape"></div>
+    </div>
+    <div class="bolt-group bolt-5">
+      <div class="bolt-shape"></div>
+      <div class="bolt-branch"></div>
+    </div>
+    <div class="bolt-group bolt-6">
+      <div class="bolt-shape"></div>
+    </div>
+
+    <!-- Screen flash overlays (one per bolt, slightly offset in time) -->
+    <div class="flash flash-1"></div>
+    <div class="flash flash-2"></div>
+    <div class="flash flash-3"></div>
+    <div class="flash flash-4"></div>
+    <div class="flash flash-5"></div>
+    <div class="flash flash-6"></div>
+
+    <!-- Persistent glow halos around each bolt origin -->
+    <div class="halo halo-1"></div>
+    <div class="halo halo-2"></div>
+    <div class="halo halo-3"></div>
+
+  </div>
+}

@@ -1,0 +1,103 @@
+<div class="about-page">
+
+  <!-- ── Hero ── -->
+  <section class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="page-hero-content">
+      <span class="section-tag">{{ t().about.hero.tag }}</span>
+      <h1>{{ t().about.hero.title }}</h1>
+      <p>{{ t().about.hero.subtitle }}</p>
+    </div>
+  </section>
+
+  <!-- ── Profile ── -->
+  <section class="profile-section">
+    <div class="profile-container">
+
+      <div class="profile-avatar">
+        <div class="avatar-symbol">◈</div>
+        <div class="avatar-ring ring-1"></div>
+        <div class="avatar-ring ring-2"></div>
+        <div class="avatar-ring ring-3"></div>
+      </div>
+
+      <div class="profile-body">
+        <p class="bio-text">{{ t().about.bio }}</p>
+        <div class="profile-stats">
+          <div class="pstat">
+            <span class="pstat-value">{{ t().about.stats.years }}</span>
+            <span class="pstat-label">{{ t().about.stats.yearsLabel }}</span>
+          </div>
+          <div class="pstat-divider"></div>
+          <div class="pstat">
+            <span class="pstat-value">{{ t().about.stats.companies }}</span>
+            <span class="pstat-label">{{ t().about.stats.companiesLabel }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Tech Stack ── -->
+  <section class="stack-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">{{ t().about.stack.tag }}</span>
+        <h2>{{ t().about.stack.title }}</h2>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-col">
+          <h3 class="stack-col-title">
+            <mat-icon>dns</mat-icon>
+            {{ t().about.stack.backendTitle }}
+          </h3>
+          <div class="badge-list">
+            @for (tech of backend; track tech) {
+              <span class="tech-badge backend">{{ tech }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="stack-col">
+          <h3 class="stack-col-title">
+            <mat-icon>web</mat-icon>
+            {{ t().about.stack.frontendTitle }}
+          </h3>
+          <div class="badge-list">
+            @for (tech of frontend; track tech) {
+              <span class="tech-badge frontend">{{ tech }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="stack-col">
+          <h3 class="stack-col-title">
+            <mat-icon>build</mat-icon>
+            {{ t().about.stack.toolsTitle }}
+          </h3>
+          <div class="badge-list">
+            @for (tech of tools; track tech) {
+              <span class="tech-badge tools">{{ tech }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-content">
+      <h2>{{ t().about.cta.title }}</h2>
+      <p>{{ t().about.cta.body }}</p>
+      <a routerLink="/projects" mat-flat-button class="cta-btn">
+        <mat-icon>apps</mat-icon>
+        {{ t().about.cta.btn }}
+      </a>
+    </div>
+  </section>
+
+</div>

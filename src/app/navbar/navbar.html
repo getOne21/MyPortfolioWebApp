@@ -1,0 +1,143 @@
+<nav class="navbar" [class.scrolled]="scrolled()">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a class="nav-logo" routerLink="/home" (click)="closeMenu()">
+      <span class="logo-icon">◈</span>
+      <span class="logo-text">
+        <span class="logo-title">
+          <span class="lt-tb">tb</span><span class="lt-dot">.</span><span class="lt-dev">dev</span>
+        </span>
+        <span class="logo-byline">Personal App Portfolio</span>
+      </span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a [routerLink]="link.path" routerLinkActive="active" class="nav-link">
+            <mat-icon>{{ link.icon }}</mat-icon>
+            <span>{{ t().nav[link.key] }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Language selector -->
+    <div class="lang-selector">
+      <button
+        class="lang-btn"
+        [class.active]="currentLang() === 'de'"
+        (click)="setLang('de')"
+        aria-label="Deutsch"
+      >DE</button>
+      <span class="lang-divider">|</span>
+      <button
+        class="lang-btn"
+        [class.active]="currentLang() === 'en'"
+        (click)="setLang('en')"
+        aria-label="English"
+      >EN</button>
+    </div>
+
+    <!-- Theme dropdown (desktop) -->
+    <div class="theme-dropdown" [class.open]="dropdownOpen()" (click)="$event.stopPropagation()">
+      <button
+        class="theme-dropdown-btn"
+        (click)="openDropdown($event)"
+        [title]="activeThemeEntry().label"
+        aria-label="Select theme"
+      >
+        <mat-icon>{{ activeThemeEntry().icon }}</mat-icon>
+        <span class="theme-swatches-mini">
+          <span class="swatch-mini" [style.background]="activeThemeEntry().c1"></span>
+          <span class="swatch-mini" [style.background]="activeThemeEntry().c2"></span>
+        </span>
+        <mat-icon class="chevron">expand_more</mat-icon>
+      </button>
+
+      @if (dropdownOpen()) {
+        <div class="theme-panel">
+          @for (theme of themes; track theme.value) {
+            <button
+              class="theme-option"
+              [class.active]="currentTheme() === theme.value"
+              (click)="selectTheme(theme.value, $event)"
+            >
+              <span class="theme-swatches">
+                <span class="swatch" [style.background]="theme.c1"></span>
+                <span class="swatch" [style.background]="theme.c2"></span>
+              </span>
+              <mat-icon class="theme-opt-icon">{{ theme.icon }}</mat-icon>
+              <span class="theme-opt-label">{{ theme.label }}</span>
+              @if (currentTheme() === theme.value) {
+                <mat-icon class="theme-check">check</mat-icon>
+              }
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- CTA -->
+    <a class="nav-cta" routerLink="/projects" (click)="closeMenu()">
+      <mat-icon>download</mat-icon>
+      <span>{{ t().nav.downloadApps }}</span>
+    </a>
+
+    <!-- Burger -->
+    <button class="burger" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile dropdown -->
+  @if (menuOpen()) {
+    <div class="mobile-menu">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          class="mobile-link"
+          (click)="closeMenu()"
+        >
+          <mat-icon>{{ link.icon }}</mat-icon>
+          {{ t().nav[link.key] }}
+        </a>
+      }
+      <a class="mobile-link cta-mobile" routerLink="/projects" (click)="closeMenu()">
+        <mat-icon>download</mat-icon>
+        {{ t().nav.downloadApps }}
+      </a>
+
+      <!-- Mobile theme picker -->
+      <div class="mobile-theme-picker">
+        @for (theme of themes; track theme.value) {
+          <button
+            class="mobile-theme-option"
+            [class.active]="currentTheme() === theme.value"
+            (click)="selectTheme(theme.value, $event); closeMenu()"
+          >
+            <span class="theme-swatches">
+              <span class="swatch" [style.background]="theme.c1"></span>
+              <span class="swatch" [style.background]="theme.c2"></span>
+            </span>
+            <mat-icon>{{ theme.icon }}</mat-icon>
+            <span>{{ theme.label }}</span>
+            @if (currentTheme() === theme.value) {
+              <mat-icon class="theme-check">check</mat-icon>
+            }
+          </button>
+        }
+      </div>
+
+      <!-- Mobile lang selector -->
+      <div class="mobile-lang">
+        <button class="lang-btn" [class.active]="currentLang() === 'de'" (click)="setLang('de')">DE</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="setLang('en')">EN</button>
+      </div>
+    </div>
+  }
+</nav>

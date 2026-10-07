@@ -1,0 +1,56 @@
+<div class="privacy-page">
+
+  <!-- Page hero -->
+  <div class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="page-hero-content">
+      <span class="section-tag">{{ t().privacy.pageTag }}</span>
+      <h1>{{ t().privacy.title }}</h1>
+      <p>{{ t().privacy.subtitle }}</p>
+      <div class="last-updated">
+        <mat-icon>event</mat-icon>
+        {{ t().privacy.lastUpdated }}: {{ formatDate(lastUpdated) }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary banner -->
+  <div class="privacy-summary">
+    <div class="summary-inner">
+      <mat-icon class="summary-icon">shield</mat-icon>
+      <div>
+        <strong>{{ t().privacy.summaryBold }}</strong>
+        <span>{{ t().privacy.summaryText }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion sections -->
+  <div class="privacy-container">
+    <mat-accordion class="privacy-accordion" multi>
+      @for (section of t().privacy.sections; track section.title) {
+        <mat-expansion-panel class="privacy-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="section-icon">{{ section.icon }}</mat-icon>
+              {{ section.title }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="section-body">{{ section.content }}</p>
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </div>
+
+  <!-- Applies to block -->
+  <div class="privacy-scope">
+    <div class="scope-card">
+      <mat-icon>apps</mat-icon>
+      <div>
+        <h4>Applies to</h4>
+        <p>This privacy policy applies to <strong>xConnect File Manager</strong> for Windows, available on the Microsoft Store. It does not cover any other apps or services.</p>
+      </div>
+    </div>
+  </div>
+
+</div>

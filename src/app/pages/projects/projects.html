@@ -1,0 +1,134 @@
+<!-- Page header -->
+<div class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="page-hero-content">
+    <span class="section-tag">{{ t().projects.pageTag }}</span>
+    <h1>{{ t().projects.title }}</h1>
+    <p>{{ t().projects.subtitle }}</p>
+  </div>
+</div>
+
+<!-- Category filter -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    @for (chip of filterChips(); track chip.key) {
+      <button
+        class="filter-chip"
+        [class.active]="selectedCategory() === chip.key"
+        (click)="filterBy(chip.key)"
+      >
+        {{ chip.label }}
+      </button>
+    }
+  </div>
+</div>
+
+<!-- Apps list -->
+<div class="projects-container">
+  @for (app of filteredApps(); track app.id) {
+    <article
+      class="project-card"
+      [style.--accent]="app.colorAccent"
+      [style.--grad-start]="app.gradientStart"
+      [style.--grad-end]="app.gradientEnd"
+    >
+      <!-- Top bar -->
+      <div class="card-header">
+        <div class="card-icon"
+             [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
+          {{ app.icon }}
+        </div>
+        <div class="card-meta">
+          <div class="card-title-row">
+            <h2>{{ app.name }}</h2>
+            @if (app.isNew) { <span class="badge-new">{{ t().projects.new }}</span> }
+          </div>
+          <span class="card-category">
+            {{ catLabel(app.category) }} · {{ t().projects.version }} {{ app.version }}
+          </span>
+          <p class="card-tagline">{{ app.tagline }}</p>
+        </div>
+        <button
+          class="expand-btn"
+          (click)="toggleExpand(app.id)"
+          [attr.aria-label]="expandedId() === app.id ? 'Collapse' : 'Expand'"
+        >
+          <mat-icon>{{ expandedId() === app.id ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </button>
+      </div>
+
+      <!-- Tags -->
+      <div class="card-tags">
+        @for (tag of app.tags; track tag) {
+          <span class="tag"
+                [style.border-color]="app.colorAccent + '44'"
+                [style.color]="app.colorAccent">{{ tag }}</span>
+        }
+      </div>
+
+      <!-- Description -->
+      <p class="card-desc">{{ app.description }}</p>
+
+      <!-- Download buttons -->
+      <div class="download-section">
+        <h4 class="download-title">
+          <mat-icon>download</mat-icon>
+          {{ t().projects.downloadLabel }}
+        </h4>
+        <div class="download-grid">
+          @for (dl of app.downloads; track dl.platform) {
+            <a
+              [href]="dl.url"
+              class="download-btn"
+              [class]="dl.platform"
+              [attr.aria-label]="t().projects.downloadLabel + ' ' + app.name + ' – ' + getPlatformLabel(dl.platform)"
+            >
+              <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
+              <span class="dl-info">
+                <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
+                @if (dl.fileSize) {
+                  <span class="dl-size">{{ dl.fileSize }}</span>
+                }
+              </span>
+              <mat-icon class="dl-arrow">download</mat-icon>
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- Expanded details -->
+      @if (expandedId() === app.id) {
+        <div class="expanded-content">
+          <div class="expanded-grid">
+            <div class="expanded-about">
+              <h4>{{ t().projects.aboutLabel }}</h4>
+              <p>{{ app.longDescription }}</p>
+            </div>
+            <div class="expanded-features">
+              <h4>{{ t().projects.featuresLabel }}</h4>
+              <ul>
+                @for (f of app.features; track f) {
+                  <li>
+                    <mat-icon>check_circle</mat-icon>
+                    {{ f }}
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+          <div class="expanded-release">
+            <mat-icon>calendar_today</mat-icon>
+            {{ t().projects.releasedLabel }}: {{ formatDate(app.releaseDate) }}
+          </div>
+        </div>
+      }
+    </article>
+  }
+
+  @if (filteredApps().length === 0) {
+    <div class="empty-state">
+      <mat-icon>search_off</mat-icon>
+      <p>{{ t().projects.noResults }}</p>
+    </div>
+  }
+</div>

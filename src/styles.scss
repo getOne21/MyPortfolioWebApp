@@ -1,0 +1,231 @@
+@use '@angular/material' as mat;
+
+/* ── Angular Material dark theme ── */
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$cyan-palette,
+      tertiary: mat.$violet-palette,
+      theme-type: dark,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+/* ════════════════════════════════════════════
+   DESIGN TOKENS — Futuristic (default)
+   Cold neon: cyan + deep-violet
+   ════════════════════════════════════════════ */
+:root,
+body[data-theme="futuristic"] {
+  /* Brand */
+  --accent-1:       #00d4ff;
+  --accent-2:       #7c3aed;
+  --brand-gradient: linear-gradient(135deg, #00d4ff, #7c3aed);
+
+  /* Backgrounds */
+  --bg-primary:   #0a0e1a;
+  --bg-secondary: #0f1629;
+  --bg-card:      #111827;
+  --bg-deep:      #060910;
+
+  /* Text */
+  --text-primary:    #e2e8f0;
+  --text-secondary:  #94a3b8;
+  --text-muted:      #4a5568;
+  --text-very-muted: #2d3748;
+
+  /* Accent aliases (keep legacy vars working) */
+  --accent-cyan:   #00d4ff;
+  --accent-purple: #7c3aed;
+
+  /* Scrollbar accent */
+  --scrollbar-thumb: rgba(0, 212, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(0, 212, 255, 0.4);
+}
+
+/* ════════════════════════════════════════════
+   DESIGN TOKENS — Personal / Warm Aurora
+   Warm artisan: amber-gold + rose-pink
+   ════════════════════════════════════════════ */
+body[data-theme="personal"] {
+  /* Brand */
+  --accent-1:       #f59e0b;
+  --accent-2:       #ec4899;
+  --brand-gradient: linear-gradient(135deg, #f59e0b, #ec4899);
+
+  /* Backgrounds */
+  --bg-primary:   #0d0a14;
+  --bg-secondary: #160d20;
+  --bg-card:      #1c1028;
+  --bg-deep:      #09060e;
+
+  /* Text */
+  --text-primary:    #faf5f5;
+  --text-secondary:  #c4a0c0;
+  --text-muted:      #6b4a70;
+  --text-very-muted: #3d2445;
+
+  /* Accent aliases */
+  --accent-cyan:   #f59e0b;
+  --accent-purple: #ec4899;
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(245, 158, 11, 0.25);
+  --scrollbar-thumb-hover: rgba(245, 158, 11, 0.5);
+}
+
+/* ════════════════════════════════════════════
+   DESIGN TOKENS — Thunder / Electric Storm
+   Electric yellow + storm blue on dark night
+   ════════════════════════════════════════════ */
+body[data-theme="thunder"] {
+  /* Brand */
+  --accent-1:       #f5e642;
+  --accent-2:       #4fc3f7;
+  --brand-gradient: linear-gradient(135deg, #f5e642, #4fc3f7);
+
+  /* Backgrounds */
+  --bg-primary:   #060b12;
+  --bg-secondary: #0b1221;
+  --bg-card:      #101928;
+  --bg-deep:      #030508;
+
+  /* Text */
+  --text-primary:    #e8f0ff;
+  --text-secondary:  #7a99cc;
+  --text-muted:      #3a5070;
+  --text-very-muted: #1e3050;
+
+  /* Accent aliases */
+  --accent-cyan:   #4fc3f7;
+  --accent-purple: #f5e642;
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(245, 230, 66, 0.2);
+  --scrollbar-thumb-hover: rgba(245, 230, 66, 0.45);
+}
+
+/* ════════════════════════════════════════════
+   DESIGN TOKENS — Matrix / Digital Rain
+   Terminal green on pure black
+   ════════════════════════════════════════════ */
+body[data-theme="matrix"] {
+  /* Brand */
+  --accent-1:       #00ff41;
+  --accent-2:       #00b32d;
+  --brand-gradient: linear-gradient(135deg, #00ff41, #00b32d);
+
+  /* Backgrounds */
+  --bg-primary:   #000a00;
+  --bg-secondary: #001200;
+  --bg-card:      #001a00;
+  --bg-deep:      #000000;
+
+  /* Text */
+  --text-primary:    #00ff41;
+  --text-secondary:  #00c028;
+  --text-muted:      #005c14;
+  --text-very-muted: #003009;
+
+  /* Accent aliases */
+  --accent-cyan:   #00ff41;
+  --accent-purple: #00b32d;
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(0, 255, 65, 0.18);
+  --scrollbar-thumb-hover: rgba(0, 255, 65, 0.4);
+
+  /* Override font to monospace for terminal feel */
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+/* CRT scanline overlay — sits above everything for authentic terminal feel */
+body[data-theme="matrix"]::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent           1px,
+    transparent           3px
+  );
+  animation: scanline-drift 10s linear infinite;
+}
+
+@keyframes scanline-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 0 30px; }
+}
+
+/* ── Global reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+  &:hover { background: var(--scrollbar-thumb-hover); }
+}
+
+/* ── Utility ── */
+a { color: inherit; }
+
+/* ── Angular Material overrides for dark theme ── */
+.mat-mdc-card {
+  background: var(--bg-card) !important;
+}
+
+.mdc-list-item__primary-text {
+  color: var(--text-primary) !important;
+}
+
+/* Material expansion panel dark background fix */
+.mat-expansion-panel {
+  background: color-mix(in srgb, var(--bg-card) 70%, transparent) !important;
+  color: var(--text-primary) !important;
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  color: var(--text-primary) !important;
+}
+
+.mat-expansion-indicator::after {
+  color: var(--text-muted) !important;
+}
+
+/* Page transition */
+router-outlet + * {
+  animation: page-in 0.35s ease;
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

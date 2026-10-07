@@ -1,0 +1,194 @@
+/* ══════════════════════════════════════════════
+   Thunder Overlay — animated lightning strikes
+   z-index: 999 (below navbar 1000), pointer-events: none
+   ══════════════════════════════════════════════ */
+
+.thunder-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* ── Ambient storm sky ─────────────────────── */
+.storm-sky {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 500px;
+  background: radial-gradient(ellipse at 50% 0%,
+    rgba(79, 195, 247, 0.06) 0%,
+    rgba(245, 230, 66, 0.02) 45%,
+    transparent 70%
+  );
+  animation: storm-breathe 14s ease-in-out infinite;
+}
+
+@keyframes storm-breathe {
+  0%, 100% { opacity: 0.35; transform: translateX(-50%) scaleX(1); }
+  50%       { opacity: 1;    transform: translateX(-50%) scaleX(1.08); }
+}
+
+/* ── Bolt group container ─────────────────── */
+.bolt-group {
+  position: absolute;
+  top: 0;
+  width: 72px;
+  height: 62vh;
+  opacity: 0;
+}
+
+/* ── Main bolt shape ──────────────────────── */
+.bolt-shape {
+  position: absolute;
+  inset: 0;
+  /* Classic zigzag lightning-bolt polygon */
+  clip-path: polygon(
+    43% 0%,   57% 0%,
+    62% 42%,  75% 42%,
+    28% 100%,
+    40% 58%,  27% 58%,
+    43% 0%
+  );
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 1)    0%,
+    rgba(245, 230, 66, 0.95) 35%,
+    rgba(79, 195, 247, 0.6)  100%
+  );
+  filter:
+    drop-shadow(0 0 4px  #fff)
+    drop-shadow(0 0 16px #f5e642)
+    drop-shadow(0 0 40px rgba(79, 195, 247, 0.7));
+}
+
+/* ── Branch (secondary fork) ─────────────── */
+.bolt-branch {
+  position: absolute;
+  top: 38%;
+  left: 56%;
+  width: 40px;
+  height: 38%;
+  clip-path: polygon(5% 0%, 35% 0%, 100% 100%, 65% 100%);
+  background: linear-gradient(160deg,
+    rgba(245, 230, 66, 0.8),
+    rgba(79, 195, 247, 0.3)
+  );
+  filter:
+    drop-shadow(0 0 6px #f5e642)
+    drop-shadow(0 0 18px rgba(79, 195, 247, 0.5));
+  transform: rotate(18deg);
+  transform-origin: top left;
+}
+
+/* ── Screen flash overlays ────────────────── */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%,
+    rgba(245, 248, 255, 0.14) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+}
+
+/* ── Persistent halos ─────────────────────── */
+.halo {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(245, 230, 66, 0.06) 0%,
+    transparent 70%
+  );
+  transform: translateX(-50%);
+  animation: halo-pulse 6s ease-in-out infinite;
+}
+
+.halo-1 { left: 12%;  animation-delay: 0s; }
+.halo-2 { left: 65%;  animation-delay: 2s; }
+.halo-3 { left: 40%;  animation-delay: 4s; }
+
+@keyframes halo-pulse {
+  0%, 100% { opacity: 0.2; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 0.7; transform: translateX(-50%) scale(1.4); }
+}
+
+/* ════════════════════════════════════════════
+   Animation keyframes
+   ════════════════════════════════════════════ */
+
+/* Lightning bolt: rapid double-flash then gone */
+@keyframes lightning-strike {
+  0%,     1.8%  { opacity: 0; }
+  2%            { opacity: 1; }   /* first flash peak */
+  3.2%          { opacity: 0.2; } /* brief dim */
+  4%            { opacity: 0.9; } /* second flash */
+  5.5%          { opacity: 0; }   /* fade out */
+  100%          { opacity: 0; }
+}
+
+/* Screen flash: slightly slower, low opacity */
+@keyframes flash-hit {
+  0%,     2%    { opacity: 0; }
+  2.2%          { opacity: 1; }
+  3.5%          { opacity: 0.15; }
+  4.2%          { opacity: 0.8; }
+  6%            { opacity: 0; }
+  100%          { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════
+   Bolt positions & individual timings
+   Each bolt has a unique cycle length + delay
+   so they never all fire together
+   ════════════════════════════════════════════ */
+
+.bolt-1 {
+  left: 11%;
+  height: 60vh;
+  animation: lightning-strike 8s ease-in infinite;
+  animation-delay: 0s;
+}
+.bolt-2 {
+  left: 72%;
+  height: 55vh;
+  animation: lightning-strike 11s ease-in infinite;
+  animation-delay: 2.3s;
+}
+.bolt-3 {
+  left: 37%;
+  height: 68vh;
+  animation: lightning-strike 14s ease-in infinite;
+  animation-delay: 5.1s;
+}
+.bolt-4 {
+  left: 84%;
+  height: 52vh;
+  animation: lightning-strike 9s ease-in infinite;
+  animation-delay: 7.4s;
+}
+.bolt-5 {
+  left: 54%;
+  height: 72vh;
+  animation: lightning-strike 12s ease-in infinite;
+  animation-delay: 3.8s;
+}
+.bolt-6 {
+  left: 24%;
+  height: 58vh;
+  animation: lightning-strike 16s ease-in infinite;
+  animation-delay: 9.6s;
+}
+
+/* Screen flashes — fire 80ms after the matching bolt */
+.flash-1 { animation: flash-hit 8s  ease-in infinite; animation-delay: 0.08s;  }
+.flash-2 { animation: flash-hit 11s ease-in infinite; animation-delay: 2.38s;  }
+.flash-3 { animation: flash-hit 14s ease-in infinite; animation-delay: 5.18s;  }
+.flash-4 { animation: flash-hit 9s  ease-in infinite; animation-delay: 7.48s;  }
+.flash-5 { animation: flash-hit 12s ease-in infinite; animation-delay: 3.88s;  }
+.flash-6 { animation: flash-hit 16s ease-in infinite; animation-delay: 9.68s;  }
