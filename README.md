@@ -1,6 +1,6 @@
 <div align="center">
 
-# My Portfolio Web
+# My Portfolio Web App
 
 ### A personal software portfolio, built with care.
 
