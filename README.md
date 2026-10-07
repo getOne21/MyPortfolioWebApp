@@ -1,6 +1,6 @@
 <div align="center">
 
-# tb.dev
+# My Portfolio Web
 
 ### A personal software portfolio, built with care.
 
@@ -16,7 +16,7 @@ A bilingual portfolio showcasing projects, professional experience, and a little
 
 ## Overview
 
-`tb.dev` is a responsive portfolio website for presenting software projects and professional background. It is built as a standalone Angular application with lazy-loaded pages, typed English and German translations, and theme preferences saved in the browser.
+`My Portfolio Web` is a responsive portfolio website for presenting software projects and professional background. It is built as a standalone Angular application with lazy-loaded pages, typed English and German translations, and theme preferences saved in the browser.
 
 ## Highlights
 
