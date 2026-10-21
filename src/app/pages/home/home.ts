@@ -2,14 +2,14 @@ import { Component, signal, computed, inject, OnInit, OnDestroy } from '@angular
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
 import { AppProject } from '../../models/app.model';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, MatButtonModule, MatIconModule, CommonModule],
+  imports: [RouterLink, MatButtonModule, MatIconModule],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

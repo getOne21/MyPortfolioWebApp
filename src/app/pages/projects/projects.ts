@@ -1,14 +1,14 @@
 import { Component, signal, inject, computed } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
 import { AppProject, Platform } from '../../models/app.model';
 
 @Component({
   selector: 'app-projects',
-  imports: [MatIconModule, MatButtonModule, CommonModule],
+  imports: [MatIconModule, MatButtonModule],
   templateUrl: './projects.html',
   styleUrl: './projects.scss'
 })
