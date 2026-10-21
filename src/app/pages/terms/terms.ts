@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TranslationService } from '../../services/translation.service';
@@ -7,6 +7,7 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-terms',
   imports: [MatIconModule, MatExpansionModule],
   templateUrl: './terms.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './terms.scss'
 })
 export class Terms {

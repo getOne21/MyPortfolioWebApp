@@ -1,4 +1,4 @@
-import { Component, signal, inject, computed } from '@angular/core';
+import { Component, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -10,6 +10,7 @@ import { AppProject, Platform } from '../../models/app.model';
   selector: 'app-projects',
   imports: [MatIconModule, MatButtonModule],
   templateUrl: './projects.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './projects.scss'
 })
 export class Projects {

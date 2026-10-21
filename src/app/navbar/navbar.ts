@@ -1,4 +1,4 @@
-import { Component, signal, inject, computed, HostListener } from '@angular/core';
+import { Component, signal, inject, computed, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,6 +10,7 @@ import { ThemeService, Theme } from '../services/theme.service';
   selector: 'app-navbar',
   imports: [RouterLink, RouterLinkActive, MatIconModule, MatButtonModule],
   templateUrl: './navbar.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './navbar.scss'
 })
 export class Navbar {

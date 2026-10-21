@@ -2,6 +2,7 @@ import {
   Component, ElementRef, ViewChild,
   AfterViewInit, OnDestroy,
   inject, computed, effect, NgZone,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
 
@@ -11,6 +12,7 @@ interface Col { y: number; speed: number; glitch: boolean; }
   selector: 'app-matrix-overlay',
   imports: [],
   templateUrl: './matrix-overlay.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl:    './matrix-overlay.scss',
 })
 export class MatrixOverlay implements AfterViewInit, OnDestroy {
