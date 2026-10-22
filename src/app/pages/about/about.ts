@@ -8,7 +8,7 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-about',
   imports: [RouterLink, MatIconModule, MatButtonModule],
   templateUrl: './about.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './about.scss'
 })
 export class About {

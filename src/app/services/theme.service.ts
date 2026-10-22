@@ -1,9 +1,10 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal, DOCUMENT } from '@angular/core';
 
-export type Theme = 'futuristic' | 'personal' | 'thunder' | 'matrix';
+export type Theme = 'futuristic' | 'dark' | 'light';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private readonly doc = inject(DOCUMENT);
   private readonly _theme = signal<Theme>(this.loadSaved());
 
   readonly currentTheme = this._theme.asReadonly();
@@ -20,15 +21,16 @@ export class ThemeService {
   }
 
   private applyToBody(theme: Theme): void {
-    document.body.setAttribute('data-theme', theme);
+    this.doc.body.setAttribute('data-theme', theme);
   }
 
   private loadSaved(): Theme {
     try {
-      const saved = localStorage.getItem('portfolio-theme') as Theme | null;
-      return (['futuristic', 'personal', 'thunder', 'matrix'] as const).includes(saved as Theme) ? (saved as Theme) : 'futuristic';
+      const raw = localStorage.getItem('portfolio-theme');
+      const saved = raw === 'normal' ? 'dark' : raw;
+      return (['futuristic', 'dark', 'light'] as const).includes(saved as Theme) ? (saved as Theme) : 'dark';
     } catch {
-      return 'futuristic';
+      return 'dark';
     }
   }
 }

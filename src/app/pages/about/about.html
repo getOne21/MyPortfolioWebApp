@@ -93,7 +93,7 @@
     <div class="cta-content">
       <h2>{{ t().about.cta.title }}</h2>
       <p>{{ t().about.cta.body }}</p>
-      <a routerLink="/projects" mat-flat-button class="cta-btn">
+      <a [routerLink]="['/', t().lang, 'projects']" mat-flat-button class="cta-btn">
         <mat-icon>apps</mat-icon>
         {{ t().about.cta.btn }}
       </a>

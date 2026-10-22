@@ -10,7 +10,7 @@ import { AppProject, Platform } from '../../models/app.model';
   selector: 'app-projects',
   imports: [MatIconModule, MatButtonModule],
   templateUrl: './projects.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './projects.scss'
 })
 export class Projects {

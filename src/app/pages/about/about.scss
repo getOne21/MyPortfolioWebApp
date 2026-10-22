@@ -215,7 +215,7 @@
   padding: 24px;
   border-radius: 16px;
   background: color-mix(in srgb, var(--bg-card) 60%, transparent);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(var(--tint-rgb), 0.06);
   transition: border-color 0.25s;
 
   &:hover { border-color: color-mix(in srgb, var(--accent-1) 20%, transparent); }
@@ -270,8 +270,8 @@
 
   &.tools {
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--tint-rgb), 0.04);
+    border-color: rgba(var(--tint-rgb), 0.1);
   }
 }
 

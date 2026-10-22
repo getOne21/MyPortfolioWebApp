@@ -1,22 +1,25 @@
-import { Component, signal, computed, inject, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, computed, inject, OnDestroy, ChangeDetectionStrategy, afterNextRender } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
+import { MotionPreferenceService } from '../../services/motion-preference.service';
 import { AppProject } from '../../models/app.model';
 
 @Component({
   selector: 'app-home',
   imports: [RouterLink, MatButtonModule, MatIconModule],
   templateUrl: './home.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './home.scss'
 })
-export class Home implements OnInit, OnDestroy {
-  private svc = inject(AppDataService);
-  private ts  = inject(TranslationService);
+export class Home implements OnDestroy {
+  private svc    = inject(AppDataService);
+  private ts     = inject(TranslationService);
+  private motion = inject(MotionPreferenceService);
+  private browserReady = false;
 
   t        = this.ts.t;
   catLabel = (key: string) => this.ts.catLabel(key);
@@ -27,10 +30,18 @@ export class Home implements OnInit, OnDestroy {
   currentSlide = signal(0);
   private timer: ReturnType<typeof setInterval> | null = null;
 
-  ngOnInit()    { this.startAutoPlay(); }
+  constructor() {
+    /* Browser-only: a running interval would block prerendering */
+    afterNextRender(() => {
+      this.browserReady = true;
+      this.startAutoPlay();
+    });
+  }
+
   ngOnDestroy() { this.stopAutoPlay(); }
 
   startAutoPlay() {
+    if (!this.browserReady || this.motion.reduced() || this.timer) return;
     this.timer = setInterval(() => this.next(), 5000);
   }
 

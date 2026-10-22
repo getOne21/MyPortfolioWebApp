@@ -6,7 +6,7 @@
         <span class="logo-icon">◈</span>
         <span class="logo-text">
           <span class="logo-title">
-            <span class="lt-tb">tb</span><span class="lt-dot">.</span><span class="lt-dev">dev</span>
+            <span class="lt-name">TB</span><span class="lt-suffix">Software Solutions</span>
           </span>
           <span class="logo-byline">by Tobias Brörmann</span>
         </span>
@@ -17,11 +17,11 @@
     <div class="footer-section">
       <h4>{{ t().footer.navTitle }}</h4>
       <ul>
-        <li><a routerLink="/home">{{ t().footer.home }}</a></li>
-        <li><a routerLink="/about">{{ t().footer.about }}</a></li>
-        <li><a routerLink="/projects">{{ t().footer.projects }}</a></li>
-        <li><a routerLink="/terms">{{ t().footer.terms }}</a></li>
-        <li><a routerLink="/privacy">{{ t().footer.privacy }}</a></li>
+        <li><a [routerLink]="['/', t().lang, 'home']">{{ t().footer.home }}</a></li>
+        <li><a [routerLink]="['/', t().lang, 'about']">{{ t().footer.about }}</a></li>
+        <li><a [routerLink]="['/', t().lang, 'projects']">{{ t().footer.projects }}</a></li>
+        <li><a [routerLink]="['/', t().lang, 'terms']">{{ t().footer.terms }}</a></li>
+        <li><a [routerLink]="['/', t().lang, 'privacy']">{{ t().footer.privacy }}</a></li>
       </ul>
     </div>
 

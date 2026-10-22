@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: replace example.com with the production domain (see src/app/site.config.ts) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://example.com/en/home</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/home"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/home"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/home"/>
+  </url>
+  <url>
+    <loc>https://example.com/de/home</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/home"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/home"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/home"/>
+  </url>
+  <url>
+    <loc>https://example.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/about"/>
+  </url>
+  <url>
+    <loc>https://example.com/de/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/about"/>
+  </url>
+  <url>
+    <loc>https://example.com/en/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/projects"/>
+  </url>
+  <url>
+    <loc>https://example.com/de/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/projects"/>
+  </url>
+  <url>
+    <loc>https://example.com/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/terms"/>
+  </url>
+  <url>
+    <loc>https://example.com/de/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/terms"/>
+  </url>
+  <url>
+    <loc>https://example.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://example.com/de/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/privacy"/>
+  </url>
+</urlset>

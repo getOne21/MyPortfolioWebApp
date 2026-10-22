@@ -7,7 +7,7 @@ import { TranslationService } from '../services/translation.service';
   selector: 'app-footer',
   imports: [RouterLink, MatIconModule],
   templateUrl: './footer.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './footer.scss'
 })
 export class Footer {

@@ -2,13 +2,13 @@
   <div class="nav-container">
 
     <!-- Logo -->
-    <a class="nav-logo" routerLink="/home" (click)="closeMenu()">
+    <a class="nav-logo" [routerLink]="['/', currentLang(), 'home']" (click)="closeMenu()">
       <span class="logo-icon">◈</span>
       <span class="logo-text">
         <span class="logo-title">
-          <span class="lt-tb">tb</span><span class="lt-dot">.</span><span class="lt-dev">dev</span>
+          <span class="lt-name">TB</span><span class="lt-suffix">Software Solutions</span>
         </span>
-        <span class="logo-byline">Personal App Portfolio</span>
+        <span class="logo-byline">Desktop &amp; Mobile Apps</span>
       </span>
     </a>
 
@@ -16,7 +16,7 @@
     <ul class="nav-links">
       @for (link of navLinks; track link.path) {
         <li>
-          <a [routerLink]="link.path" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/', currentLang(), link.path]" routerLinkActive="active" class="nav-link">
             <mat-icon>{{ link.icon }}</mat-icon>
             <span>{{ t().nav[link.key] }}</span>
           </a>
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Theme dropdown (desktop) -->
-    <div class="theme-dropdown" [class.open]="dropdownOpen()" (click)="$event.stopPropagation()">
+    <div #themeDropdown class="theme-dropdown" [class.open]="dropdownOpen()">
       <button
         class="theme-dropdown-btn"
         (click)="openDropdown($event)"
@@ -81,7 +81,7 @@
     </div>
 
     <!-- CTA -->
-    <a class="nav-cta" routerLink="/projects" (click)="closeMenu()">
+    <a class="nav-cta" [routerLink]="['/', currentLang(), 'projects']" (click)="closeMenu()">
       <mat-icon>download</mat-icon>
       <span>{{ t().nav.downloadApps }}</span>
     </a>
@@ -97,7 +97,7 @@
     <div class="mobile-menu">
       @for (link of navLinks; track link.path) {
         <a
-          [routerLink]="link.path"
+          [routerLink]="['/', currentLang(), link.path]"
           routerLinkActive="active"
           class="mobile-link"
           (click)="closeMenu()"
@@ -106,7 +106,7 @@
           {{ t().nav[link.key] }}
         </a>
       }
-      <a class="mobile-link cta-mobile" routerLink="/projects" (click)="closeMenu()">
+      <a class="mobile-link cta-mobile" [routerLink]="['/', currentLang(), 'projects']" (click)="closeMenu()">
         <mat-icon>download</mat-icon>
         {{ t().nav.downloadApps }}
       </a>

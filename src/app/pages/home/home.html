@@ -17,11 +17,11 @@
     </h1>
     <p class="hero-subtitle">{{ t().hero.subtitle }}</p>
     <div class="hero-actions">
-      <a mat-flat-button routerLink="/projects" class="btn-primary">
+      <a mat-flat-button [routerLink]="['/', t().lang, 'projects']" class="btn-primary">
         <mat-icon>apps</mat-icon>
         {{ t().hero.exploreProjects }}
       </a>
-      <a mat-stroked-button routerLink="/terms" class="btn-secondary">
+      <a mat-stroked-button [routerLink]="['/', t().lang, 'terms']" class="btn-secondary">
         <mat-icon>gavel</mat-icon>
         {{ t().hero.termsConditions }}
       </a>
@@ -82,7 +82,7 @@
               }
             </div>
             <div class="slide-actions">
-              <a class="btn-slide-primary" routerLink="/projects"
+              <a class="btn-slide-primary" [routerLink]="['/', t().lang, 'projects']"
                  [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
                 <mat-icon>download</mat-icon>
                 {{ t().carousel.download }}
@@ -139,7 +139,7 @@
         @if (app.isNew) {
           <span class="badge-new-mini">{{ t().carousel.new }}</span>
         }
-        <a class="mini-cta" routerLink="/projects">
+        <a class="mini-cta" [routerLink]="['/', t().lang, 'projects']">
           <mat-icon>arrow_forward</mat-icon>
         </a>
       </div>
@@ -147,7 +147,7 @@
   </div>
 
   <div class="view-all-wrap">
-    <a mat-flat-button routerLink="/projects" class="btn-primary">
+    <a mat-flat-button [routerLink]="['/', t().lang, 'projects']" class="btn-primary">
       <mat-icon>apps</mat-icon>
       {{ t().allApps.viewAll }}
     </a>
@@ -160,7 +160,7 @@
   <div class="cta-content">
     <h2>{{ t().cta.title }}</h2>
     <p>{{ t().cta.subtitle }}</p>
-    <a mat-flat-button routerLink="/projects" class="btn-primary">
+    <a mat-flat-button [routerLink]="['/', t().lang, 'projects']" class="btn-primary">
       <mat-icon>rocket_launch</mat-icon>
       {{ t().cta.button }}
     </a>
