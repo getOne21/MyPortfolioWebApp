@@ -34,10 +34,9 @@ export class Navbar {
   ];
 
   themes: { value: Theme; label: string; icon: string; c1: string; c2: string }[] = [
+    { value: 'dark',       label: 'Dark',          icon: 'dark_mode',     c1: '#3b82f6', c2: '#27272a' },
     { value: 'futuristic', label: 'Futuristic',    icon: 'auto_fix_high', c1: '#00d4ff', c2: '#7c3aed' },
-    { value: 'personal',   label: 'Personal',      icon: 'palette',       c1: '#f59e0b', c2: '#ec4899' },
-    { value: 'thunder',    label: 'Thunder Storm', icon: 'thunderstorm',  c1: '#f5e642', c2: '#4fc3f7' },
-    { value: 'matrix',     label: 'Matrix',        icon: 'terminal',      c1: '#00ff41', c2: '#005c14' },
+    { value: 'light',      label: 'White Blue',    icon: 'light_mode',    c1: '#2563eb', c2: '#ffffff' },
   ];
 
   activeThemeEntry = computed(() =>

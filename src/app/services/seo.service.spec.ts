@@ -20,7 +20,7 @@ describe('SeoService', () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/de/projects');
 
-    expect(document.title).toBe('Projekte & Downloads | tb.dev');
+    expect(document.title).toBe(`Projekte & Downloads | ${SITE.name}`);
     expect(meta('name="description"')).toContain('Alle Apps');
     expect(meta('property="og:url"')).toBe(`${SITE.url}/de/projects`);
     expect(meta('property="og:locale"')).toBe('de_DE');

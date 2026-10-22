@@ -247,7 +247,7 @@ export const en: AppTranslations = {
     ogLocale: 'en_GB',
     pages: {
       home: {
-        title: 'tb.dev — Apps by Tobias Brörmann',
+        title: 'TB Software Solutions — Desktop & Mobile Apps',
         description:
           'Personal tools and apps built by Tobias Brörmann, available for Windows, macOS, Linux, and Android.',
       },
@@ -263,11 +263,11 @@ export const en: AppTranslations = {
       },
       terms: {
         title: 'Terms & Conditions',
-        description: 'Terms and conditions for downloading and using software from tb.dev.',
+        description: 'Terms and conditions for downloading and using software from TB Software Solutions.',
       },
       privacy: {
         title: 'Privacy Policy',
-        description: 'What data the apps on tb.dev touch — and what they do not.',
+        description: 'What data the apps from TB Software Solutions touch — and what they do not.',
       },
     },
   },

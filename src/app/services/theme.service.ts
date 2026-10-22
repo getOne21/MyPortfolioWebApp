@@ -1,6 +1,6 @@
 import { Injectable, inject, signal, DOCUMENT } from '@angular/core';
 
-export type Theme = 'futuristic' | 'personal' | 'thunder' | 'matrix';
+export type Theme = 'futuristic' | 'dark' | 'light';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -26,10 +26,11 @@ export class ThemeService {
 
   private loadSaved(): Theme {
     try {
-      const saved = localStorage.getItem('portfolio-theme') as Theme | null;
-      return (['futuristic', 'personal', 'thunder', 'matrix'] as const).includes(saved as Theme) ? (saved as Theme) : 'futuristic';
+      const raw = localStorage.getItem('portfolio-theme');
+      const saved = raw === 'normal' ? 'dark' : raw;
+      return (['futuristic', 'dark', 'light'] as const).includes(saved as Theme) ? (saved as Theme) : 'dark';
     } catch {
-      return 'futuristic';
+      return 'dark';
     }
   }
 }
