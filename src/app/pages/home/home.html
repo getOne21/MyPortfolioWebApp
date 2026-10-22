@@ -60,7 +60,7 @@
         >
           <div class="slide-visual">
             <div class="app-icon-large" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
-              <span class="app-emoji">{{ app.icon }}</span>
+              <img [src]="app.icon" alt="" width="160" height="160">
             </div>
             <div class="slide-rings">
               <div class="ring ring-1"></div>
@@ -94,26 +94,28 @@
       }
     </div>
 
-    <!-- Navigation arrows -->
-    <button class="carousel-arrow carousel-prev" (click)="prev()" aria-label="Previous">
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <button class="carousel-arrow carousel-next" (click)="next()" aria-label="Next">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
+    @if (featuredApps.length > 1) {
+      <!-- Navigation arrows -->
+      <button class="carousel-arrow carousel-prev" (click)="prev()" aria-label="Previous">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button class="carousel-arrow carousel-next" (click)="next()" aria-label="Next">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
 
-    <!-- Dots -->
-    <div class="carousel-dots">
-      @for (app of featuredApps; track app.id; let i = $index) {
-        <button
-          class="dot"
-          [class.active]="i === currentSlide()"
-          (click)="goTo(i)"
-          [style.background]="i === currentSlide() ? currentApp.colorAccent : ''"
-          [attr.aria-label]="'Slide ' + (i + 1)"
-        ></button>
-      }
-    </div>
+      <!-- Dots -->
+      <div class="carousel-dots">
+        @for (app of featuredApps; track app.id; let i = $index) {
+          <button
+            class="dot"
+            [class.active]="i === currentSlide()"
+            (click)="goTo(i)"
+            [style.background]="i === currentSlide() ? currentApp.colorAccent : ''"
+            [attr.aria-label]="'Slide ' + (i + 1)"
+          ></button>
+        }
+      </div>
+    }
   </div>
 </section>
 
@@ -129,7 +131,7 @@
     @for (app of allApps; track app.id) {
       <div class="app-mini-card" [style.--accent]="app.colorAccent">
         <div class="mini-icon" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
-          {{ app.icon }}
+          <img [src]="app.icon" alt="" width="52" height="52">
         </div>
         <div class="mini-info">
           <h4>{{ app.name }}</h4>

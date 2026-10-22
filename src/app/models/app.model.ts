@@ -21,6 +21,7 @@ export interface AppProject {
   colorAccent: string;
   gradientStart: string;
   gradientEnd: string;
+  /** App icon image path (under public/), drawn on top of the gradient tile */
   icon: string;
   tags: string[];
   isNew?: boolean;
