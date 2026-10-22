@@ -1,12 +1,15 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject, DOCUMENT } from '@angular/core';
 import { en } from '../i18n/en';
 import { de } from '../i18n/de';
 import { AppTranslations } from '../i18n/translations.model';
 
 export type Lang = 'en' | 'de';
 
+export const LANGS: readonly Lang[] = ['en', 'de'];
+
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
+  private readonly doc = inject(DOCUMENT);
   private readonly _lang = signal<Lang>(this.loadSaved());
 
   /** Read-only signal exposing the active language code */
@@ -15,19 +18,21 @@ export class TranslationService {
   /** Computed signal returning the full translation object for the active language */
   readonly t = computed<AppTranslations>(() => (this._lang() === 'de' ? de : en));
 
+  constructor() {
+    this.doc.documentElement.lang = this._lang();
+  }
+
   /** Safe category-label lookup with fallback to the raw key */
   catLabel(key: string): string {
-    const map = this.t().categories as { [k: string]: string | undefined };
+    const map = this.t().categories as Record<string, string | undefined>;
     return map[key] ?? key;
   }
 
+  /** Activates a language. Called by the router when entering an /en or /de route. */
   setLang(lang: Lang): void {
     this._lang.set(lang);
+    this.doc.documentElement.lang = lang;
     try { localStorage.setItem('portfolio-lang', lang); } catch { /* SSR / private browsing */ }
-  }
-
-  toggle(): void {
-    this.setLang(this._lang() === 'de' ? 'en' : 'de');
   }
 
   private loadSaved(): Lang {

@@ -192,3 +192,16 @@
 .flash-4 { animation: flash-hit 9s  ease-in infinite; animation-delay: 7.48s;  }
 .flash-5 { animation: flash-hit 12s ease-in infinite; animation-delay: 3.88s;  }
 .flash-6 { animation: flash-hit 16s ease-in infinite; animation-delay: 9.68s;  }
+
+/* No lightning strikes or screen flashes for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bolt-group,
+  .flash {
+    display: none;
+  }
+
+  .storm-sky,
+  .halo {
+    animation: none;
+  }
+}

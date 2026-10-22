@@ -1,9 +1,10 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal, DOCUMENT } from '@angular/core';
 
 export type Theme = 'futuristic' | 'personal' | 'thunder' | 'matrix';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private readonly doc = inject(DOCUMENT);
   private readonly _theme = signal<Theme>(this.loadSaved());
 
   readonly currentTheme = this._theme.asReadonly();
@@ -20,7 +21,7 @@ export class ThemeService {
   }
 
   private applyToBody(theme: Theme): void {
-    document.body.setAttribute('data-theme', theme);
+    this.doc.body.setAttribute('data-theme', theme);
   }
 
   private loadSaved(): Theme {

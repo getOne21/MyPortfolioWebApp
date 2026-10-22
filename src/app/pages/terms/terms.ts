@@ -7,7 +7,7 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-terms',
   imports: [MatIconModule, MatExpansionModule],
   templateUrl: './terms.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './terms.scss'
 })
 export class Terms {

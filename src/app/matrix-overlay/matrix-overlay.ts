@@ -1,10 +1,11 @@
 import {
   Component, ElementRef, ViewChild,
-  AfterViewInit, OnDestroy,
-  inject, computed, effect, NgZone,
+  OnDestroy,
+  inject, computed, effect, NgZone, afterNextRender,
   ChangeDetectionStrategy
 } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
+import { MotionPreferenceService } from '../services/motion-preference.service';
 
 interface Col { y: number; speed: number; glitch: boolean; }
 
@@ -12,17 +13,20 @@ interface Col { y: number; speed: number; glitch: boolean; }
   selector: 'app-matrix-overlay',
   imports: [],
   templateUrl: './matrix-overlay.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl:    './matrix-overlay.scss',
+  host: { ngSkipHydration: 'true' },
 })
-export class MatrixOverlay implements AfterViewInit, OnDestroy {
+export class MatrixOverlay implements OnDestroy {
 
   @ViewChild('canvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
-  private theme = inject(ThemeService);
-  private zone  = inject(NgZone);
+  private theme  = inject(ThemeService);
+  private motion = inject(MotionPreferenceService);
+  private zone   = inject(NgZone);
 
-  isMatrix = computed(() => this.theme.currentTheme() === 'matrix');
+  /** Digital rain only runs in the Matrix theme and when motion is not reduced */
+  isMatrix = computed(() => this.theme.currentTheme() === 'matrix' && !this.motion.reduced());
 
   private viewReady  = false;
   private animFrame: number | null = null;
@@ -45,15 +49,17 @@ export class MatrixOverlay implements AfterViewInit, OnDestroy {
       if (!this.viewReady) return;
       if (active) this.start(); else this.stop();
     });
-  }
 
-  ngAfterViewInit(): void {
-    this.viewReady = true;
-    window.addEventListener('resize', this.resizeHandler);
-    if (this.isMatrix()) this.start();
+    /* Browser-only: never runs during prerendering */
+    afterNextRender(() => {
+      this.viewReady = true;
+      window.addEventListener('resize', this.resizeHandler);
+      if (this.isMatrix()) this.start();
+    });
   }
 
   ngOnDestroy(): void {
+    if (!this.viewReady) return;
     this.viewReady = false;
     window.removeEventListener('resize', this.resizeHandler);
     this.stop();

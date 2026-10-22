@@ -242,4 +242,33 @@ export const en: AppTranslations = {
     macos: 'macOS',
     linux: 'Linux',
   },
+
+  seo: {
+    ogLocale: 'en_GB',
+    pages: {
+      home: {
+        title: 'tb.dev — Apps by Tobias Brörmann',
+        description:
+          'Personal tools and apps built by Tobias Brörmann, available for Windows, macOS, Linux, and Android.',
+      },
+      about: {
+        title: 'About Tobias Brörmann',
+        description:
+          'Full-stack engineer with 9+ years of enterprise experience in .NET, Java, Angular, React, and Terraform.',
+      },
+      projects: {
+        title: 'Projects & Downloads',
+        description:
+          'Browse all apps by Tobias Brörmann and download them for Windows, macOS, Linux, or Android.',
+      },
+      terms: {
+        title: 'Terms & Conditions',
+        description: 'Terms and conditions for downloading and using software from tb.dev.',
+      },
+      privacy: {
+        title: 'Privacy Policy',
+        description: 'What data the apps on tb.dev touch — and what they do not.',
+      },
+    },
+  },
 };

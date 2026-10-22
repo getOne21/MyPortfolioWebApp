@@ -7,7 +7,7 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-privacy',
   imports: [MatIconModule, MatExpansionModule],
   templateUrl: './privacy.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './privacy.scss',
 })
 export class Privacy {

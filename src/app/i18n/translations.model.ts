@@ -122,4 +122,15 @@ export interface AppTranslations {
     macos: string;
     linux: string;
   };
+
+  /** Per-page document title / meta description and Open Graph locale */
+  seo: {
+    ogLocale: string;
+    pages: Record<'home' | 'about' | 'projects' | 'terms' | 'privacy', SeoEntry>;
+  };
+}
+
+export interface SeoEntry {
+  title: string;
+  description: string;
 }

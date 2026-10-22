@@ -5,8 +5,9 @@ import { ThemeService } from '../services/theme.service';
   selector: 'app-thunder-overlay',
   imports: [],
   templateUrl: './thunder-overlay.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './thunder-overlay.scss'
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './thunder-overlay.scss',
+  host: { ngSkipHydration: 'true' },
 })
 export class ThunderOverlay {
   private theme = inject(ThemeService);
