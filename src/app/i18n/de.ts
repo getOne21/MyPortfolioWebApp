@@ -247,7 +247,7 @@ export const de: AppTranslations = {
     ogLocale: 'de_DE',
     pages: {
       home: {
-        title: 'TB Software Solutions — Desktop- & Mobile-Apps',
+        title: 'TB Labs — Desktop- & Mobile-Apps',
         description:
           'Eigene Tools und Apps von Tobias Brörmann für Windows, macOS, Linux und Android.',
       },
@@ -263,11 +263,11 @@ export const de: AppTranslations = {
       },
       terms: {
         title: 'Nutzungsbedingungen',
-        description: 'Nutzungsbedingungen für den Download und die Nutzung von Software von TB Software Solutions.',
+        description: 'Nutzungsbedingungen für den Download und die Nutzung von Software von TB Labs.',
       },
       privacy: {
         title: 'Datenschutzerklärung',
-        description: 'Welche Daten die Apps von TB Software Solutions verarbeiten — und welche nicht.',
+        description: 'Welche Daten die Apps von TB Labs verarbeiten — und welche nicht.',
       },
     },
   },

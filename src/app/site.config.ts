@@ -5,7 +5,7 @@
  */
 export const SITE = {
   url: 'https://example.com',
-  name: 'TB Software Solutions',
+  name: 'TB Labs',
   author: 'Tobias Brörmann',
   ogImage: '/og-image.png',
   ogImageWidth: 1200,
