@@ -1,4 +1,4 @@
-export type Platform = 'windows' | 'android' | 'macos' | 'linux';
+export type Platform = 'windows' | 'android' | 'ios' | 'macos' | 'linux';
 
 export interface AppDownload {
   platform: Platform;

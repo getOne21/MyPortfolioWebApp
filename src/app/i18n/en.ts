@@ -8,24 +8,17 @@ export const en: AppTranslations = {
     about: 'About',
     projects: 'Projects',
     terms: 'Terms & Conditions',
+    privacy: 'Privacy Policy',
     downloadApps: 'Download Apps',
   },
 
   hero: {
-    badge: 'Available for new projects',
-    title1: 'Building Software',
-    title2: 'That Just Works',
+    title1: 'Thoughtful software',
+    title2: 'for everyday life',
     subtitle:
-      'Indie developer crafting high-quality desktop & mobile applications for Windows, macOS, Linux, and Android.',
+      'Practical desktop and mobile apps, designed to make everyday tasks simpler.',
     exploreProjects: 'Explore Projects',
     termsConditions: 'Terms & Conditions',
-  },
-
-  stats: {
-    appsReleased: 'Apps Released',
-    downloads: 'Downloads',
-    avgRating: 'Avg Rating',
-    platforms: 'Platforms',
   },
 
   carousel: {
@@ -168,53 +161,60 @@ export const en: AppTranslations = {
   privacy: {
     pageTag: 'Privacy Policy',
     title: 'Your Privacy Matters',
-    subtitle: 'xConnect File Manager does not collect or transmit any personal data. Here is exactly what the app touches — and what it does not.',
+    subtitle: 'This policy applies to all apps published by TB Labs. Data handling varies by app and by the features you use.',
     lastUpdated: 'Last updated',
     summaryBold: 'Short version:',
-    summaryText: 'No data is sent to the developer. Everything stays on your device and the servers you configure.',
+    summaryText: 'Each app handles data according to its features. Check its listing and permission prompts to understand what it accesses, stores, or shares.',
+    appliesTitle: 'Applies to',
+    appliesText: 'This policy applies to all apps and software published by TB Labs. App-specific details are described in the relevant app listing and permission prompts. Third-party services and websites are covered by their own privacy policies.',
     sections: [
       {
-        icon: 'cloud_off',
-        title: 'No Data Collected by the Developer',
-        content: 'xConnect File Manager does not transmit any information to the developer or to any third-party service. There is no analytics, no telemetry, no crash reporting, and no usage tracking of any kind.',
+        icon: 'apps',
+        title: 'Scope and App-Specific Details',
+        content: 'This policy covers software published by TB Labs. Apps have different functions and may process different types of information. The relevant app listing and permission prompts describe the data needed for its features; this general policy does not mean that every app accesses every type of data mentioned here.',
       },
       {
-        icon: 'wifi',
-        title: 'Network Connections',
-        content: 'The app connects exclusively to servers you configure yourself — your NAS, WebDAV endpoint, FTP, or FTPS server. These are direct connections between your device and your own infrastructure. The developer has zero visibility into these connections or the data they carry.',
+        icon: 'data_usage',
+        title: 'Information an App May Process',
+        content: 'Depending on its features, an app may process information you enter or select, such as files, clipboard content, settings, device information, or credentials. The app should use the information needed to provide the feature you choose. Review the app-specific details before use, especially before granting permissions.',
       },
       {
-        icon: 'person',
-        title: 'Windows Account Information',
-        content: 'On Windows, the app reads your display name and profile picture from local system data to show a personalised avatar in the interface. This information is read from the local device only and is never stored by the app or transmitted anywhere.',
+        icon: 'devices',
+        title: 'Device and Network Sharing',
+        content: 'Features that connect devices or services may send the information required to carry out your request to the destination you select or configure. Check the app description and connection settings to understand which devices or services are involved. Information sent to a destination is subject to that destination’s security and privacy practices.',
+      },
+      {
+        icon: 'cloud',
+        title: 'Third-Party Services',
+        content: 'Some app features may rely on operating-system services, app stores, or services and servers you choose to use. Those providers handle information under their own privacy policies. TB Labs does not control their data practices.',
       },
       {
         icon: 'storage',
-        title: 'Local Data Storage',
-        content: 'The following data is stored locally on your device only: saved connection profiles (server URL and username), UI preferences such as theme and sort order, and a thumbnail cache to speed up folder browsing. None of this data leaves your device.',
+        title: 'Storage and Retention',
+        content: 'Storage depends on the app and feature. Information may be kept on your device, on a connected device, or by a service you use. You can usually remove local information by clearing the app’s data or uninstalling it. Removing the app may not delete information already stored by a third-party service.',
       },
       {
-        icon: 'lock',
-        title: 'Passwords and Credentials',
-        content: 'Passwords you choose to save are stored using the platform\'s secure credential manager. On Windows this is the Windows Credential Manager. Passwords are never stored in plain text and are never transmitted to the developer.',
+        icon: 'security',
+        title: 'Security',
+        content: 'Security features vary between apps. Keep your device and apps up to date, use device security controls, and review where information is sent before sharing it. No method of storage or transmission can be guaranteed to be completely secure.',
       },
       {
-        icon: 'gavel',
-        title: 'Your Rights',
-        content: 'Because the developer holds no personal data about you, there is nothing to access, correct, or request deletion of from our side. To remove all locally stored data, clear the app\'s data through your Windows app settings or uninstall the application.',
+        icon: 'contact_support',
+        title: 'Questions',
+        content: 'For questions about privacy or how a TB Labs app handles information, contact support.tbsoftware@gmail.com.',
       },
       {
         icon: 'update',
         title: 'Changes to This Policy',
-        content: 'If the privacy policy changes, the updated version will be published at this URL with a revised "last updated" date. Continued use of the app after a change constitutes acceptance of the updated policy. Material changes will be noted in the app\'s release notes.',
+        content: 'This policy may be updated as TB Labs apps or their data practices change. The latest version and its revision date will be published on this page. App-specific changes may also be described in the relevant app’s release notes.',
       },
     ],
   },
 
   footer: {
-    tagline: 'Crafting quality software — one release at a time.',
     navTitle: 'Navigation',
     connectTitle: 'Connect',
+    tagline: 'Crafting quality software — one release at a time.',
     copyright: 'All rights reserved.',
     builtWith: 'Built with ♥ using Angular & Angular Material',
     home: 'Home',
@@ -222,8 +222,6 @@ export const en: AppTranslations = {
     projects: 'Projects',
     terms: 'Terms & Conditions',
     privacy: 'Privacy Policy',
-    github: 'GitHub',
-    linkedin: 'LinkedIn',
     contact: 'Contact',
   },
 
@@ -239,6 +237,7 @@ export const en: AppTranslations = {
   platforms: {
     windows: 'Windows',
     android: 'Android',
+    ios: 'iOS (iPhone)',
     macos: 'macOS',
     linux: 'Linux',
   },
@@ -249,7 +248,7 @@ export const en: AppTranslations = {
       home: {
         title: 'TB Labs — Desktop & Mobile Apps',
         description:
-          'Personal tools and apps built by Tobias Brörmann, available for Windows, macOS, Linux, and Android.',
+          'Personal tools and apps built by Tobias Brörmann, available for Windows, macOS, Linux, Android, and iPhone.',
       },
       about: {
         title: 'About Tobias Brörmann',
@@ -259,7 +258,7 @@ export const en: AppTranslations = {
       projects: {
         title: 'Projects & Downloads',
         description:
-          'Browse all apps by Tobias Brörmann and download them for Windows, macOS, Linux, or Android.',
+          'Browse all apps by Tobias Brörmann and download them for Windows, macOS, Linux, Android, or iPhone.',
       },
       terms: {
         title: 'Terms & Conditions',
@@ -267,7 +266,7 @@ export const en: AppTranslations = {
       },
       privacy: {
         title: 'Privacy Policy',
-        description: 'What data the apps from TB Labs touch — and what they do not.',
+        description: 'General privacy policy for apps published by TB Labs; data handling details vary by app and feature.',
       },
     },
   },

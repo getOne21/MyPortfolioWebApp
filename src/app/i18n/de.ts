@@ -8,24 +8,17 @@ export const de: AppTranslations = {
     about: 'Über mich',
     projects: 'Projekte',
     terms: 'Nutzungsbedingungen',
+    privacy: 'Datenschutz',
     downloadApps: 'Apps herunterladen',
   },
 
   hero: {
-    badge: 'Verfügbar für neue Projekte',
-    title1: 'Software entwickeln,',
-    title2: 'die einfach funktioniert',
+    title1: 'Durchdachte Software',
+    title2: 'für den Alltag',
     subtitle:
-      'Indie-Entwickler, der hochwertige Desktop- & Mobile-Apps für Windows, macOS, Linux und Android erstellt.',
+      'Praktische Desktop- und Mobile-Apps, die alltägliche Aufgaben einfacher machen.',
     exploreProjects: 'Projekte entdecken',
     termsConditions: 'Nutzungsbedingungen',
-  },
-
-  stats: {
-    appsReleased: 'Veröffentlichte Apps',
-    downloads: 'Downloads',
-    avgRating: 'Ø Bewertung',
-    platforms: 'Plattformen',
   },
 
   carousel: {
@@ -168,53 +161,60 @@ export const de: AppTranslations = {
   privacy: {
     pageTag: 'Datenschutzerklärung',
     title: 'Deine Privatsphäre ist wichtig',
-    subtitle: 'xConnect File Manager erfasst oder überträgt keine personenbezogenen Daten. Hier steht genau, was die App berührt — und was nicht.',
+    subtitle: 'Diese Datenschutzerklärung gilt für alle von TB Labs veröffentlichten Apps. Die Datenverarbeitung hängt von der jeweiligen App und den genutzten Funktionen ab.',
     lastUpdated: 'Zuletzt aktualisiert',
     summaryBold: 'Kurzversion:',
-    summaryText: 'Es werden keine Daten an den Entwickler gesendet. Alles bleibt auf deinem Gerät und den Servern, die du konfigurierst.',
+    summaryText: 'Jede App verarbeitet Daten entsprechend ihren Funktionen. Die jeweilige App-Beschreibung und Berechtigungsabfragen erklären, worauf sie zugreift, was sie speichert oder weitergibt.',
+    appliesTitle: 'Gilt für',
+    appliesText: 'Diese Datenschutzerklärung gilt für alle von TB Labs veröffentlichten Apps und Software. App-spezifische Details stehen in der jeweiligen App-Beschreibung und in Berechtigungsabfragen. Für Websites und Dienste Dritter gelten deren eigene Datenschutzerklärungen.',
     sections: [
       {
-        icon: 'cloud_off',
-        title: 'Keine Datenerhebung durch den Entwickler',
-        content: 'xConnect File Manager überträgt keinerlei Informationen an den Entwickler oder Drittanbieter-Dienste. Es gibt kein Analytics, keine Telemetrie, keine Absturzberichte und kein Nutzungs-Tracking.',
+        icon: 'apps',
+        title: 'Geltungsbereich und App-spezifische Informationen',
+        content: 'Diese Datenschutzerklärung gilt für Software von TB Labs. Apps haben unterschiedliche Funktionen und können daher unterschiedliche Informationen verarbeiten. Die Beschreibung der jeweiligen App und Berechtigungsabfragen erläutern, welche Daten für ihre Funktionen benötigt werden. Diese allgemeine Erklärung bedeutet nicht, dass jede App auf alle hier genannten Daten zugreift.',
       },
       {
-        icon: 'wifi',
-        title: 'Netzwerkverbindungen',
-        content: 'Die App verbindet sich ausschließlich mit Servern, die du selbst konfigurierst — deinem NAS, WebDAV-Endpunkt, FTP- oder FTPS-Server. Dies sind direkte Verbindungen zwischen deinem Gerät und deiner eigenen Infrastruktur. Der Entwickler hat keinerlei Einblick in diese Verbindungen oder die übertragenen Daten.',
+        icon: 'data_usage',
+        title: 'Möglicherweise verarbeitete Informationen',
+        content: 'Je nach Funktion kann eine App Informationen verarbeiten, die du eingibst oder auswählst, zum Beispiel Dateien, Zwischenablageinhalte, Einstellungen, Geräteinformationen oder Zugangsdaten. Die App sollte nur die Informationen verwenden, die für die von dir genutzte Funktion erforderlich sind. Prüfe die App-spezifischen Angaben, bevor du sie verwendest oder Berechtigungen erteilst.',
       },
       {
-        icon: 'person',
-        title: 'Windows-Kontoinformationen',
-        content: 'Unter Windows liest die App deinen Anzeigenamen und dein Profilbild aus lokalen Systemdaten, um einen personalisierten Avatar in der Benutzeroberfläche anzuzeigen. Diese Informationen werden nur lokal vom Gerät gelesen und niemals von der App gespeichert oder übertragen.',
+        icon: 'devices',
+        title: 'Geräte- und Netzwerkübertragungen',
+        content: 'Funktionen, die Geräte oder Dienste verbinden, können die zur Ausführung deiner Anfrage erforderlichen Informationen an das von dir ausgewählte oder konfigurierte Ziel senden. In der App-Beschreibung und den Verbindungseinstellungen erfährst du, welche Geräte oder Dienste beteiligt sind. Für dorthin übermittelte Informationen gelten auch die Datenschutz- und Sicherheitspraktiken des jeweiligen Ziels.',
+      },
+      {
+        icon: 'cloud',
+        title: 'Drittanbieterdienste',
+        content: 'Einige Funktionen können auf Betriebssystemdienste, App-Stores oder Dienste und Server zurückgreifen, die du verwendest. Diese Anbieter verarbeiten Informationen gemäß ihren eigenen Datenschutzerklärungen. TB Labs kontrolliert deren Datenpraktiken nicht.',
       },
       {
         icon: 'storage',
-        title: 'Lokale Datenspeicherung',
-        content: 'Folgende Daten werden ausschließlich lokal auf deinem Gerät gespeichert: gespeicherte Verbindungsprofile (Server-URL und Benutzername), UI-Einstellungen wie Theme und Sortierung sowie ein Thumbnail-Cache zur Beschleunigung des Ordner-Browsings. Keine dieser Daten verlässt dein Gerät.',
+        title: 'Speicherung und Aufbewahrung',
+        content: 'Die Speicherung hängt von der jeweiligen App und Funktion ab. Informationen können auf deinem Gerät, einem verbundenen Gerät oder bei einem verwendeten Dienst gespeichert werden. Lokal gespeicherte Daten kannst du in der Regel durch Löschen der App-Daten oder Deinstallieren der App entfernen. Dadurch werden Informationen, die bereits bei einem Drittanbieterdienst gespeichert sind, möglicherweise nicht gelöscht.',
       },
       {
-        icon: 'lock',
-        title: 'Passwörter und Zugangsdaten',
-        content: 'Passwörter, die du speichern möchtest, werden mit dem sicheren Anmeldeinformations-Manager der Plattform gespeichert. Unter Windows ist dies der Windows-Anmeldeinformations-Manager. Passwörter werden niemals im Klartext gespeichert und niemals an den Entwickler übertragen.',
+        icon: 'security',
+        title: 'Sicherheit',
+        content: 'Die Sicherheitsfunktionen unterscheiden sich je nach App. Halte dein Gerät und deine Apps aktuell, nutze die Sicherheitsfunktionen deines Geräts und prüfe vor dem Teilen, wohin Informationen gesendet werden. Keine Speicher- oder Übertragungsmethode kann vollständige Sicherheit garantieren.',
       },
       {
-        icon: 'gavel',
-        title: 'Deine Rechte',
-        content: 'Da der Entwickler keinerlei personenbezogene Daten über dich speichert, gibt es von unserer Seite nichts einzusehen, zu korrigieren oder zu löschen. Um alle lokal gespeicherten Daten zu entfernen, lösche die App-Daten über deine Windows-App-Einstellungen oder deinstalliere die Anwendung.',
+        icon: 'contact_support',
+        title: 'Fragen',
+        content: 'Bei Fragen zum Datenschutz oder zur Verarbeitung von Informationen durch eine TB Labs App erreichst du uns unter support.tbsoftware@gmail.com.',
       },
       {
         icon: 'update',
         title: 'Änderungen dieser Datenschutzerklärung',
-        content: 'Änderungen dieser Datenschutzerklärung werden unter dieser URL mit einem aktualisierten Datum veröffentlicht. Die weitere Nutzung der App nach einer Änderung gilt als Akzeptanz der aktualisierten Erklärung. Wesentliche Änderungen werden in den Release-Notes der App vermerkt.',
+        content: 'Diese Datenschutzerklärung kann aktualisiert werden, wenn sich TB Labs Apps oder deren Datenverarbeitung ändern. Die aktuelle Fassung und ihr Änderungsdatum werden auf dieser Seite veröffentlicht. App-spezifische Änderungen können zusätzlich in den Versionshinweisen der jeweiligen App beschrieben werden.',
       },
     ],
   },
 
   footer: {
-    tagline: 'Hochwertige Software – eine Version nach der anderen.',
     navTitle: 'Navigation',
     connectTitle: 'Kontakt',
+    tagline: 'Hochwertige Software – eine Version nach der anderen.',
     copyright: 'Alle Rechte vorbehalten.',
     builtWith: 'Erstellt mit ♥ mit Angular & Angular Material',
     home: 'Startseite',
@@ -222,8 +222,6 @@ export const de: AppTranslations = {
     projects: 'Projekte',
     terms: 'Nutzungsbedingungen',
     privacy: 'Datenschutz',
-    github: 'GitHub',
-    linkedin: 'LinkedIn',
     contact: 'Kontakt',
   },
 
@@ -239,6 +237,7 @@ export const de: AppTranslations = {
   platforms: {
     windows: 'Windows',
     android: 'Android',
+    ios: 'iOS (iPhone)',
     macos: 'macOS',
     linux: 'Linux',
   },
@@ -249,7 +248,7 @@ export const de: AppTranslations = {
       home: {
         title: 'TB Labs — Desktop- & Mobile-Apps',
         description:
-          'Eigene Tools und Apps von Tobias Brörmann für Windows, macOS, Linux und Android.',
+          'Eigene Tools und Apps von Tobias Brörmann für Windows, macOS, Linux, Android und iPhone.',
       },
       about: {
         title: 'Über Tobias Brörmann',
@@ -259,7 +258,7 @@ export const de: AppTranslations = {
       projects: {
         title: 'Projekte & Downloads',
         description:
-          'Alle Apps von Tobias Brörmann ansehen und für Windows, macOS, Linux oder Android herunterladen.',
+          'Alle Apps von Tobias Brörmann ansehen und für Windows, macOS, Linux, Android oder iPhone herunterladen.',
       },
       terms: {
         title: 'Nutzungsbedingungen',
@@ -267,7 +266,7 @@ export const de: AppTranslations = {
       },
       privacy: {
         title: 'Datenschutzerklärung',
-        description: 'Welche Daten die Apps von TB Labs verarbeiten — und welche nicht.',
+        description: 'Allgemeine Datenschutzerklärung für TB Labs Apps; Einzelheiten zur Datenverarbeitung variieren je nach App und Funktion.',
       },
     },
   },

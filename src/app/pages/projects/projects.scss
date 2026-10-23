@@ -315,6 +315,7 @@
 
   &.windows:hover { border-color: rgba(0, 120, 215, 0.5); }
   &.android:hover { border-color: rgba(61, 220, 132, 0.5); }
+  &.ios:hover     { border-color: rgba(140, 140, 150, 0.6); }
   &.macos:hover   { border-color: rgba(var(--tint-rgb), 0.3); }
   &.linux:hover   { border-color: rgba(255, 165, 0, 0.5); }
 }

@@ -29,6 +29,6 @@ describe('Navbar language switch', () => {
 
     const hrefs = Array.from(navbar.nativeElement.querySelectorAll('.nav-link') as NodeListOf<HTMLAnchorElement>)
       .map(a => a.getAttribute('href'));
-    expect(hrefs).toEqual(['/de/home', '/de/about', '/de/projects', '/de/terms']);
+    expect(hrefs).toEqual(['/de/home', '/de/about', '/de/projects', '/de/terms', '/de/privacy']);
   });
 });

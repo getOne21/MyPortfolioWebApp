@@ -22,4 +22,10 @@ describe('AppDataService', () => {
     expect(svc.getById(first.id)).toBe(first);
     expect(svc.getById(-1)).toBeUndefined();
   });
+
+  it('includes an iPhone download for Bridgely', () => {
+    expect(svc.getById(1)?.downloads).toContainEqual(
+      expect.objectContaining({ platform: 'ios' }),
+    );
+  });
 });

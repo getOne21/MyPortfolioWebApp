@@ -1,14 +1,6 @@
 <footer class="footer">
   <div class="footer-glow"></div>
   <div class="footer-container">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <span class="logo-title">
-          <span class="lt-name">TB</span><span class="lt-suffix">Labs</span>
-        </span>
-      </div>
-      <p class="footer-tagline">{{ t().footer.tagline }}</p>
-    </div>
 
     <div class="footer-section">
       <h4>{{ t().footer.navTitle }}</h4>
@@ -34,9 +26,16 @@
         }
       </ul>
     </div>
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="logo-title">
+          <span class="lt-name">TB</span><span class="lt-suffix">Labs</span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© {{ year }} Tobias Brörmann. {{ t().footer.copyright }}</p>
+    <p>© {{ year }} TB Labs. {{ t().footer.copyright }}</p>
   </div>
 </footer>

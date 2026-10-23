@@ -15,7 +15,7 @@ export class Terms {
   t          = this.ts.t;
   currentLang = this.ts.currentLang;
 
-  readonly lastUpdated = '2026-08-01';
+  readonly lastUpdated = '2026-10-23';
 
   formatDate(dateStr: string): string {
     return new Date(dateStr).toLocaleDateString(

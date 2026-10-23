@@ -43,6 +43,7 @@ export class Projects {
   private readonly platformIcons: Record<Platform, string> = {
     windows: 'computer',
     android: 'phone_android',
+    ios:     'phone_iphone',
     macos:   'laptop_mac',
     linux:   'terminal',
   };

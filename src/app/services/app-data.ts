@@ -7,15 +7,12 @@ export class AppDataService {
     {
       id: 1,
       name: 'Bridgely',
-      tagline: 'Continuity between your Android phone and your computer.',
-      description: 'Copy on your phone, paste on your Mac or PC — plus file transfer, battery status, and 2FA codes, end-to-end encrypted.',
-      longDescription: `Bridgely brings Continuity-style features to Android, macOS, and Windows. 
-        Clipboard sync works both ways, files and screenshots travel in either direction, your phone's battery 
-        shows up in the menu bar or tray, and one-time login codes from your phone land straight in your 
-        computer's clipboard. Pairing is a single QR scan; every connection uses ephemeral key exchange and 
-        AES-256-GCM, so your data never leaves your local network unencrypted. Built entirely in C# with .NET MAUI.`,
+      tagline: 'Continuity between your Android phone or iPhone and your computer.',
+      description:
+        'Bridge Android and iPhone with your Mac or PC: send clipboard content, files, and screenshots to one connected device or all connected devices. Check battery status and access 2FA codes — end-to-end encrypted. Android screen mirroring via scrcpy is included.',
+      longDescription: `Bridgely brings Continuity-style features to Android and iOS, connected with macOS and Windows. Send clipboard content, files, and screenshots to one selected device or broadcast them to all connected devices. Clipboard sync works both ways, and Android screens can be mirrored with scrcpy. Your phone's battery appears in the menu bar or tray, and one-time login codes land straight in your computer's clipboard. Pairing uses a QR scan with automatic discovery; connections use ephemeral key exchange and AES-256-GCM to keep your data encrypted on your local network. Built entirely in C# with .NET MAUI.`,
       category: 'Productivity',
-      version: '0.1',
+      version: '1.0',
       releaseDate: '2026-10-22',
       isNew: true,
       isFeatured: true,
@@ -35,6 +32,7 @@ export class AppDataService {
       downloads: [
         { platform: 'windows', label: 'Windows App', url: '#' },
         { platform: 'android', label: 'Android APK', url: '#' },
+        { platform: 'ios', label: 'iPhone App', url: '#' },
         { platform: 'macos', label: 'macOS App', url: '#' },
       ],
     },

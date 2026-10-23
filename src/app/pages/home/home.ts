@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject, OnDestroy, ChangeDetectionStrategy, afterNextRender } from '@angular/core';
+import { Component, signal, inject, OnDestroy, ChangeDetectionStrategy, afterNextRender } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -60,11 +60,4 @@ export class Home implements OnDestroy {
 
   get currentApp(): AppProject { return this.featuredApps[this.currentSlide()]; }
 
-  /** Reactive stat labels — rebuild whenever the language switches */
-  stats = computed(() => [
-    { value: this.svc.getAll().length + '+', label: this.t().stats.appsReleased },
-    { value: '50k+',                         label: this.t().stats.downloads },
-    { value: '4.8★',                         label: this.t().stats.avgRating },
-    { value: '3',                             label: this.t().stats.platforms },
-  ]);
 }

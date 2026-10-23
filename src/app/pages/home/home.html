@@ -7,10 +7,6 @@
     <div class="orb orb-3"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      {{ t().hero.badge }}
-    </div>
     <h1 class="hero-title">
       {{ t().hero.title1 }}<br>
       <span class="gradient-text">{{ t().hero.title2 }}</span>
@@ -28,15 +24,6 @@
     </div>
   </div>
 
-  <!-- Stats bar -->
-  <div class="stats-bar">
-    @for (stat of stats(); track stat.label) {
-      <div class="stat-item">
-        <span class="stat-value">{{ stat.value }}</span>
-        <span class="stat-label">{{ stat.label }}</span>
-      </div>
-    }
-  </div>
 </section>
 
 <!-- ──────── Carousel Section ──────── -->

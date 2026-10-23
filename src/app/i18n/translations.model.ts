@@ -12,23 +12,16 @@ export interface AppTranslations {
     about: string;
     projects: string;
     terms: string;
+    privacy: string;
     downloadApps: string;
   };
 
   hero: {
-    badge: string;
     title1: string;
     title2: string;
     subtitle: string;
     exploreProjects: string;
     termsConditions: string;
-  };
-
-  stats: {
-    appsReleased: string;
-    downloads: string;
-    avgRating: string;
-    platforms: string;
   };
 
   carousel: {
@@ -85,13 +78,15 @@ export interface AppTranslations {
     lastUpdated: string;
     summaryBold: string;
     summaryText: string;
+    appliesTitle: string;
+    appliesText: string;
     sections: TermsSection[];
   };
 
   footer: {
-    tagline: string;
     navTitle: string;
     connectTitle: string;
+    tagline: string;
     copyright: string;
     builtWith: string;
     home: string;
@@ -99,8 +94,6 @@ export interface AppTranslations {
     projects: string;
     terms: string;
     privacy: string;
-    github: string;
-    linkedin: string;
     contact: string;
   };
 
@@ -119,6 +112,7 @@ export interface AppTranslations {
   platforms: {
     windows: string;
     android: string;
+    ios: string;
     macos: string;
     linux: string;
   };

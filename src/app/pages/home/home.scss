@@ -65,34 +65,6 @@
   max-width: 800px;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent-1) 30%, transparent);
-  background: color-mix(in srgb, var(--accent-1) 7%, transparent);
-  color: var(--accent-1);
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 32px;
-
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent-1);
-    box-shadow: 0 0 6px var(--accent-1);
-    animation: pulse 2s ease-in-out infinite;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
-
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 800;
@@ -157,53 +129,6 @@
   transition: background 0.2s !important;
 
   &:hover { background: color-mix(in srgb, var(--accent-1) 8%, transparent) !important; }
-}
-
-/* Stats bar */
-.stats-bar {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: color-mix(in srgb, var(--bg-secondary) 60%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent-1) 12%, transparent);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  overflow: hidden;
-  margin-bottom: -30px;
-
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.stat-item {
-  padding: 24px;
-  text-align: center;
-  border-right: 1px solid color-mix(in srgb, var(--accent-1) 8%, transparent);
-
-  &:last-child { border-right: none; }
-
-  .stat-value {
-    display: block;
-    font-size: 28px;
-    font-weight: 800;
-    background: var(--brand-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .stat-label {
-    display: block;
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
-  }
 }
 
 /* ── Section common ── */

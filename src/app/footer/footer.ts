@@ -15,9 +15,7 @@ export class Footer {
   t          = this.ts.t;
   year       = new Date().getFullYear();
 
-  socials: { icon: string; urlKey: 'github' | 'linkedin' | 'contact'; url: string }[] = [
-    { icon: 'code',  urlKey: 'github',   url: '#' },
-    { icon: 'work',  urlKey: 'linkedin', url: '#' },
-    { icon: 'email', urlKey: 'contact',  url: 'mailto:contact@example.com' },
+  socials: { icon: string; urlKey: 'contact'; url: string }[] = [
+    { icon: 'email', urlKey: 'contact', url: 'mailto:support.tbsoftware@gmail.com' },
   ];
 }
