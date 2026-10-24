@@ -1,3 +1,5 @@
+import type { AppProjectCopy } from '../models/app.model';
+
 export interface TermsSection {
   title: string;
   icon: string;
@@ -6,6 +8,7 @@ export interface TermsSection {
 
 export interface AppTranslations {
   lang: 'en' | 'de';
+  appProjects: Record<number, AppProjectCopy>;
 
   nav: {
     home: string;

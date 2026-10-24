@@ -26,6 +26,7 @@
 <!-- Apps list -->
 <div class="projects-container">
   @for (app of filteredApps(); track app.id) {
+    @let copy = t().appProjects[app.id];
     <article
       class="project-card"
       [style.--accent]="app.colorAccent"
@@ -46,7 +47,7 @@
           <span class="card-category">
             {{ catLabel(app.category) }} · {{ t().projects.version }} {{ app.version }}
           </span>
-          <p class="card-tagline">{{ app.tagline }}</p>
+          <p class="card-tagline">{{ copy.tagline }}</p>
         </div>
         <button
           class="expand-btn"
@@ -59,7 +60,7 @@
 
       <!-- Tags -->
       <div class="card-tags">
-        @for (tag of app.tags; track tag) {
+        @for (tag of copy.tags; track tag) {
           <span class="tag"
                 [style.border-color]="app.colorAccent + '44'"
                 [style.color]="app.colorAccent">{{ tag }}</span>
@@ -67,34 +68,36 @@
       </div>
 
       <!-- Description -->
-      <p class="card-desc">{{ app.description }}</p>
+      <p class="card-desc">{{ copy.description }}</p>
 
       <!-- Download buttons -->
-      <div class="download-section">
-        <h4 class="download-title">
-          <mat-icon>download</mat-icon>
-          {{ t().projects.downloadLabel }}
-        </h4>
-        <div class="download-grid">
-          @for (dl of app.downloads; track dl.platform) {
-            <a
-              [href]="dl.url"
-              class="download-btn"
-              [class]="dl.platform"
-              [attr.aria-label]="t().projects.downloadLabel + ' ' + app.name + ' – ' + getPlatformLabel(dl.platform)"
-            >
-              <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
-              <span class="dl-info">
-                <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
-                @if (dl.fileSize) {
-                  <span class="dl-size">{{ dl.fileSize }}</span>
-                }
-              </span>
-              <mat-icon class="dl-arrow">download</mat-icon>
-            </a>
-          }
+      @if (app.downloads.length) {
+        <div class="download-section">
+          <h4 class="download-title">
+            <mat-icon>download</mat-icon>
+            {{ t().projects.downloadLabel }}
+          </h4>
+          <div class="download-grid">
+            @for (dl of app.downloads; track dl.platform) {
+              <a
+                [href]="dl.url"
+                class="download-btn"
+                [class]="dl.platform"
+                [attr.aria-label]="t().projects.downloadLabel + ' ' + app.name + ' – ' + getPlatformLabel(dl.platform)"
+              >
+                <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
+                <span class="dl-info">
+                  <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
+                  @if (dl.fileSize) {
+                    <span class="dl-size">{{ dl.fileSize }}</span>
+                  }
+                </span>
+                <mat-icon class="dl-arrow">download</mat-icon>
+              </a>
+            }
+          </div>
         </div>
-      </div>
+      }
 
       <!-- Expanded details -->
       @if (expandedId() === app.id) {
@@ -120,12 +123,12 @@
           <div class="expanded-grid">
             <div class="expanded-about">
               <h4>{{ t().projects.aboutLabel }}</h4>
-              <p>{{ app.longDescription }}</p>
+              <p>{{ copy.longDescription }}</p>
             </div>
             <div class="expanded-features">
               <h4>{{ t().projects.featuresLabel }}</h4>
               <ul>
-                @for (f of app.features; track f) {
+                @for (f of copy.features; track f) {
                   <li>
                     <mat-icon>check_circle</mat-icon>
                     {{ f }}
@@ -134,10 +137,12 @@
               </ul>
             </div>
           </div>
-          <div class="expanded-release">
-            <mat-icon>calendar_today</mat-icon>
-            {{ t().projects.releasedLabel }}: {{ formatDate(app.releaseDate) }}
-          </div>
+          @if (app.releaseDate) {
+            <div class="expanded-release">
+              <mat-icon>calendar_today</mat-icon>
+              {{ t().projects.releasedLabel }}: {{ formatDate(app.releaseDate) }}
+            </div>
+          }
         </div>
       }
     </article>

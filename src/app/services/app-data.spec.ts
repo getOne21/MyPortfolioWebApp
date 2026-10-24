@@ -32,4 +32,11 @@ describe('AppDataService', () => {
   it('includes the Windows screenshot gallery for Bridgely', () => {
     expect(svc.getById(1)?.screenshots).toHaveLength(3);
   });
+
+  it('includes Windows and Android download entries for xConnect File Manager', () => {
+    const xConnect = svc.getById(2);
+    expect(xConnect?.name).toBe('xConnect File Manager');
+    expect(xConnect?.icon).toBe('/apps/xconnect.svg');
+    expect(xConnect?.downloads.map(download => download.platform)).toEqual(['windows', 'android']);
+  });
 });

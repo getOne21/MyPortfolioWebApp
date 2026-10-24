@@ -39,4 +39,21 @@ describe('TranslationService', () => {
     expect(svc.catLabel('Security')).toBe('Sicherheit');
     expect(svc.catLabel('Unknown Category')).toBe('Unknown Category');
   });
+
+  it('localizes app descriptions and features', () => {
+    const svc = TestBed.inject(TranslationService);
+    expect(svc.t().appProjects[1].description).toContain('Android and iPhone');
+
+    svc.setLang('de');
+    expect(svc.t().appProjects[1].description).toContain('Android und iPhone');
+    expect(svc.t().appProjects[2].features).toContain('Mehrere Tabs mit unabhängigen Verbindungen');
+  });
+
+  it('lists xConnect for Windows and Android in both languages', () => {
+    const svc = TestBed.inject(TranslationService);
+    expect(svc.t().appProjects[2].description).toContain('Windows and Android');
+
+    svc.setLang('de');
+    expect(svc.t().appProjects[2].description).toContain('Windows und Android');
+  });
 });

@@ -2,6 +2,40 @@ import { AppTranslations } from './translations.model';
 
 export const en: AppTranslations = {
   lang: 'en',
+  appProjects: {
+    1: {
+      tagline: 'Continuity between your Android phone or iPhone and your computer.',
+      description:
+        'Link Android and iPhone with your Mac or Windows PC. Sync clipboard content and send files and screenshots to one or all connected computers. Android also supports notification-based 2FA forwarding and screen mirroring.',
+      longDescription: 'Bridgely connects Android and iPhone with macOS and Windows. Clipboard sync works both ways; on iPhone, it is available while the app is active because iOS limits background access. Send clipboard content, files, and screenshots to one selected computer or all connected computers. Android can also forward one-time codes from notifications, share battery status, and mirror its screen via scrcpy. Pair devices by QR code; connections use ephemeral P-256 ECDH and AES-256-GCM encryption over the local network. Built with C# and .NET MAUI.',
+      tags: ['Productivity', '.NET MAUI', 'End-to-end encryption', 'Cross-platform'],
+      features: [
+        'Two-way clipboard sync and history',
+        'Send files and screenshots to one or all connected computers',
+        'Phone battery status in the menu bar or system tray',
+        'Forward Android notification codes to your clipboard',
+        'QR-code device pairing',
+        'Android screen mirroring via scrcpy',
+      ],
+    },
+    2: {
+      tagline: 'A polished, multi-tab NAS file manager for Windows and Android.',
+      description:
+        'Browse, transfer, and manage NAS files over WebDAV, FTP, and FTPS on Windows and Android, with multi-tab connections, media previews, and in-place text editing.',
+      longDescription: 'xConnect File Manager is a cross-platform NAS file manager for Windows and Android, built with .NET MAUI. Connect to WebDAV, FTP, and FTPS servers; keep multiple connections open in independent tabs; browse files in list or grid view with sorting, filters, and pinned folders; and upload or download with progress tracking. It also includes an image, video, and audio viewer and an in-place text editor. The Windows version adds tray integration and drag-and-drop uploads. Saved connection profiles use the platform credential store.',
+      tags: ['Windows', 'Android', '.NET MAUI', 'NAS', 'WebDAV', 'FTP', 'FTPS'],
+      features: [
+        'Windows and Android support',
+        'Multi-tab connections with independent sessions',
+        'WebDAV, FTP, and FTPS support',
+        'List and grid views with sorting, filters, and pinned folders',
+        'Batch create, rename, copy, move, and delete operations',
+        'Uploads and downloads with progress and speed tracking',
+        'Image, video, and audio viewer plus in-place text editing',
+        'Windows tray integration and drag-and-drop uploads',
+      ],
+    },
+  },
 
   nav: {
     home: 'Home',

@@ -2,6 +2,40 @@ import { AppTranslations } from './translations.model';
 
 export const de: AppTranslations = {
   lang: 'de',
+  appProjects: {
+    1: {
+      tagline: 'Nahtlose Verbindung zwischen Android- oder iPhone und deinem Computer.',
+      description:
+        'Verbinde Android und iPhone mit deinem Mac oder Windows-PC. Synchronisiere die Zwischenablage und sende Dateien sowie Screenshots an einen oder alle verbundenen Computer. Android unterstützt außerdem die Weiterleitung von 2FA-Codes aus Benachrichtigungen und Bildschirmspiegelung.',
+      longDescription: 'Bridgely verbindet Android- und iPhone-Geräte mit macOS- und Windows-Computern. Die Zwischenablage wird in beide Richtungen synchronisiert; auf dem iPhone ist dies aufgrund der iOS-Beschränkungen nur bei aktiver App möglich. Zwischenablageinhalte, Dateien und Screenshots können an einen ausgewählten oder an alle verbundenen Computer gesendet werden. Android kann außerdem Einmalcodes aus Benachrichtigungen weiterleiten, den Akkustand teilen und den Bildschirm über scrcpy spiegeln. Geräte werden per QR-Code gekoppelt; Verbindungen werden im lokalen Netzwerk mit ephemerem P-256-ECDH und AES-256-GCM verschlüsselt. Entwickelt mit C# und .NET MAUI.',
+      tags: ['Produktivität', '.NET MAUI', 'Ende-zu-Ende-Verschlüsselung', 'Plattformübergreifend'],
+      features: [
+        'Bidirektionale Zwischenablage mit Verlauf',
+        'Dateien und Screenshots an einen oder alle verbundenen Computer senden',
+        'Akkustand des Smartphones in Menüleiste oder System-Tray',
+        'Android-Benachrichtigungscodes in die Zwischenablage weiterleiten',
+        'Geräte per QR-Code koppeln',
+        'Android-Bildschirmspiegelung mit scrcpy',
+      ],
+    },
+    2: {
+      tagline: 'Ein ausgereifter NAS-Dateimanager mit mehreren Tabs für Windows und Android.',
+      description:
+        'NAS-Dateien über WebDAV, FTP und FTPS unter Windows und Android durchsuchen, übertragen und verwalten – mit mehreren Tabs, Medienvorschau und integriertem Texteditor.',
+      longDescription: 'xConnect File Manager ist ein plattformübergreifender NAS-Dateimanager für Windows und Android, entwickelt mit .NET MAUI. Verbinde dich mit WebDAV-, FTP- und FTPS-Servern, verwalte mehrere unabhängige Verbindungen in Tabs, durchsuche Dateien in Listen- oder Rasteransicht mit Sortierung, Filtern und angehefteten Ordnern und lade Dateien mit Fortschrittsanzeige hoch oder herunter. Außerdem bietet die App einen Bild-, Video- und Audioplayer sowie einen integrierten Texteditor. Die Windows-Version bietet zusätzlich System-Tray-Integration und Drag-and-drop-Uploads. Gespeicherte Verbindungsprofile werden im sicheren Anmeldeinformationsspeicher der Plattform abgelegt.',
+      tags: ['Windows', 'Android', '.NET MAUI', 'NAS', 'WebDAV', 'FTP', 'FTPS'],
+      features: [
+        'Unterstützung für Windows und Android',
+        'Mehrere Tabs mit unabhängigen Verbindungen',
+        'Unterstützung für WebDAV, FTP und FTPS',
+        'Listen- und Rasteransicht mit Sortierung, Filtern und angehefteten Ordnern',
+        'Dateien und Ordner gesammelt erstellen, umbenennen, kopieren, verschieben und löschen',
+        'Dateiübertragungen mit Fortschritts- und Geschwindigkeitsanzeige',
+        'Bild-, Video- und Audioplayer sowie integrierter Texteditor',
+        'Windows-Infobereich-Integration und Drag-and-drop-Uploads',
+      ],
+    },
+  },
 
   nav: {
     home: 'Startseite',

@@ -37,6 +37,7 @@
   <div class="carousel-wrapper" (mouseenter)="stopAutoPlay()" (mouseleave)="startAutoPlay()">
     <div class="carousel-track">
       @for (app of featuredApps; track app.id; let i = $index) {
+        @let copy = t().appProjects[app.id];
         <div
           class="carousel-slide"
           [class.active]="i === currentSlide()"
@@ -59,12 +60,12 @@
             @if (app.isNew) {
               <span class="badge-new">{{ t().carousel.new }}</span>
             }
-            <span class="slide-category">{{ app.category }}</span>
+            <span class="slide-category">{{ catLabel(app.category) }}</span>
             <h3 class="slide-title">{{ app.name }}</h3>
-            <p class="slide-tagline">{{ app.tagline }}</p>
-            <p class="slide-desc">{{ app.description }}</p>
+            <p class="slide-tagline">{{ copy.tagline }}</p>
+            <p class="slide-desc">{{ copy.description }}</p>
             <div class="slide-tags">
-              @for (tag of app.tags.slice(0, 3); track tag) {
+              @for (tag of copy.tags.slice(0, 3); track tag) {
                 <span class="tag" [style.border-color]="app.colorAccent + '55'" [style.color]="app.colorAccent">{{ tag }}</span>
               }
             </div>
@@ -116,6 +117,7 @@
 
   <div class="apps-grid">
     @for (app of allApps; track app.id) {
+      @let copy = t().appProjects[app.id];
       <div class="app-mini-card" [style.--accent]="app.colorAccent">
         <div class="mini-icon" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
           <img [src]="app.icon" alt="" width="52" height="52">
@@ -123,7 +125,7 @@
         <div class="mini-info">
           <h4>{{ app.name }}</h4>
           <span class="mini-cat">{{ catLabel(app.category) }}</span>
-          <p>{{ app.tagline }}</p>
+          <p>{{ copy.tagline }}</p>
         </div>
         @if (app.isNew) {
           <span class="badge-new-mini">{{ t().carousel.new }}</span>
