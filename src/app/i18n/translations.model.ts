@@ -57,6 +57,12 @@ export interface AppTranslations {
     noResults: string;
     new: string;
     version: string;
+    screenshotsTitle: string;
+    screenshotCaptions: {
+      pairing: string;
+      more: string;
+      settings: string;
+    };
   };
 
   terms: {

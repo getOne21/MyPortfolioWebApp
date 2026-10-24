@@ -99,6 +99,24 @@
       <!-- Expanded details -->
       @if (expandedId() === app.id) {
         <div class="expanded-content">
+          @if (app.screenshots?.length) {
+            <section class="screenshot-gallery" [attr.aria-label]="t().projects.screenshotsTitle">
+              <h4>{{ t().projects.screenshotsTitle }}</h4>
+              <div class="screenshot-strip">
+                @for (screenshot of app.screenshots; track screenshot.src) {
+                  <figure class="screenshot-card">
+                    <img
+                      [src]="screenshot.src"
+                      [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+                      loading="lazy"
+                    >
+                    <figcaption>{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</figcaption>
+                  </figure>
+                }
+              </div>
+            </section>
+          }
+
           <div class="expanded-grid">
             <div class="expanded-about">
               <h4>{{ t().projects.aboutLabel }}</h4>

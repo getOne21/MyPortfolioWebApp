@@ -7,6 +7,13 @@ export interface AppDownload {
   fileSize?: string;
 }
 
+export type ProjectScreenshotKey = 'pairing' | 'more' | 'settings';
+
+export interface ProjectScreenshot {
+  src: string;
+  captionKey: ProjectScreenshotKey;
+}
+
 export interface AppProject {
   id: number;
   name: string;
@@ -18,6 +25,7 @@ export interface AppProject {
   releaseDate: string;
   downloads: AppDownload[];
   features: string[];
+  screenshots?: ProjectScreenshot[];
   colorAccent: string;
   gradientStart: string;
   gradientEnd: string;

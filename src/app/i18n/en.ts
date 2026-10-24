@@ -54,6 +54,12 @@ export const en: AppTranslations = {
     noResults: 'No projects found in this category.',
     new: 'New',
     version: 'Version',
+    screenshotsTitle: 'Screenshots',
+    screenshotCaptions: {
+      pairing: 'Pairing screen — QR code redacted',
+      more: 'More menu',
+      settings: 'Settings and device features',
+    },
   },
 
   terms: {

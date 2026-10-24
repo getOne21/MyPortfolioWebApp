@@ -28,4 +28,8 @@ describe('AppDataService', () => {
       expect.objectContaining({ platform: 'ios' }),
     );
   });
+
+  it('includes the Windows screenshot gallery for Bridgely', () => {
+    expect(svc.getById(1)?.screenshots).toHaveLength(3);
+  });
 });

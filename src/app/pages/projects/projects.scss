@@ -328,6 +328,50 @@
   animation: slide-down 0.3s ease;
 }
 
+.screenshot-gallery {
+  margin-bottom: 24px;
+
+  h4 {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+  }
+}
+
+.screenshot-strip {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+}
+
+.screenshot-card {
+  flex: 0 0 auto;
+  margin: 0;
+  scroll-snap-align: start;
+
+  img {
+    display: block;
+    height: 400px;
+    width: auto;
+    border: 1px solid rgba(var(--tint-rgb), 0.1);
+    border-radius: 12px;
+    background: var(--bg-deep);
+  }
+
+  figcaption {
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
 @keyframes slide-down {
   from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -54,6 +54,12 @@ export const de: AppTranslations = {
     noResults: 'Keine Projekte in dieser Kategorie gefunden.',
     new: 'Neu',
     version: 'Version',
+    screenshotsTitle: 'Screenshots',
+    screenshotCaptions: {
+      pairing: 'Kopplungsansicht — QR-Code unkenntlich gemacht',
+      more: 'Menü „Mehr“',
+      settings: 'Einstellungen und Gerätefunktionen',
+    },
   },
 
   terms: {

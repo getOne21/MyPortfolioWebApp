@@ -29,6 +29,11 @@ export class AppDataService {
         'QR pairing with automatic discovery',
         'Screen mirroring via scrcpy',
       ],
+      screenshots: [
+        { src: '/apps/bridgely/screenshots/windows-pairing.webp', captionKey: 'pairing' },
+        { src: '/apps/bridgely/screenshots/windows-more.webp', captionKey: 'more' },
+        { src: '/apps/bridgely/screenshots/windows-settings.webp', captionKey: 'settings' },
+      ],
       downloads: [
         { platform: 'windows', label: 'Windows App', url: '#' },
         { platform: 'android', label: 'Android APK', url: '#' },
