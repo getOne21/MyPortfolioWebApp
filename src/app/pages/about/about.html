@@ -36,6 +36,32 @@
         <h2>{{ t().about.stack.title }}</h2>
       </div>
 
+      <div
+        class="tech-marquee"
+        [class.reduced-motion]="reducedMotion()"
+        role="region"
+        [attr.aria-label]="t().about.stack.logoStripLabel"
+      >
+        <div class="tech-marquee-track">
+          @for (copy of marqueeCopies; track copy) {
+            <div class="tech-logo-group" [attr.aria-hidden]="copy ? 'true' : null">
+              @for (tech of techLogos; track tech.name) {
+                <span class="tech-logo">
+                  @if (tech.icon; as icon) {
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path [attr.d]="icon.path" [attr.fill]="logoColor(icon.hex)"></path>
+                    </svg>
+                  } @else {
+                    <span class="tech-logo-mark" [style.color]="tech.color">{{ tech.mark }}</span>
+                  }
+                  <span>{{ tech.name }}</span>
+                </span>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
       <div class="stack-grid">
         <div class="stack-col">
           <h3 class="stack-col-title">
