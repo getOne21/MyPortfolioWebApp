@@ -45,7 +45,7 @@
   }
 
   .logo-title {
-    font-size: clamp(32px, 22.4vw, 37.6px);
+    font-size: clamp(56px, 4.4vw, 37.6px);
     line-height: 1.2;
     display: inline-flex;
     align-items: center;
@@ -64,13 +64,13 @@
     .lt-suffix {
       font-family: 'Courier New', Courier, monospace;
       font-weight: 700;
-      font-size: 0.62em;
-      letter-spacing: 0.14em;
+      font-size: 0.32em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       white-space: nowrap;
       color: var(--accent-1);
       -webkit-text-fill-color: var(--accent-1);
-      padding: 0.42em 0.62em 0.38em;
+      padding: 0.32em 0.45em 0.28em;
       border: 1px solid color-mix(in srgb, var(--accent-1) 42%, transparent);
       border-radius: 5px;
       background: color-mix(in srgb, var(--accent-1) 8%, transparent);

@@ -16,7 +16,7 @@
     <path d="M140 80 200 140 140 200 80 140Z" fill="url(#g)"/>
   </g>
   <text x="470" y="290" font-family="Helvetica, Arial, sans-serif" font-size="120" font-weight="800" fill="url(#g)">TB</text>
-  <text x="474" y="352" font-family="Courier New, Courier, monospace" font-size="52" font-weight="700" fill="#e2e8f0">Labs</text>
+  <text x="474" y="352" font-family="Courier New, Courier, monospace" font-size="52" font-weight="700" fill="#e2e8f0">Builds</text>
   <text x="474" y="420" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#94a3b8">Desktop &amp; mobile apps</text>
   <text x="474" y="468" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#4a5568">Windows · macOS · Linux · Android</text>
 </svg>

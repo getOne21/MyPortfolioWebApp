@@ -100,7 +100,6 @@ export interface AppTranslations {
   about: {
     hero: { tag: string; title: string; subtitle: string };
     bio: string;
-    stats: { years: string; yearsLabel: string; companies: string; companiesLabel: string };
     stack: { tag: string; title: string; backendTitle: string; frontendTitle: string; toolsTitle: string };
     cta: { title: string; body: string; btn: string };
   };

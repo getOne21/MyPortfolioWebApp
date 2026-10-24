@@ -135,20 +135,14 @@ export const de: AppTranslations = {
     hero: {
       tag: 'Über mich',
       title: 'Tobias Brörmann',
-      subtitle: 'Full-Stack-Entwickler · 9 Jahre Enterprise · .NET, Java, Angular, React, Terraform',
+      subtitle: 'Softwareentwickler · Über 9 Jahre Enterprise-Erfahrung · Full-Stack, Mobile und Cloud',
     },
-    bio: 'Ich baue Systeme von Grund auf — .NET- und Spring-Boot-APIs im Backend, Angular- und React-SPAs im Frontend, Cloud-Infrastruktur als Code mit Terraform und Bicep. Neun Jahre Enterprise-Erfahrung in verschiedenen Unternehmen, immer mit dem Fokus auf saubere Architektur und wartbaren Code.',
-    stats: {
-      years: '9+',
-      yearsLabel: 'Jahre Erfahrung',
-      companies: 'Mehrere',
-      companiesLabel: 'Unternehmen',
-    },
+    bio: 'Ich konzipiere und entwickle Software über den gesamten Stack hinweg: Backend-Dienste mit .NET, Java, Spring Boot, Fastify und Python; Datenlösungen mit PostgreSQL, MongoDB und Azure Cosmos DB; Web- und Mobile-Apps mit Angular, React, .NET MAUI und Swift; sowie Cloud-Infrastruktur auf Azure und AWS mit Terraform, Kubernetes und Bicep. Mit über neun Jahren Enterprise-Erfahrung lege ich den Schwerpunkt auf zuverlässige Systeme, klare Architekturen und wartbare Lösungen.',
     stack: {
       tag: 'Tech-Stack',
-      title: 'Womit ich arbeite',
+      title: 'Technologien & Werkzeuge',
       backendTitle: 'Backend',
-      frontendTitle: 'Frontend',
+      frontendTitle: 'Frontend & Mobile',
       toolsTitle: 'Tools & Methoden',
     },
     cta: {
@@ -161,17 +155,17 @@ export const de: AppTranslations = {
   privacy: {
     pageTag: 'Datenschutzerklärung',
     title: 'Deine Privatsphäre ist wichtig',
-    subtitle: 'Diese Datenschutzerklärung gilt für alle von TB Labs veröffentlichten Apps. Die Datenverarbeitung hängt von der jeweiligen App und den genutzten Funktionen ab.',
+    subtitle: 'Diese Datenschutzerklärung gilt für alle von TB Builds veröffentlichten Apps. Die Datenverarbeitung hängt von der jeweiligen App und den genutzten Funktionen ab.',
     lastUpdated: 'Zuletzt aktualisiert',
     summaryBold: 'Kurzversion:',
     summaryText: 'Jede App verarbeitet Daten entsprechend ihren Funktionen. Die jeweilige App-Beschreibung und Berechtigungsabfragen erklären, worauf sie zugreift, was sie speichert oder weitergibt.',
     appliesTitle: 'Gilt für',
-    appliesText: 'Diese Datenschutzerklärung gilt für alle von TB Labs veröffentlichten Apps und Software. App-spezifische Details stehen in der jeweiligen App-Beschreibung und in Berechtigungsabfragen. Für Websites und Dienste Dritter gelten deren eigene Datenschutzerklärungen.',
+    appliesText: 'Diese Datenschutzerklärung gilt für alle von TB Builds veröffentlichten Apps und Software. App-spezifische Details stehen in der jeweiligen App-Beschreibung und in Berechtigungsabfragen. Für Websites und Dienste Dritter gelten deren eigene Datenschutzerklärungen.',
     sections: [
       {
         icon: 'apps',
         title: 'Geltungsbereich und App-spezifische Informationen',
-        content: 'Diese Datenschutzerklärung gilt für Software von TB Labs. Apps haben unterschiedliche Funktionen und können daher unterschiedliche Informationen verarbeiten. Die Beschreibung der jeweiligen App und Berechtigungsabfragen erläutern, welche Daten für ihre Funktionen benötigt werden. Diese allgemeine Erklärung bedeutet nicht, dass jede App auf alle hier genannten Daten zugreift.',
+        content: 'Diese Datenschutzerklärung gilt für Software von TB Builds. Apps haben unterschiedliche Funktionen und können daher unterschiedliche Informationen verarbeiten. Die Beschreibung der jeweiligen App und Berechtigungsabfragen erläutern, welche Daten für ihre Funktionen benötigt werden. Diese allgemeine Erklärung bedeutet nicht, dass jede App auf alle hier genannten Daten zugreift.',
       },
       {
         icon: 'data_usage',
@@ -186,7 +180,7 @@ export const de: AppTranslations = {
       {
         icon: 'cloud',
         title: 'Drittanbieterdienste',
-        content: 'Einige Funktionen können auf Betriebssystemdienste, App-Stores oder Dienste und Server zurückgreifen, die du verwendest. Diese Anbieter verarbeiten Informationen gemäß ihren eigenen Datenschutzerklärungen. TB Labs kontrolliert deren Datenpraktiken nicht.',
+        content: 'Einige Funktionen können auf Betriebssystemdienste, App-Stores oder Dienste und Server zurückgreifen, die du verwendest. Diese Anbieter verarbeiten Informationen gemäß ihren eigenen Datenschutzerklärungen. TB Builds kontrolliert deren Datenpraktiken nicht.',
       },
       {
         icon: 'storage',
@@ -201,12 +195,12 @@ export const de: AppTranslations = {
       {
         icon: 'contact_support',
         title: 'Fragen',
-        content: 'Bei Fragen zum Datenschutz oder zur Verarbeitung von Informationen durch eine TB Labs App erreichst du uns unter support.tbsoftware@gmail.com.',
+        content: 'Bei Fragen zum Datenschutz oder zur Verarbeitung von Informationen durch eine TB Builds App erreichst du uns unter support.tbsoftware@gmail.com.',
       },
       {
         icon: 'update',
         title: 'Änderungen dieser Datenschutzerklärung',
-        content: 'Diese Datenschutzerklärung kann aktualisiert werden, wenn sich TB Labs Apps oder deren Datenverarbeitung ändern. Die aktuelle Fassung und ihr Änderungsdatum werden auf dieser Seite veröffentlicht. App-spezifische Änderungen können zusätzlich in den Versionshinweisen der jeweiligen App beschrieben werden.',
+        content: 'Diese Datenschutzerklärung kann aktualisiert werden, wenn sich TB Builds Apps oder deren Datenverarbeitung ändern. Die aktuelle Fassung und ihr Änderungsdatum werden auf dieser Seite veröffentlicht. App-spezifische Änderungen können zusätzlich in den Versionshinweisen der jeweiligen App beschrieben werden.',
       },
     ],
   },
@@ -246,14 +240,14 @@ export const de: AppTranslations = {
     ogLocale: 'de_DE',
     pages: {
       home: {
-        title: 'TB Labs — Desktop- & Mobile-Apps',
+        title: 'TB Builds — Desktop- & Mobile-Apps',
         description:
           'Eigene Tools und Apps von Tobias Brörmann für Windows, macOS, Linux, Android und iPhone.',
       },
       about: {
         title: 'Über Tobias Brörmann',
         description:
-          'Full-Stack-Entwickler mit über 9 Jahren Enterprise-Erfahrung in .NET, Java, Angular, React und Terraform.',
+          'Softwareentwickler mit über 9 Jahren Erfahrung in .NET, Java, Python, Angular, React, PostgreSQL, Azure, AWS, Terraform und Kubernetes.',
       },
       projects: {
         title: 'Projekte & Downloads',
@@ -262,11 +256,11 @@ export const de: AppTranslations = {
       },
       terms: {
         title: 'Nutzungsbedingungen',
-        description: 'Nutzungsbedingungen für den Download und die Nutzung von Software von TB Labs.',
+        description: 'Nutzungsbedingungen für den Download und die Nutzung von Software von TB Builds.',
       },
       privacy: {
         title: 'Datenschutzerklärung',
-        description: 'Allgemeine Datenschutzerklärung für TB Labs Apps; Einzelheiten zur Datenverarbeitung variieren je nach App und Funktion.',
+        description: 'Allgemeine Datenschutzerklärung für Apps von TB Builds; Einzelheiten zur Datenverarbeitung variieren je nach App und Funktion.',
       },
     },
   },

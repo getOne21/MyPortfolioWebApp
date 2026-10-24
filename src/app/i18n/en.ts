@@ -135,20 +135,14 @@ export const en: AppTranslations = {
     hero: {
       tag: 'About Me',
       title: 'Tobias Brörmann',
-      subtitle: 'Full-stack engineer · 9 years enterprise · .NET, Java, Angular, React, Terraform',
+      subtitle: 'Software engineer · 9+ years of enterprise experience · Full-stack, mobile, and cloud',
     },
-    bio: 'I build systems end-to-end — .NET and Spring Boot APIs on the backend, Angular and React SPAs on the frontend, and cloud infrastructure provisioned as code with Terraform and Bicep. Nine years of enterprise experience across multiple companies, always with a focus on clean architecture and maintainable code.',
-    stats: {
-      years: '9+',
-      yearsLabel: 'Years Experience',
-      companies: 'Several',
-      companiesLabel: 'Companies',
-    },
+    bio: 'I design and deliver software across the stack: backend services with .NET, Java, Spring Boot, Fastify, and Python; data solutions with PostgreSQL, MongoDB, and Azure Cosmos DB; web and mobile applications with Angular, React, .NET MAUI, and Swift; and cloud infrastructure across Azure and AWS using Terraform, Kubernetes, and Bicep. With 9+ years of enterprise experience, I focus on reliable systems, clear architecture, and maintainable delivery.',
     stack: {
       tag: 'Tech Stack',
-      title: 'What I Work With',
+      title: 'Technologies & Tools',
       backendTitle: 'Backend',
-      frontendTitle: 'Frontend',
+      frontendTitle: 'Frontend & Mobile',
       toolsTitle: 'Tools & Practices',
     },
     cta: {
@@ -161,17 +155,17 @@ export const en: AppTranslations = {
   privacy: {
     pageTag: 'Privacy Policy',
     title: 'Your Privacy Matters',
-    subtitle: 'This policy applies to all apps published by TB Labs. Data handling varies by app and by the features you use.',
+    subtitle: 'This policy applies to all apps published by TB Builds. Data handling varies by app and by the features you use.',
     lastUpdated: 'Last updated',
     summaryBold: 'Short version:',
     summaryText: 'Each app handles data according to its features. Check its listing and permission prompts to understand what it accesses, stores, or shares.',
     appliesTitle: 'Applies to',
-    appliesText: 'This policy applies to all apps and software published by TB Labs. App-specific details are described in the relevant app listing and permission prompts. Third-party services and websites are covered by their own privacy policies.',
+    appliesText: 'This policy applies to all apps and software published by TB Builds. App-specific details are described in the relevant app listing and permission prompts. Third-party services and websites are covered by their own privacy policies.',
     sections: [
       {
         icon: 'apps',
         title: 'Scope and App-Specific Details',
-        content: 'This policy covers software published by TB Labs. Apps have different functions and may process different types of information. The relevant app listing and permission prompts describe the data needed for its features; this general policy does not mean that every app accesses every type of data mentioned here.',
+        content: 'This policy covers software published by TB Builds. Apps have different functions and may process different types of information. The relevant app listing and permission prompts describe the data needed for its features; this general policy does not mean that every app accesses every type of data mentioned here.',
       },
       {
         icon: 'data_usage',
@@ -186,7 +180,7 @@ export const en: AppTranslations = {
       {
         icon: 'cloud',
         title: 'Third-Party Services',
-        content: 'Some app features may rely on operating-system services, app stores, or services and servers you choose to use. Those providers handle information under their own privacy policies. TB Labs does not control their data practices.',
+        content: 'Some app features may rely on operating-system services, app stores, or services and servers you choose to use. Those providers handle information under their own privacy policies. TB Builds does not control their data practices.',
       },
       {
         icon: 'storage',
@@ -201,12 +195,12 @@ export const en: AppTranslations = {
       {
         icon: 'contact_support',
         title: 'Questions',
-        content: 'For questions about privacy or how a TB Labs app handles information, contact support.tbsoftware@gmail.com.',
+        content: 'For questions about privacy or how a TB Builds app handles information, contact support.tbsoftware@gmail.com.',
       },
       {
         icon: 'update',
         title: 'Changes to This Policy',
-        content: 'This policy may be updated as TB Labs apps or their data practices change. The latest version and its revision date will be published on this page. App-specific changes may also be described in the relevant app’s release notes.',
+        content: 'This policy may be updated as TB Builds apps or their data practices change. The latest version and its revision date will be published on this page. App-specific changes may also be described in the relevant app’s release notes.',
       },
     ],
   },
@@ -246,14 +240,14 @@ export const en: AppTranslations = {
     ogLocale: 'en_GB',
     pages: {
       home: {
-        title: 'TB Labs — Desktop & Mobile Apps',
+        title: 'TB Builds — Desktop & Mobile Apps',
         description:
           'Personal tools and apps built by Tobias Brörmann, available for Windows, macOS, Linux, Android, and iPhone.',
       },
       about: {
         title: 'About Tobias Brörmann',
         description:
-          'Full-stack engineer with 9+ years of enterprise experience in .NET, Java, Angular, React, and Terraform.',
+          'Software engineer with 9+ years of experience across .NET, Java, Python, Angular, React, PostgreSQL, Azure, AWS, Terraform, and Kubernetes.',
       },
       projects: {
         title: 'Projects & Downloads',
@@ -262,11 +256,11 @@ export const en: AppTranslations = {
       },
       terms: {
         title: 'Terms & Conditions',
-        description: 'Terms and conditions for downloading and using software from TB Labs.',
+        description: 'Terms and conditions for downloading and using software from TB Builds.',
       },
       privacy: {
         title: 'Privacy Policy',
-        description: 'General privacy policy for apps published by TB Labs; data handling details vary by app and feature.',
+        description: 'General privacy policy for apps published by TB Builds; data handling details vary by app and feature.',
       },
     },
   },

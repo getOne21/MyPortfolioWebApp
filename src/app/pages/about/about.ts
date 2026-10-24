@@ -15,7 +15,7 @@ export class About {
   private ts = inject(TranslationService);
   t = this.ts.t;
 
-  readonly backend  = ['C#', '.NET / ASP.NET', 'Java', 'Spring Boot', 'REST APIs', 'SQL'];
-  readonly frontend = ['Angular', 'React', 'Vue.js', 'TypeScript', 'HTML5 / CSS3', 'SCSS'];
-  readonly tools    = ['Terraform', 'Azure Bicep', 'Docker', 'Microservices', 'CI / CD', 'Agile / Scrum', 'Git'];
+  readonly backend  = ['C#', '.NET / ASP.NET', 'Java', 'Spring Boot', 'Fastify', 'Python', 'PostgreSQL', 'MongoDB', 'Azure Cosmos DB', 'REST APIs', 'SQL'];
+  readonly frontend = ['Angular', 'React', 'Vue.js', 'TypeScript', '.NET MAUI', 'Swift', 'HTML5 / CSS3', 'SCSS'];
+  readonly tools    = ['Azure', 'AWS', 'Terraform', 'Kubernetes', 'Azure Bicep', 'Docker', 'Microservices', 'CI / CD', 'Agile / Scrum', 'Git'];
 }

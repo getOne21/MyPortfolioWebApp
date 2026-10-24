@@ -52,13 +52,13 @@
     .lt-suffix {
       font-family: 'Courier New', Courier, monospace;
       font-weight: 700;
-      font-size: 0.62em;
-      letter-spacing: 0.14em;
+      font-size: 0.5em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       white-space: nowrap;
       color: var(--accent-1);
       -webkit-text-fill-color: var(--accent-1);
-      padding: 0.42em 0.62em 0.38em;
+      padding: 0.35em 0.45em 0.32em;
       border: 1px solid color-mix(in srgb, var(--accent-1) 42%, transparent);
       border-radius: 5px;
       background: color-mix(in srgb, var(--accent-1) 8%, transparent);
@@ -442,4 +442,14 @@
 @media (max-width: 1240px) {
   .nav-links, .nav-cta, .lang-selector, .theme-dropdown { display: none; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .nav-container { gap: 16px; }
+  .nav-logo .logo-title { font-size: clamp(20px, 6vw, 26px); }
+  .nav-logo .lt-suffix {
+    font-size: 0.45em;
+    letter-spacing: 0.04em;
+    padding: 0.3em 0.4em 0.28em;
+  }
 }
