@@ -108,7 +108,7 @@ export interface AppTranslations {
 
   about: {
     hero: { tag: string; title: string; subtitle: string };
-    bio: string;
+    bio: string[];
     stack: { tag: string; title: string; logoStripLabel: string; backendTitle: string; frontendTitle: string; toolsTitle: string };
     cta: { title: string; body: string; btn: string };
   };

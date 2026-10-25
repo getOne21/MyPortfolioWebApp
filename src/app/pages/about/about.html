@@ -22,7 +22,9 @@
       </div>
 
       <div class="profile-body">
-        <p class="bio-text">{{ t().about.bio }}</p>
+        @for (paragraph of t().about.bio; track paragraph) {
+          <p class="bio-text">{{ paragraph }}</p>
+        }
       </div>
 
     </div>

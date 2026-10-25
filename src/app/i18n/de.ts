@@ -177,7 +177,11 @@ export const de: AppTranslations = {
       title: 'Tobias Brörmann',
       subtitle: 'Full-Stack-Entwickler · Über 9 Jahre Enterprise-Erfahrung',
     },
-    bio: 'Ich konzipiere und entwickle Software über den gesamten Stack hinweg: Backend-Dienste mit .NET, Java, Spring Boot, Node.js, Fastify und Python; Datenlösungen mit PostgreSQL, MongoDB und Azure Cosmos DB; Web- und Mobile-Apps mit JavaScript, TypeScript, Angular, React, .NET MAUI und Swift; sowie Cloud-Infrastruktur auf Azure und AWS mit Terraform, Kubernetes und Bicep. Mit über neun Jahren Enterprise-Erfahrung lege ich den Schwerpunkt auf zuverlässige Systeme, klare Architekturen und wartbare Lösungen.',
+    bio: [
+      'Ich begleite Software über den gesamten Entwicklungszyklus – vom Systementwurf und der Implementierung bis zur Bereitstellung und Wartung. Mit über neun Jahren Enterprise-Erfahrung lege ich Wert auf zuverlässige Systeme, klare Architekturen und wartbaren Code.',
+      'Im Backend entwickle ich APIs und Dienste mit C#/.NET, Java/Spring Boot, Node.js/Fastify und Python. Zu meinen Datenbanktechnologien zählen relationale und NoSQL-Systeme wie PostgreSQL, MongoDB und Azure Cosmos DB.',
+      'Für Web- und Mobile-Anwendungen nutze ich JavaScript/TypeScript, Angular, React, Vue, .NET MAUI und Swift. Cloud-Infrastruktur stelle ich mit Terraform, Kubernetes und Bicep auf Azure und AWS bereit.',
+    ],
     stack: {
       tag: 'Tech-Stack',
       title: 'Technologien & Werkzeuge',
@@ -288,7 +292,7 @@ export const de: AppTranslations = {
       about: {
         title: 'Über Tobias Brörmann',
         description:
-          'Softwareentwickler mit über 9 Jahren Erfahrung in .NET, Java, Node.js, Python, JavaScript, TypeScript, Cloud-Plattformen und Datenbanken.',
+          'Full-Stack-Entwickler mit über 9 Jahren Enterprise-Erfahrung in .NET, Java, Python, JavaScript, TypeScript, Mobile-, Cloud- und Datenbanklösungen.',
       },
       projects: {
         title: 'Projekte & Downloads',
