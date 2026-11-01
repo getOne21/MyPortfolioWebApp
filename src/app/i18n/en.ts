@@ -43,6 +43,7 @@ export const en: AppTranslations = {
     projects: 'Projects',
     terms: 'Terms & Conditions',
     privacy: 'Privacy Policy',
+    imprint: 'Legal Notice',
     downloadApps: 'Download Apps',
   },
 

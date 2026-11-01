@@ -16,6 +16,7 @@ export interface AppTranslations {
     projects: string;
     terms: string;
     privacy: string;
+    imprint: string;
     downloadApps: string;
   };
 

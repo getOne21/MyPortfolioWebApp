@@ -32,6 +32,7 @@ export class Navbar {
     { key: 'projects' as const, path: 'projects', icon: 'apps' },
     { key: 'terms'    as const, path: 'terms',    icon: 'gavel' },
     { key: 'privacy'  as const, path: 'privacy',  icon: 'privacy_tip' },
+    { key: 'imprint'  as const, path: 'imprint',  icon: 'info' },
   ];
 
   themes: { value: Theme; label: string; icon: string; c1: string; c2: string }[] = [

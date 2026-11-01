@@ -43,6 +43,7 @@ export const de: AppTranslations = {
     projects: 'Projekte',
     terms: 'Nutzungsbedingungen',
     privacy: 'Datenschutz',
+    imprint: 'Impressum',
     downloadApps: 'Apps herunterladen',
   },
 
