@@ -92,6 +92,22 @@ export interface AppTranslations {
     sections: TermsSection[];
   };
 
+  imprint: {
+    pageTag: string;
+    title: string;
+    subtitle: string;
+    providerLabel: string;
+    providerName: string;
+    brandLabel: string;
+    brandName: string;
+    addressLabel: string;
+    street: string;
+    postalCity: string;
+    country: string;
+    contactLabel: string;
+    email: string;
+  };
+
   footer: {
     navTitle: string;
     connectTitle: string;
@@ -103,6 +119,7 @@ export interface AppTranslations {
     projects: string;
     terms: string;
     privacy: string;
+    imprint: string;
     contact: string;
   };
 
@@ -128,7 +145,7 @@ export interface AppTranslations {
   /** Per-page document title / meta description and Open Graph locale */
   seo: {
     ogLocale: string;
-    pages: Record<'home' | 'about' | 'projects' | 'terms' | 'privacy', SeoEntry>;
+    pages: Record<'home' | 'about' | 'projects' | 'terms' | 'privacy' | 'imprint', SeoEntry>;
   };
 }
 

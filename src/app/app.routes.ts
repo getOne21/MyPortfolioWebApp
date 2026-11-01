@@ -2,9 +2,9 @@ import { inject } from '@angular/core';
 import { Route, Routes } from '@angular/router';
 import { Lang, LANGS, TranslationService } from './services/translation.service';
 
-export type PageKey = 'home' | 'about' | 'projects' | 'terms' | 'privacy';
+export type PageKey = 'home' | 'about' | 'projects' | 'terms' | 'privacy' | 'imprint';
 
-export const PAGES: readonly PageKey[] = ['home', 'about', 'projects', 'terms', 'privacy'];
+export const PAGES: readonly PageKey[] = ['home', 'about', 'projects', 'terms', 'privacy', 'imprint'];
 
 const pageRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -32,6 +32,11 @@ const pageRoutes: Routes = [
     path: 'privacy',
     data: { page: 'privacy' },
     loadComponent: () => import('./pages/privacy/privacy').then(m => m.Privacy),
+  },
+  {
+    path: 'imprint',
+    data: { page: 'imprint' },
+    loadComponent: () => import('./pages/imprint/imprint').then(m => m.Imprint),
   },
   { path: '**', redirectTo: 'home' },
 ];

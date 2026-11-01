@@ -61,4 +61,16 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/privacy"/>
   </url>
+  <url>
+    <loc>https://example.com/en/imprint</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/imprint"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/imprint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/imprint"/>
+  </url>
+  <url>
+    <loc>https://example.com/de/imprint</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/imprint"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://example.com/de/imprint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/en/imprint"/>
+  </url>
 </urlset>

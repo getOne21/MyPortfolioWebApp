@@ -1,0 +1,43 @@
+<main class="imprint-page">
+  <header class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="page-hero-content">
+      <span class="section-tag">{{ t().imprint.pageTag }}</span>
+      <h1>{{ t().imprint.title }}</h1>
+      <p>{{ t().imprint.subtitle }}</p>
+    </div>
+  </header>
+
+  <section class="imprint-container" [attr.aria-label]="t().imprint.title">
+    <div class="imprint-card">
+      <div class="imprint-item">
+        <mat-icon aria-hidden="true">person</mat-icon>
+        <div>
+          <h2>{{ t().imprint.providerLabel }}</h2>
+          <p>{{ t().imprint.providerName }}</p>
+          <p class="imprint-brand">{{ t().imprint.brandLabel }}: {{ t().imprint.brandName }}</p>
+        </div>
+      </div>
+
+      <div class="imprint-item">
+        <mat-icon aria-hidden="true">location_on</mat-icon>
+        <div>
+          <h2>{{ t().imprint.addressLabel }}</h2>
+          <address>
+            {{ t().imprint.street }}<br>
+            {{ t().imprint.postalCity }}<br>
+            {{ t().imprint.country }}
+          </address>
+        </div>
+      </div>
+
+      <div class="imprint-item">
+        <mat-icon aria-hidden="true">mail</mat-icon>
+        <div>
+          <h2>{{ t().imprint.contactLabel }}</h2>
+          <a class="imprint-email" [href]="'mailto:' + t().imprint.email">{{ t().imprint.email }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

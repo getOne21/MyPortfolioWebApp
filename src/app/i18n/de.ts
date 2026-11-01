@@ -250,6 +250,22 @@ export const de: AppTranslations = {
     ],
   },
 
+  imprint: {
+    pageTag: 'Rechtliches',
+    title: 'Impressum',
+    subtitle: 'Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG).',
+    providerLabel: 'Anbieter',
+    providerName: 'Tobias Brörmann',
+    brandLabel: 'Marke',
+    brandName: 'TB Builds',
+    addressLabel: 'Anschrift',
+    street: 'Mercedesstraße 11A',
+    postalCity: '70372 Stuttgart',
+    country: 'Deutschland',
+    contactLabel: 'Kontakt',
+    email: 'support.tbsoftware@gmail.com',
+  },
+
   footer: {
     navTitle: 'Navigation',
     connectTitle: 'Kontakt',
@@ -261,6 +277,7 @@ export const de: AppTranslations = {
     projects: 'Projekte',
     terms: 'Nutzungsbedingungen',
     privacy: 'Datenschutz',
+    imprint: 'Impressum',
     contact: 'Kontakt',
   },
 
@@ -306,6 +323,10 @@ export const de: AppTranslations = {
       privacy: {
         title: 'Datenschutzerklärung',
         description: 'Allgemeine Datenschutzerklärung für Apps von TB Builds; Einzelheiten zur Datenverarbeitung variieren je nach App und Funktion.',
+      },
+      imprint: {
+        title: 'Impressum',
+        description: 'Anbieterinformationen und Kontaktdaten von TB Builds.',
       },
     },
   },

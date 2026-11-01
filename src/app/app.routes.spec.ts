@@ -37,6 +37,16 @@ describe('app routes', () => {
     expect(url()).toBe('/de/projects');
   });
 
+  it('resolves the Impressum route in both languages', async () => {
+    await setup('en');
+    await harness.navigateByUrl('/en/imprint');
+    expect(url()).toBe('/en/imprint');
+
+    await harness.navigateByUrl('/de/imprint');
+    expect(url()).toBe('/de/imprint');
+    expect(TestBed.inject(TranslationService).currentLang()).toBe('de');
+  });
+
   it('redirects unknown URLs to home', async () => {
     await setup('en');
     await harness.navigateByUrl('/does-not-exist');
