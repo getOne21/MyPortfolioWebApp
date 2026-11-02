@@ -18,6 +18,8 @@ export interface AppTranslations {
     privacy: string;
     imprint: string;
     downloadApps: string;
+    style: string;
+    language: string;
   };
 
   hero: {

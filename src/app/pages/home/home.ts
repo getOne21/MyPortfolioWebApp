@@ -2,11 +2,37 @@ import { Component, signal, inject, OnDestroy, ChangeDetectionStrategy, afterNex
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {
+  siAngular,
+  siDotnet,
+  siJavascript,
+  siKubernetes,
+  siMongodb,
+  siNodedotjs,
+  siPostgresql,
+  siPython,
+  siReact,
+  siSwift,
+  siTerraform,
+  siTypescript,
+} from 'simple-icons';
 
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
 import { MotionPreferenceService } from '../../services/motion-preference.service';
 import { AppProject } from '../../models/app.model';
+
+interface OrbitTechDefinition {
+  name: string;
+  icon?: { hex: string; path: string };
+  mark?: string;
+  color?: string;
+}
+
+interface OrbitTechLogo extends OrbitTechDefinition {
+  angle: string;
+  counterAngle: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -29,6 +55,34 @@ export class Home implements OnDestroy {
 
   currentSlide = signal(0);
   private timer: ReturnType<typeof setInterval> | null = null;
+
+  private readonly orbitTechDefinitions: OrbitTechDefinition[] = [
+    { name: 'JavaScript', icon: siJavascript },
+    { name: 'TypeScript', icon: siTypescript },
+    { name: 'Angular', icon: siAngular },
+    { name: 'React', icon: siReact },
+    { name: 'Node.js', icon: siNodedotjs },
+    { name: 'Python', icon: siPython },
+    { name: '.NET', icon: siDotnet },
+    { name: 'PostgreSQL', icon: siPostgresql },
+    { name: 'MongoDB', icon: siMongodb },
+    { name: 'Swift', icon: siSwift },
+    { name: 'Terraform', icon: siTerraform },
+    { name: 'Kubernetes', icon: siKubernetes },
+    { name: 'Azure', mark: 'AZ', color: '#0078d4' },
+    { name: 'AWS', mark: 'AWS', color: '#ff9900' },
+  ];
+
+  readonly orbitTechLogos: OrbitTechLogo[] = this.orbitTechDefinitions.map((tech, index) => {
+    const angle = (360 * index) / this.orbitTechDefinitions.length;
+    return { ...tech, angle: `${angle}deg`, counterAngle: `${-angle}deg` };
+  });
+
+  logoColor(tech: OrbitTechDefinition): string {
+    if (tech.color) return tech.color;
+    const hex = tech.icon?.hex ?? 'FFFFFF';
+    return hex === '000000' || hex === '0F0F11' ? 'var(--text-primary)' : `#${hex}`;
+  }
 
   constructor() {
     /* Browser-only: a running interval would block prerendering */

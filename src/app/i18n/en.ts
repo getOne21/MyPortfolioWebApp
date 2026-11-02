@@ -45,13 +45,15 @@ export const en: AppTranslations = {
     privacy: 'Privacy Policy',
     imprint: 'Legal Notice',
     downloadApps: 'Download Apps',
+    style: 'Style',
+    language: 'Language',
   },
 
   hero: {
-    title1: 'Thoughtful software',
-    title2: 'for everyday life',
+    title1: 'Built for everyday life.',
+    title2: 'Including mine.',
     subtitle:
-      'Practical desktop and mobile apps, designed to make everyday tasks simpler.',
+      'I build practical software for everyday life—and use what I create myself.',
     exploreProjects: 'Explore Projects',
     aboutMe: 'About Me',
   },

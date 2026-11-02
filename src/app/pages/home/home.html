@@ -27,12 +27,28 @@
 
   <div class="hero-brand-visual" aria-hidden="true">
     <span class="brand-visual-glow"></span>
-    <span class="brand-visual-ring ring-a"></span>
-    <span class="brand-visual-ring ring-b"></span>
-    <div class="brand-logo-tile">
-      <img src="/icon.svg" alt="">
+    <div class="brand-logo-orbit">
+      @for (tech of orbitTechLogos; track tech.name) {
+        <span
+          class="brand-orbit-item"
+          [style.--orbit-angle]="tech.angle"
+          [style.--orbit-counter-angle]="tech.counterAngle"
+        >
+          <span class="brand-orbit-badge">
+            @if (tech.icon; as icon) {
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path [attr.d]="icon.path" [attr.fill]="logoColor(tech)"></path>
+              </svg>
+            } @else {
+              <span class="brand-orbit-mark" [style.color]="tech.color">{{ tech.mark }}</span>
+            }
+          </span>
+        </span>
+      }
     </div>
-    <span class="brand-visual-label">TB Builds</span>
+    <div class="brand-logo-tile">
+      <img src="/tb-monogram.svg" alt="">
+    </div>
   </div>
 
 </section>

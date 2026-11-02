@@ -43,7 +43,7 @@
         class="theme-dropdown-btn"
         (click)="openDropdown($event)"
         [title]="activeThemeEntry().label"
-        aria-label="Select theme"
+        [attr.aria-label]="t().nav.style"
       >
         <mat-icon>{{ activeThemeEntry().icon }}</mat-icon>
         <span class="theme-swatches-mini">
@@ -107,32 +107,39 @@
         {{ t().nav.downloadApps }}
       </a>
 
-      <!-- Mobile theme picker -->
-      <div class="mobile-theme-picker">
-        @for (theme of themes; track theme.value) {
-          <button
-            class="mobile-theme-option"
-            [class.active]="currentTheme() === theme.value"
-            (click)="selectTheme(theme.value, $event); closeMenu()"
-          >
-            <span class="theme-swatches">
-              <span class="swatch" [style.background]="theme.c1"></span>
-              <span class="swatch" [style.background]="theme.c2"></span>
-            </span>
-            <mat-icon>{{ theme.icon }}</mat-icon>
-            <span>{{ theme.label }}</span>
-            @if (currentTheme() === theme.value) {
-              <mat-icon class="theme-check">check</mat-icon>
-            }
-          </button>
-        }
-      </div>
-
-      <!-- Mobile lang selector -->
-      <div class="mobile-lang">
-        <button class="lang-btn" [class.active]="currentLang() === 'de'" (click)="setLang('de')">DE</button>
-        <span class="lang-divider">|</span>
-        <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="setLang('en')">EN</button>
+      <!-- Mobile appearance and language selectors -->
+      <div class="mobile-settings">
+        <label class="mobile-setting">
+          <span class="mobile-setting-label">{{ t().nav.style }}</span>
+          <span class="mobile-select-wrap">
+            <select
+              class="mobile-select"
+              [attr.aria-label]="t().nav.style"
+              (change)="selectMobileTheme($event)"
+            >
+              @for (theme of themes; track theme.value) {
+                <option [value]="theme.value" [selected]="currentTheme() === theme.value">
+                  {{ theme.label }}
+                </option>
+              }
+            </select>
+            <mat-icon aria-hidden="true">expand_more</mat-icon>
+          </span>
+        </label>
+        <label class="mobile-setting">
+          <span class="mobile-setting-label">{{ t().nav.language }}</span>
+          <span class="mobile-select-wrap">
+            <select
+              class="mobile-select"
+              [attr.aria-label]="t().nav.language"
+              (change)="selectMobileLanguage($event)"
+            >
+              <option value="de" [selected]="currentLang() === 'de'">Deutsch</option>
+              <option value="en" [selected]="currentLang() === 'en'">English</option>
+            </select>
+            <mat-icon aria-hidden="true">expand_more</mat-icon>
+          </span>
+        </label>
       </div>
     </div>
   }

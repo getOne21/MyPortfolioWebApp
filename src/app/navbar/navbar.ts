@@ -36,9 +36,9 @@ export class Navbar {
   ];
 
   themes: { value: Theme; label: string; icon: string; c1: string; c2: string }[] = [
-    { value: 'dark',       label: 'Dark',          icon: 'dark_mode',     c1: '#3b82f6', c2: '#27272a' },
-    { value: 'futuristic', label: 'Futuristic',    icon: 'auto_fix_high', c1: '#00d4ff', c2: '#7c3aed' },
-    { value: 'light',      label: 'White Blue',    icon: 'light_mode',    c1: '#2563eb', c2: '#ffffff' },
+    { value: 'dark',       label: 'Dark',       icon: 'dark_mode',     c1: '#3b82f6', c2: '#27272a' },
+    { value: 'futuristic', label: 'Futuristic', icon: 'auto_fix_high', c1: '#00d4ff', c2: '#7c3aed' },
+    { value: 'light',      label: 'White Blue', icon: 'light_mode',    c1: '#2563eb', c2: '#ffffff' },
   ];
 
   activeThemeEntry = computed(() =>
@@ -73,5 +73,22 @@ export class Navbar {
     e.stopPropagation();
     this.theme.setTheme(t);
     this.dropdownOpen.set(false);
+  }
+
+  selectMobileTheme(e: Event) {
+    const selectedValue = (e.target as HTMLSelectElement).value;
+    const selectedTheme = this.themes.find(theme => theme.value === selectedValue);
+    if (!selectedTheme) return;
+
+    this.selectTheme(selectedTheme.value, e);
+    this.closeMenu();
+  }
+
+  selectMobileLanguage(e: Event) {
+    const selectedLanguage = (e.target as HTMLSelectElement).value;
+    if (selectedLanguage !== 'en' && selectedLanguage !== 'de') return;
+
+    this.closeMenu();
+    this.setLang(selectedLanguage);
   }
 }

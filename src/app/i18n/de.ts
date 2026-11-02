@@ -45,13 +45,15 @@ export const de: AppTranslations = {
     privacy: 'Datenschutz',
     imprint: 'Impressum',
     downloadApps: 'Apps herunterladen',
+    style: 'Stil',
+    language: 'Sprache',
   },
 
   hero: {
-    title1: 'Durchdachte Software',
-    title2: 'für den Alltag',
+    title1: 'Für den Alltag gebaut.',
+    title2: 'Auch für meinen.',
     subtitle:
-      'Praktische Desktop- und Mobile-Apps, die alltägliche Aufgaben einfacher machen.',
+      'Ich entwickle praktische Software für den Alltag – und nutze sie auch selbst.',
     exploreProjects: 'Projekte entdecken',
     aboutMe: 'Über mich',
   },
