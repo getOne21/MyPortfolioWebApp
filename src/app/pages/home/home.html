@@ -7,6 +7,7 @@
     <div class="orb orb-3"></div>
   </div>
   <div class="hero-content">
+    <span class="hero-kicker">TB Builds</span>
     <h1 class="hero-title">
       {{ t().hero.title1 }}<br>
       <span class="gradient-text">{{ t().hero.title2 }}</span>
@@ -17,11 +18,21 @@
         <mat-icon>apps</mat-icon>
         {{ t().hero.exploreProjects }}
       </a>
-      <a mat-stroked-button [routerLink]="['/', t().lang, 'terms']" class="btn-secondary">
-        <mat-icon>gavel</mat-icon>
-        {{ t().hero.termsConditions }}
+      <a mat-stroked-button [routerLink]="['/', t().lang, 'about']" class="btn-secondary">
+        <mat-icon>person</mat-icon>
+        {{ t().hero.aboutMe }}
       </a>
     </div>
+  </div>
+
+  <div class="hero-brand-visual" aria-hidden="true">
+    <span class="brand-visual-glow"></span>
+    <span class="brand-visual-ring ring-a"></span>
+    <span class="brand-visual-ring ring-b"></span>
+    <div class="brand-logo-tile">
+      <img src="/icon.svg" alt="">
+    </div>
+    <span class="brand-visual-label">TB Builds</span>
   </div>
 
 </section>
@@ -72,8 +83,8 @@
             <div class="slide-actions">
               <a class="btn-slide-primary" [routerLink]="['/', t().lang, 'projects']"
                  [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
-                <mat-icon>download</mat-icon>
-                {{ t().carousel.download }}
+                <mat-icon>arrow_outward</mat-icon>
+                {{ t().carousel.viewProject }}
               </a>
               <span class="slide-version">v{{ app.version }}</span>
             </div>

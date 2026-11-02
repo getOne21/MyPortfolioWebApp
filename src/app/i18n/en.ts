@@ -53,14 +53,14 @@ export const en: AppTranslations = {
     subtitle:
       'Practical desktop and mobile apps, designed to make everyday tasks simpler.',
     exploreProjects: 'Explore Projects',
-    termsConditions: 'Terms & Conditions',
+    aboutMe: 'About Me',
   },
 
   carousel: {
     tag: 'Featured',
     title: 'Spotlight Apps',
     subtitle: 'Hand-picked highlights from my portfolio',
-    download: 'Download',
+    viewProject: 'View project',
     new: 'New',
   },
 

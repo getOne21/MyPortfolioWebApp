@@ -25,14 +25,14 @@ export interface AppTranslations {
     title2: string;
     subtitle: string;
     exploreProjects: string;
-    termsConditions: string;
+    aboutMe: string;
   };
 
   carousel: {
     tag: string;
     title: string;
     subtitle: string;
-    download: string;
+    viewProject: string;
     new: string;
   };
 
