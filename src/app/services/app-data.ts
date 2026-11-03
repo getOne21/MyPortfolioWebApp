@@ -22,7 +22,7 @@ export class AppDataService {
         { src: '/apps/bridgely/screenshots/windows-settings.webp', captionKey: 'settings' },
       ],
       downloads: [
-        { platform: 'windows', url: '#' },
+        { platform: 'windows', url: 'https://apps.microsoft.com/detail/9NP0LBQ9G14T?hl=en-us&gl=DE&ocid=pdpshare' },
         { platform: 'android', url: '#' },
         { platform: 'ios', comingSoon: true },
         { platform: 'macos', comingSoon: true },

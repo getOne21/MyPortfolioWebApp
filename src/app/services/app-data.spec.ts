@@ -29,6 +29,15 @@ describe('AppDataService', () => {
     );
   });
 
+  it('links Bridgely for Windows to its Microsoft Store listing', () => {
+    expect(svc.getById(1)?.downloads).toContainEqual(
+      expect.objectContaining({
+        platform: 'windows',
+        url: 'https://apps.microsoft.com/detail/9NP0LBQ9G14T?hl=en-us&gl=DE&ocid=pdpshare',
+      }),
+    );
+  });
+
   it('marks Bridgely iPhone and macOS downloads as coming soon', () => {
     const comingSoon = svc.getById(1)?.downloads.filter(download => download.comingSoon);
     expect(comingSoon?.map(download => download.platform)).toEqual(['ios', 'macos']);
