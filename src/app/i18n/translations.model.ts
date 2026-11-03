@@ -57,6 +57,7 @@ export interface AppTranslations {
     subtitle: string;
     filterAll: string;
     downloadLabel: string;
+    comingSoon: string;
     aboutLabel: string;
     featuresLabel: string;
     releasedLabel: string;

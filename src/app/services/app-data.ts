@@ -24,8 +24,8 @@ export class AppDataService {
       downloads: [
         { platform: 'windows', url: '#' },
         { platform: 'android', url: '#' },
-        { platform: 'ios', url: '#' },
-        { platform: 'macos', url: '#' },
+        { platform: 'ios', comingSoon: true },
+        { platform: 'macos', comingSoon: true },
       ],
     },
     {

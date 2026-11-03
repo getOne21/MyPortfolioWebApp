@@ -85,6 +85,7 @@ export const de: AppTranslations = {
     subtitle: 'Alle entwickelten Anwendungen – wähle deine Plattform und lade sofort herunter.',
     filterAll: 'Alle',
     downloadLabel: 'Herunterladen',
+    comingSoon: 'Demnächst verfügbar',
     aboutLabel: 'Über die App',
     featuresLabel: 'Hauptfunktionen',
     releasedLabel: 'Veröffentlicht',

@@ -51,7 +51,7 @@
   font-size: 17px;
   font-weight: 900;
   letter-spacing: -1.5px;
-  transition: transform 220ms cubic-bezier(0.2, 0.75, 0.3, 1), box-shadow 220ms ease;
+  transition: all 250ms ease;
 }
 
 .logo-word {
@@ -64,8 +64,8 @@
 
 .nav-logo:hover {
   .logo-mark {
-    transform: translateY(-2px) rotate(-6deg) scale(1.08);
-    box-shadow: 0 0 22px color-mix(in srgb, var(--accent-1) 38%, transparent);
+    transform: translateY(-3px) rotate(-8deg) scale(1.12);
+    box-shadow: 0 0 26px color-mix(in srgb, var(--accent-1) 45%, transparent);
   }
   .logo-word { color: var(--accent-1); }
 }

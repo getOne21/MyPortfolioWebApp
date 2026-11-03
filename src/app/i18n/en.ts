@@ -85,6 +85,7 @@ export const en: AppTranslations = {
     subtitle: 'All applications I\'ve built — pick your platform and download in seconds.',
     filterAll: 'All',
     downloadLabel: 'Download',
+    comingSoon: 'Coming soon',
     aboutLabel: 'About',
     featuresLabel: 'Key Features',
     releasedLabel: 'Released',

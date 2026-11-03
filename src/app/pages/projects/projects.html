@@ -79,21 +79,38 @@
           </h4>
           <div class="download-grid">
             @for (dl of app.downloads; track dl.platform) {
-              <a
-                [href]="dl.url"
-                class="download-btn"
-                [class]="dl.platform"
-                [attr.aria-label]="t().projects.downloadLabel + ' ' + app.name + ' – ' + getPlatformLabel(dl.platform)"
-              >
-                <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
-                <span class="dl-info">
-                  <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
-                  @if (dl.fileSize) {
-                    <span class="dl-size">{{ dl.fileSize }}</span>
-                  }
-                </span>
-                <mat-icon class="dl-arrow">download</mat-icon>
-              </a>
+              @if (dl.comingSoon) {
+                <button
+                  type="button"
+                  class="download-btn coming-soon"
+                  [class]="dl.platform"
+                  disabled
+                  [attr.aria-label]="app.name + ' — ' + getPlatformLabel(dl.platform) + ' — ' + t().projects.comingSoon"
+                >
+                  <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
+                  <span class="dl-info">
+                    <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
+                    <span class="dl-status">{{ t().projects.comingSoon }}</span>
+                  </span>
+                  <mat-icon class="coming-soon-icon" aria-hidden="true">schedule</mat-icon>
+                </button>
+              } @else {
+                <a
+                  [href]="dl.url"
+                  class="download-btn"
+                  [class]="dl.platform"
+                  [attr.aria-label]="t().projects.downloadLabel + ' ' + app.name + ' – ' + getPlatformLabel(dl.platform)"
+                >
+                  <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
+                  <span class="dl-info">
+                    <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
+                    @if (dl.fileSize) {
+                      <span class="dl-size">{{ dl.fileSize }}</span>
+                    }
+                  </span>
+                  <mat-icon class="dl-arrow">download</mat-icon>
+                </a>
+              }
             }
           </div>
         </div>

@@ -2,8 +2,9 @@ export type Platform = 'windows' | 'android' | 'ios' | 'macos' | 'linux';
 
 export interface AppDownload {
   platform: Platform;
-  url: string;
+  url?: string;
   fileSize?: string;
+  comingSoon?: boolean;
 }
 
 export interface AppProjectCopy {

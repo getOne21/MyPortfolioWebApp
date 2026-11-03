@@ -29,6 +29,12 @@ describe('AppDataService', () => {
     );
   });
 
+  it('marks Bridgely iPhone and macOS downloads as coming soon', () => {
+    const comingSoon = svc.getById(1)?.downloads.filter(download => download.comingSoon);
+    expect(comingSoon?.map(download => download.platform)).toEqual(['ios', 'macos']);
+    expect(comingSoon?.every(download => download.url === undefined)).toBe(true);
+  });
+
   it('includes the Windows screenshot gallery for Bridgely', () => {
     expect(svc.getById(1)?.screenshots).toHaveLength(3);
   });
