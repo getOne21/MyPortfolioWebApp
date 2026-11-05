@@ -69,6 +69,9 @@ export interface AppTranslations {
       pairing: string;
       more: string;
       settings: string;
+      scientific: string;
+      graphing: string;
+      programmer: string;
     };
   };
 

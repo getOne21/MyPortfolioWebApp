@@ -42,6 +42,25 @@ export class AppDataService {
         { platform: 'android', url: '#' },
       ],
     },
+    {
+      id: 3,
+      name: 'Calctron',
+      category: 'Utilities',
+      version: '1.0.0',
+      icon: '/apps/calctron.png',
+      colorAccent: '#BA4B2F',
+      gradientStart: '#20372D',
+      gradientEnd: '#425D4B',
+      screenshots: [
+        { src: '/apps/calctron/screenshots/scientific.webp', captionKey: 'scientific' },
+        { src: '/apps/calctron/screenshots/graphing.webp', captionKey: 'graphing' },
+        { src: '/apps/calctron/screenshots/programmer.webp', captionKey: 'programmer' },
+      ],
+      downloads: [
+        { platform: 'windows', url: '#' },
+        { platform: 'android', comingSoon: true },
+      ],
+    },
   ];
 
   getAll(): AppProject[] {

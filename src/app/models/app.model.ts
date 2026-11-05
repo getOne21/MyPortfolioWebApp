@@ -15,7 +15,13 @@ export interface AppProjectCopy {
   features: string[];
 }
 
-export type ProjectScreenshotKey = 'pairing' | 'more' | 'settings';
+export type ProjectScreenshotKey =
+  | 'pairing'
+  | 'more'
+  | 'settings'
+  | 'scientific'
+  | 'graphing'
+  | 'programmer';
 
 export interface ProjectScreenshot {
   src: string;

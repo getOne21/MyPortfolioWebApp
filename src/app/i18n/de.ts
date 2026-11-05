@@ -35,6 +35,23 @@ export const de: AppTranslations = {
         'Windows-Infobereich-Integration und Drag-and-drop-Uploads',
       ],
     },
+    3: {
+      tagline: 'Wissenschaftlicher Rechner mit Graphen, Programmierfunktionen und Retro-Instrumentenlook.',
+      description:
+        'Calctron vereint wissenschaftliche Berechnungen, Funktionsgraphen, Programmieroperationen, Matrizen, Einheitenumrechnung und einen privaten Verlauf in einer nativen Windows-App.',
+      longDescription:
+        'Calctron ist ein nativer Windows-Wissenschaftsrechner im Stil eines Präzisionsinstruments. Er verarbeitet bearbeitbare Ausdrücke, komplexe Zahlen, Variablen und Speicherwerte; zeichnet bis zu vier Funktionen mit numerischen Nullstellen und Schnittpunkten; bietet Programmierwerkzeuge für vier Zahlensysteme; berechnet Matrizen bis 8 × 8 und rechnet Einheiten aus acht Kategorien um. Der Offline-Verlauf speichert die letzten 100 Berechnungen; abgerufene Ausdrücke werden nie automatisch ausgeführt. Kein Konto, keine Cloud-Synchronisierung, Analyse- oder KI-Dienste. Eine Android-Version ist geplant.',
+      tags: ['Windows', 'Wissenschaftlicher Rechner', 'Graphen', 'Programmierfunktionen', 'Matrizen', '.NET MAUI', 'Offline'],
+      features: [
+        'Wissenschaftliche Ausdrücke mit komplexen Zahlen, Variablen und Speicher',
+        'Bis zu vier Funktionen zeichnen und mit Zoom, Nullstellen und Schnittpunkten untersuchen',
+        'Programmierwerkzeuge mit BIN/OCT/DEC/HEX und 8–64-Bit-Wörtern',
+        'Matrixoperationen und lineare Gleichungssysteme bis 8 × 8',
+        'Einheiten für Länge, Masse, Temperatur, Fläche, Volumen, Geschwindigkeit, Zeit und Daten umrechnen',
+        'Offline-Verlauf der letzten 100 Berechnungen mit Kopieren und erneutem Aufrufen',
+        'Kein Konto, keine Cloud-Synchronisierung, Analyse- oder KI-Dienste',
+      ],
+    },
   },
 
   nav: {
@@ -69,7 +86,7 @@ export const de: AppTranslations = {
   allApps: {
     tag: 'Alle Projekte',
     title: 'Die komplette Sammlung',
-    subtitle: 'Alle veröffentlichten Apps – für deine Plattform herunterladen',
+    subtitle: 'Entdecke meine Apps und informiere dich über die unterstützten Plattformen.',
     viewAll: 'Alle Projekte & Downloads anzeigen',
   },
 
@@ -82,7 +99,7 @@ export const de: AppTranslations = {
   projects: {
     pageTag: 'Meine Arbeit',
     title: 'Projekte & Downloads',
-    subtitle: 'Alle entwickelten Anwendungen – wähle deine Plattform und lade sofort herunter.',
+    subtitle: 'Entdecke meine Software und informiere dich über die unterstützten Plattformen.',
     filterAll: 'Alle',
     downloadLabel: 'Herunterladen',
     comingSoon: 'Demnächst verfügbar',
@@ -97,6 +114,9 @@ export const de: AppTranslations = {
       pairing: 'Kopplungsansicht — QR-Code unkenntlich gemacht',
       more: 'Menü „Mehr“',
       settings: 'Einstellungen und Gerätefunktionen',
+      scientific: 'Wissenschaftlicher Rechner mit bearbeitbarem Ausdruck und Berechnungsverlauf',
+      graphing: 'Funktionsgraphen mit Spur, Zoom und dauerhaft sichtbarem Verlauf',
+      programmer: 'Programmierwerkzeuge mit Zahlensystemumrechnung und interaktivem Bitfeld',
     },
   },
 
@@ -319,7 +339,7 @@ export const de: AppTranslations = {
       projects: {
         title: 'Softwareprojekte & Apps',
         description:
-          'Entdecke Bridgely und xConnect File Manager, praktische Softwareprojekte von Tobias Brörmann für Windows und Android.',
+          'Entdecke Calctron, Bridgely und xConnect File Manager – Windows-Software von Tobias Brörmann; Calctron für Android ist in Entwicklung.',
       },
       terms: {
         title: 'Nutzungsbedingungen',

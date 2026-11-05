@@ -375,7 +375,7 @@
 
   img {
     display: block;
-    height: 400px;
+    height: 240px;
     width: auto;
     border: 1px solid rgba(var(--tint-rgb), 0.1);
     border-radius: 12px;
@@ -388,6 +388,10 @@
     font-size: 12px;
     text-align: center;
   }
+}
+
+@media (max-width: 600px) {
+  .screenshot-card img { height: 180px; }
 }
 
 @keyframes slide-down {

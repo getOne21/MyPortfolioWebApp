@@ -56,4 +56,14 @@ describe('TranslationService', () => {
     svc.setLang('de');
     expect(svc.t().appProjects[2].description).toContain('Windows und Android');
   });
+
+  it('localizes Calctron and notes its planned Android release', () => {
+    const svc = TestBed.inject(TranslationService);
+    expect(svc.t().appProjects[3].description).toContain('native Windows app');
+    expect(svc.t().appProjects[3].longDescription).toContain('An Android release is planned');
+
+    svc.setLang('de');
+    expect(svc.t().appProjects[3].description).toContain('Windows-App');
+    expect(svc.t().appProjects[3].longDescription).toContain('Eine Android-Version ist geplant');
+  });
 });

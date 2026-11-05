@@ -35,6 +35,23 @@ export const en: AppTranslations = {
         'Windows tray integration and drag-and-drop uploads',
       ],
     },
+    3: {
+      tagline: 'A scientific calculator with graphing, programmer tools, and a vintage instrument look.',
+      description:
+        'Calctron brings scientific math, function graphing, programmer operations, matrices, unit conversion, and a private calculation tape into one native Windows app.',
+      longDescription:
+        'Calctron is a native Windows scientific calculator styled like a precision instrument. Work with editable expressions, complex numbers, variables, and memory; plot up to four functions and inspect numerical roots and intersections; use programmer tools across four number bases; calculate matrices up to 8 × 8; and convert units across eight categories. Its offline tape keeps the latest 100 calculations, and recalled expressions are never run automatically. No account, cloud sync, analytics, or AI service is required. An Android release is planned.',
+      tags: ['Windows', 'Scientific calculator', 'Graphing', 'Programmer tools', 'Matrices', '.NET MAUI', 'Offline'],
+      features: [
+        'Scientific expressions with complex numbers, variables, and memory',
+        'Plot and trace up to four functions, with zooming and numerical roots/intersections',
+        'Programmer workbench with BIN/OCT/DEC/HEX and 8–64-bit words',
+        'Matrix operations and linear systems up to 8 × 8',
+        'Unit conversion for length, mass, temperature, area, volume, speed, time, and data',
+        'Offline tape of the latest 100 calculations, with copy and recall',
+        'No account, cloud sync, analytics, or AI service',
+      ],
+    },
   },
 
   nav: {
@@ -69,7 +86,7 @@ export const en: AppTranslations = {
   allApps: {
     tag: 'All Projects',
     title: 'The Full Collection',
-    subtitle: 'Every app I\'ve shipped — download for your platform',
+    subtitle: 'Explore the apps I\'ve built and check platform availability.',
     viewAll: 'View All Projects & Downloads',
   },
 
@@ -82,7 +99,7 @@ export const en: AppTranslations = {
   projects: {
     pageTag: 'My Work',
     title: 'Projects & Downloads',
-    subtitle: 'All applications I\'ve built — pick your platform and download in seconds.',
+    subtitle: 'Browse the software I\'ve built and check which platforms are supported.',
     filterAll: 'All',
     downloadLabel: 'Download',
     comingSoon: 'Coming soon',
@@ -97,6 +114,9 @@ export const en: AppTranslations = {
       pairing: 'Pairing screen — QR code redacted',
       more: 'More menu',
       settings: 'Settings and device features',
+      scientific: 'Scientific calculator with an editable expression and calculation tape',
+      graphing: 'Function graphing with tracing, zooming, and a persistent calculation tape',
+      programmer: 'Programmer tools with number-base conversion and an interactive bit field',
     },
   },
 
@@ -319,7 +339,7 @@ export const en: AppTranslations = {
       projects: {
         title: 'Software Projects & Apps',
         description:
-          'Explore Bridgely and xConnect File Manager, practical software projects by Tobias Brörmann for Windows and Android.',
+          'Explore Calctron, Bridgely, and xConnect File Manager—Windows software by Tobias Brörmann, with Calctron for Android in development.',
       },
       terms: {
         title: 'Terms & Conditions',

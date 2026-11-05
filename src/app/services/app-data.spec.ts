@@ -54,4 +54,16 @@ describe('AppDataService', () => {
     expect(xConnect?.icon).toBe('/apps/xconnect.svg');
     expect(xConnect?.downloads.map(download => download.platform)).toEqual(['windows', 'android']);
   });
+
+  it('adds Calctron for Windows with Android marked as coming soon', () => {
+    const calctron = svc.getById(3);
+    expect(calctron?.name).toBe('Calctron');
+    expect(calctron?.version).toBe('1.0.0');
+    expect(calctron?.icon).toBe('/apps/calctron.png');
+    expect(calctron?.downloads).toEqual([
+      { platform: 'windows', url: '#' },
+      { platform: 'android', comingSoon: true },
+    ]);
+    expect(calctron?.screenshots).toHaveLength(3);
+  });
 });
