@@ -304,11 +304,12 @@ export const de: AppTranslations = {
 
   seo: {
     ogLocale: 'de_DE',
+    imageAlt: 'TB Builds, praktische Software von Tobias Brörmann',
     pages: {
       home: {
-        title: 'TB Builds — Desktop- & Mobile-Apps',
+        title: 'TB Builds — Software von Tobias Brörmann',
         description:
-          'Eigene Tools und Apps von Tobias Brörmann für Windows, macOS, Linux, Android und iPhone.',
+          'Praktische Desktop- und Mobile-Software von Tobias Brörmann – für den Alltag entwickelt und vom Entwickler selbst genutzt.',
       },
       about: {
         title: 'Über Tobias Brörmann',
@@ -316,9 +317,9 @@ export const de: AppTranslations = {
           'Full-Stack-Entwickler mit über 9 Jahren Enterprise-Erfahrung in .NET, Java, Python, JavaScript, TypeScript, Mobile-, Cloud- und Datenbanklösungen.',
       },
       projects: {
-        title: 'Projekte & Downloads',
+        title: 'Softwareprojekte & Apps',
         description:
-          'Alle Apps von Tobias Brörmann ansehen und für Windows, macOS, Linux, Android oder iPhone herunterladen.',
+          'Entdecke Bridgely und xConnect File Manager, praktische Softwareprojekte von Tobias Brörmann für Windows und Android.',
       },
       terms: {
         title: 'Nutzungsbedingungen',

@@ -149,6 +149,7 @@ export interface AppTranslations {
   /** Per-page document title / meta description and Open Graph locale */
   seo: {
     ogLocale: string;
+    imageAlt: string;
     pages: Record<'home' | 'about' | 'projects' | 'terms' | 'privacy' | 'imprint', SeoEntry>;
   };
 }

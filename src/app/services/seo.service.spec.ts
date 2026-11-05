@@ -20,12 +20,15 @@ describe('SeoService', () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/de/projects');
 
-    expect(document.title).toBe(`Projekte & Downloads | ${SITE.name}`);
-    expect(meta('name="description"')).toContain('Alle Apps');
+    expect(document.title).toBe(`Softwareprojekte & Apps | ${SITE.name}`);
+    expect(meta('name="description"')).toContain('Windows und Android');
     expect(meta('property="og:url"')).toBe(`${SITE.url}/de/projects`);
     expect(meta('property="og:locale"')).toBe('de_DE');
     expect(meta('property="og:image"')).toBe(SITE.url + SITE.ogImage);
+    expect(meta('property="og:image:type"')).toBe('image/png');
+    expect(meta('property="og:image:alt"')).toBe('TB Builds, praktische Software von Tobias Brörmann');
     expect(meta('name="twitter:card"')).toBe('summary_large_image');
+    expect(meta('name="twitter:image:alt"')).toBe('TB Builds, praktische Software von Tobias Brörmann');
   });
 
   it('sets canonical and hreflang links', async () => {

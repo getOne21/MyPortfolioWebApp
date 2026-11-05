@@ -34,6 +34,7 @@ export class SeoService {
     const fullTitle = page === 'home' ? title : `${title} | ${SITE.name}`;
     const pageUrl = (l: Lang) => `${SITE.url}/${l}/${page}`;
     const image = SITE.url + SITE.ogImage;
+    const imageAlt = seo.imageAlt;
     const otherLocales = LANGS.filter(l => l !== lang).map(l => (l === 'de' ? 'de_DE' : 'en_GB'));
 
     this.title.setTitle(fullTitle);
@@ -48,13 +49,16 @@ export class SeoService {
     this.meta.removeTag('property="og:locale:alternate"');
     otherLocales.forEach(l => this.meta.addTag({ property: 'og:locale:alternate', content: l }));
     this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ property: 'og:image:type', content: 'image/png' });
     this.meta.updateTag({ property: 'og:image:width', content: String(SITE.ogImageWidth) });
     this.meta.updateTag({ property: 'og:image:height', content: String(SITE.ogImageHeight) });
+    this.meta.updateTag({ property: 'og:image:alt', content: imageAlt });
 
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: fullTitle });
     this.meta.updateTag({ name: 'twitter:description', content: description });
     this.meta.updateTag({ name: 'twitter:image', content: image });
+    this.meta.updateTag({ name: 'twitter:image:alt', content: imageAlt });
 
     this.setLink('canonical', pageUrl(lang));
     LANGS.forEach(l => this.setLink('alternate', pageUrl(l), l));
