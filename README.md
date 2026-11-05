@@ -82,7 +82,7 @@ Production build output is written to `dist/portfolio/browser/` and can be hoste
   - Firebase / Vercel / Cloudflare Pages: rewrite all unmatched routes to `/index.csr.html`
   - GitHub Pages: copy `index.csr.html` to `404.html` after building
 
-Before the first deployment, replace `https://example.com` with the production domain in `src/app/site.config.ts`, `public/robots.txt`, and `public/sitemap.xml`.
+Canonical URLs and sitemap references use `https://tb-builds.com`. Keep `src/app/site.config.ts`, `public/robots.txt`, and `public/sitemap.xml` aligned if the production domain changes.
 
 ## Project layout
 

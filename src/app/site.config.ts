@@ -1,10 +1,9 @@
 /**
  * Site-wide constants used for canonical URLs, hreflang links and social previews.
- * TODO: replace `url` with the production domain before deploying
- * (also update public/robots.txt and public/sitemap.xml).
+ * Keep public/robots.txt and public/sitemap.xml aligned with this production origin.
  */
 export const SITE = {
-  url: 'https://example.com',
+  url: 'https://tb-builds.com',
   name: 'TB Builds',
   author: 'Tobias Brörmann',
   ogImage: '/og-image.png',

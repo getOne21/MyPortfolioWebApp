@@ -10,6 +10,10 @@ describe('SeoService', () => {
   const meta = (attr: string) => document.head.querySelector(`meta[${attr}]`)?.getAttribute('content');
   const link = (selector: string) => document.head.querySelector<HTMLLinkElement>(selector)?.href;
 
+  it('uses TB-Builds.com as the canonical production origin', () => {
+    expect(SITE.url).toBe('https://tb-builds.com');
+  });
+
   beforeEach(() => {
     localStorage.clear();
     TestBed.configureTestingModule({ providers: [provideRouter(routes)] });
