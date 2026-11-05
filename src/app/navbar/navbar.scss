@@ -340,6 +340,11 @@
   padding: 8px 16px 16px;
   border-top: 1px solid color-mix(in srgb, var(--accent-1) 8%, transparent);
   background: color-mix(in srgb, var(--bg-primary) 98%, transparent);
+  animation: mobile-menu-open 240ms ease-out both;
+}
+
+@keyframes mobile-menu-open {
+  from { opacity: 0; transform: translateY(-8px); }
 }
 
 .mobile-link {
@@ -450,6 +455,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .mobile-menu {
+    animation: none;
+  }
+
   .logo-mark { transition: none; }
   .nav-logo:hover .logo-mark {
     transform: none;
