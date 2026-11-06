@@ -23,7 +23,7 @@ export class AppDataService {
       ],
       downloads: [
         { platform: 'windows', url: 'https://apps.microsoft.com/detail/9NP0LBQ9G14T?hl=en-us&gl=DE&ocid=pdpshare' },
-        { platform: 'android', url: '#' },
+        { platform: 'android', comingSoon: true },
         { platform: 'ios', comingSoon: true },
         { platform: 'macos', comingSoon: true },
       ],
@@ -39,7 +39,7 @@ export class AppDataService {
       gradientEnd: '#1565c0',
       downloads: [
         { platform: 'windows', url: '#' },
-        { platform: 'android', url: '#' },
+        { platform: 'android', comingSoon: true },
       ],
     },
     {

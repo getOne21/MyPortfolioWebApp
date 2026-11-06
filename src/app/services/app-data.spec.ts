@@ -38,9 +38,9 @@ describe('AppDataService', () => {
     );
   });
 
-  it('marks Bridgely iPhone and macOS downloads as coming soon', () => {
+  it('marks Bridgely Android, iPhone, and macOS downloads as coming soon', () => {
     const comingSoon = svc.getById(1)?.downloads.filter(download => download.comingSoon);
-    expect(comingSoon?.map(download => download.platform)).toEqual(['ios', 'macos']);
+    expect(comingSoon?.map(download => download.platform)).toEqual(['android', 'ios', 'macos']);
     expect(comingSoon?.every(download => download.url === undefined)).toBe(true);
   });
 
@@ -48,11 +48,14 @@ describe('AppDataService', () => {
     expect(svc.getById(1)?.screenshots).toHaveLength(3);
   });
 
-  it('includes Windows and Android download entries for xConnect File Manager', () => {
+  it('marks Android as coming soon for xConnect File Manager', () => {
     const xConnect = svc.getById(2);
     expect(xConnect?.name).toBe('xConnect File Manager');
     expect(xConnect?.icon).toBe('/apps/xconnect.svg');
-    expect(xConnect?.downloads.map(download => download.platform)).toEqual(['windows', 'android']);
+    expect(xConnect?.downloads).toEqual([
+      { platform: 'windows', url: '#' },
+      { platform: 'android', comingSoon: true },
+    ]);
   });
 
   it('adds Calctron for Windows with Android marked as coming soon', () => {
