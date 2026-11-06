@@ -1,10 +1,18 @@
-import { Component, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  inject,
+  computed,
+  ChangeDetectionStrategy,
+  ElementRef,
+  viewChild,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
-import { AppProject, Platform } from '../../models/app.model';
+import { AppProject, Platform, ProjectScreenshot } from '../../models/app.model';
 
 @Component({
   selector: 'app-projects',
@@ -39,6 +47,8 @@ export class Projects {
   });
 
   expandedId = signal<number | null>(null);
+  activeScreenshot = signal<ProjectScreenshot | null>(null);
+  private screenshotDialog = viewChild<ElementRef<HTMLDialogElement>>('screenshotDialog');
 
   private readonly platformIcons: Record<Platform, string> = {
     windows: 'computer',
@@ -58,6 +68,36 @@ export class Projects {
     return (Object.entries(app.versions) as [Platform, string][])
       .map(([platform, version]) => `${this.getPlatformLabel(platform)} ${version}`)
       .join(' · ');
+  }
+
+  openScreenshot(screenshot: ProjectScreenshot): void {
+    this.activeScreenshot.set(screenshot);
+    const dialog = this.screenshotDialog()?.nativeElement;
+    if (!dialog || dialog.open) return;
+
+    try {
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+    } catch { /* Fall back when the platform does not implement showModal. */ }
+    if (!dialog.open) dialog.setAttribute('open', '');
+  }
+
+  closeScreenshot(): void {
+    const dialog = this.screenshotDialog()?.nativeElement;
+    if (!dialog?.open) return;
+
+    if (typeof dialog.close === 'function') {
+      try {
+        dialog.close();
+        if (!dialog.open) return;
+      } catch { /* Fall back when the platform does not implement close. */ }
+    }
+
+    dialog.removeAttribute('open');
+    this.activeScreenshot.set(null);
+  }
+
+  clearActiveScreenshot(): void {
+    this.activeScreenshot.set(null);
   }
 
   toggleExpand(id: number) { this.expandedId.update(v => (v === id ? null : id)); }

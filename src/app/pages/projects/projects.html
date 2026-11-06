@@ -76,11 +76,21 @@
           <div class="screenshot-strip">
             @for (screenshot of app.screenshots; track screenshot.src) {
               <figure class="screenshot-card">
-                <img
-                  [src]="screenshot.src"
-                  [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
-                  loading="lazy"
+                <button
+                  type="button"
+                  class="screenshot-trigger"
+                  (click)="openScreenshot(screenshot)"
+                  [attr.aria-label]="t().projects.viewScreenshot + ': ' + t().projects.screenshotCaptions[screenshot.captionKey]"
                 >
+                  <img
+                    [src]="screenshot.src"
+                    [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+                    loading="lazy"
+                  >
+                  <span class="screenshot-zoom-hint" aria-hidden="true">
+                    <mat-icon>zoom_in</mat-icon>
+                  </span>
+                </button>
                 <figcaption>{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</figcaption>
               </figure>
             }
@@ -175,3 +185,30 @@
     </div>
   }
 </div>
+
+<dialog
+  #screenshotDialog
+  class="screenshot-lightbox"
+  aria-labelledby="screenshot-lightbox-title"
+  [attr.aria-modal]="activeScreenshot() ? 'true' : null"
+  (close)="clearActiveScreenshot()"
+>
+  @if (activeScreenshot(); as screenshot) {
+    <div class="screenshot-lightbox-content">
+      <h2 id="screenshot-lightbox-title">{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</h2>
+      <button
+        type="button"
+        class="screenshot-lightbox-close"
+        [attr.aria-label]="t().projects.closeScreenshot"
+        (click)="closeScreenshot()"
+      >
+        <mat-icon aria-hidden="true">close</mat-icon>
+      </button>
+      <img
+        class="screenshot-lightbox-image"
+        [src]="screenshot.src"
+        [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+      >
+    </div>
+  }
+</dialog>

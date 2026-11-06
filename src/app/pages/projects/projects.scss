@@ -374,6 +374,23 @@
   margin: 0;
   scroll-snap-align: start;
 
+  .screenshot-trigger {
+    position: relative;
+    display: block;
+    width: fit-content;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    cursor: zoom-in;
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-1);
+      outline-offset: 3px;
+    }
+  }
+
   img {
     display: block;
     height: 240px;
@@ -381,6 +398,30 @@
     border: 1px solid rgba(var(--tint-rgb), 0.1);
     border-radius: 12px;
     background: var(--bg-deep);
+  }
+
+  .screenshot-zoom-hint {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.66);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 160ms ease, transform 160ms ease;
+    place-items: center;
+    pointer-events: none;
+  }
+
+  .screenshot-trigger:hover .screenshot-zoom-hint,
+  .screenshot-trigger:focus-visible .screenshot-zoom-hint {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   figcaption {
@@ -393,6 +434,77 @@
 
 @media (max-width: 600px) {
   .screenshot-card img { height: 180px; }
+}
+
+.screenshot-lightbox {
+  position: fixed;
+  inset: 0;
+  width: fit-content;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid color-mix(in srgb, var(--accent-1) 28%, transparent);
+  border-radius: 16px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+
+  &::backdrop {
+    background: rgba(4, 8, 15, 0.82);
+    backdrop-filter: blur(6px);
+  }
+
+  &[open] {
+    animation: screenshot-zoom-in 180ms ease-out both;
+  }
+}
+
+.screenshot-lightbox-content {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+
+  h2 {
+    margin: 0;
+    padding-right: 48px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.screenshot-lightbox-image {
+  display: block;
+  max-width: calc(96vw - 32px);
+  max-height: calc(90dvh - 80px);
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.screenshot-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--accent-1) 28%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg-secondary) 92%, transparent);
+  color: var(--text-primary);
+  cursor: pointer;
+  place-items: center;
+}
+
+@keyframes screenshot-zoom-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes slide-down {
@@ -472,5 +584,13 @@
     width: 48px;
     margin-bottom: 16px;
     display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screenshot-zoom-hint,
+  .screenshot-lightbox[open] {
+    transition: none;
+    animation: none;
   }
 }

@@ -113,6 +113,8 @@ export const de: AppTranslations = {
     new: 'Neu',
     version: 'Version',
     screenshotsTitle: 'Screenshots',
+    viewScreenshot: 'Screenshot in voller Größe anzeigen',
+    closeScreenshot: 'Screenshot schließen',
     screenshotCaptions: {
       pairing: 'Kopplungsansicht — QR-Code unkenntlich gemacht',
       more: 'Menü „Mehr“',

@@ -113,6 +113,8 @@ export const en: AppTranslations = {
     new: 'New',
     version: 'Version',
     screenshotsTitle: 'Screenshots',
+    viewScreenshot: 'View full-size screenshot',
+    closeScreenshot: 'Close screenshot',
     screenshotCaptions: {
       pairing: 'Pairing screen — QR code redacted',
       more: 'More menu',

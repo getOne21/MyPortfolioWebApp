@@ -51,4 +51,24 @@ describe('Projects page screenshots', () => {
     expect(calctronCard?.querySelectorAll('.screenshot-card img')).toHaveLength(3);
     expect(calctronCard?.querySelector('.expanded-content')).toBeNull();
   });
+
+  it('opens a screenshot in a zoom dialog and closes it with the dialog control', () => {
+    const fixture = TestBed.createComponent(Projects);
+    fixture.detectChanges();
+
+    const trigger = fixture.nativeElement.querySelector('.screenshot-trigger') as HTMLButtonElement;
+    trigger.click();
+    fixture.detectChanges();
+
+    const dialog = fixture.nativeElement.querySelector('.screenshot-lightbox') as HTMLDialogElement;
+    expect(dialog.open).toBe(true);
+    expect(dialog.querySelector('.screenshot-lightbox-image')).not.toBeNull();
+
+    const closeButton = dialog.querySelector('.screenshot-lightbox-close') as HTMLButtonElement;
+    closeButton.click();
+    fixture.detectChanges();
+
+    expect(dialog.open).toBe(false);
+    expect(fixture.componentInstance.activeScreenshot()).toBeNull();
+  });
 });

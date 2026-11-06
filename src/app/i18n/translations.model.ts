@@ -65,6 +65,8 @@ export interface AppTranslations {
     new: string;
     version: string;
     screenshotsTitle: string;
+    viewScreenshot: string;
+    closeScreenshot: string;
     screenshotCaptions: {
       pairing: string;
       more: string;
