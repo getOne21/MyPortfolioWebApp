@@ -57,7 +57,7 @@ export class AppDataService {
         { src: '/apps/calctron/screenshots/programmer.webp', captionKey: 'programmer' },
       ],
       downloads: [
-        { platform: 'windows', url: '#' },
+        { platform: 'windows', url: 'https://apps.microsoft.com/detail/9NBCXLJ789W2?hl=en-us&gl=DE&ocid=pdpshare' },
         { platform: 'android', comingSoon: true },
       ],
     },

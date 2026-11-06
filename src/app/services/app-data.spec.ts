@@ -61,7 +61,10 @@ describe('AppDataService', () => {
     expect(calctron?.version).toBe('1.0.0');
     expect(calctron?.icon).toBe('/apps/calctron.png');
     expect(calctron?.downloads).toEqual([
-      { platform: 'windows', url: '#' },
+      {
+        platform: 'windows',
+        url: 'https://apps.microsoft.com/detail/9NBCXLJ789W2?hl=en-us&gl=DE&ocid=pdpshare',
+      },
       { platform: 'android', comingSoon: true },
     ]);
     expect(calctron?.screenshots).toHaveLength(3);
