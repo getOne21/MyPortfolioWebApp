@@ -72,6 +72,9 @@ export interface AppTranslations {
       scientific: string;
       graphing: string;
       programmer: string;
+      xconnectConnection: string;
+      xconnectProfiles: string;
+      xconnectSettings: string;
     };
   };
 

@@ -21,7 +21,10 @@ export type ProjectScreenshotKey =
   | 'settings'
   | 'scientific'
   | 'graphing'
-  | 'programmer';
+  | 'programmer'
+  | 'xconnectConnection'
+  | 'xconnectProfiles'
+  | 'xconnectSettings';
 
 export interface ProjectScreenshot {
   src: string;
@@ -32,7 +35,7 @@ export interface AppProject {
   id: number;
   name: string;
   category: string;
-  version: string;
+  versions: Partial<Record<Platform, string>>;
   releaseDate?: string;
   downloads: AppDownload[];
   screenshots?: ProjectScreenshot[];

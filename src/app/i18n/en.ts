@@ -4,35 +4,38 @@ export const en: AppTranslations = {
   lang: 'en',
   appProjects: {
     1: {
-      tagline: 'Continuity between your Android phone or iPhone and your computer.',
+      tagline: 'Keep your Android phone or iPhone connected to your Mac or Windows PC.',
       description:
-        'Link Android and iPhone with your Mac or Windows PC. Sync clipboard content and send files and screenshots to one or all connected computers. Android also supports notification-based 2FA forwarding and screen mirroring.',
-      longDescription: 'Bridgely connects Android and iPhone with macOS and Windows. Clipboard sync works both ways; on iPhone, it is available while the app is active because iOS limits background access. Send clipboard content, files, and screenshots to one selected computer or all connected computers. Android can also forward one-time codes from notifications, share battery status, and mirror its screen via scrcpy. Pair devices by QR code; connections use ephemeral P-256 ECDH and AES-256-GCM encryption over the local network. Built with C# and .NET MAUI.',
+        'Sync clipboard content both ways and send files or screenshots to one or all connected computers. Android adds notification-code forwarding, battery sharing, and a home-screen widget; mirror the Android screen on Mac or Windows with scrcpy. iPhone clipboard access requires Bridgely to be open.',
+      longDescription:
+        'Bridgely 1.2 connects Android and iPhone with Mac and Windows. Both desktop apps share clipboard history, file transfer, phone status, and Android screen mirroring via scrcpy. Send clipboard items, files, and screenshots to one selected computer or all connected computers. Android adds a foreground service, notification-based one-time-code forwarding, a Quick Settings tile, and a home-screen widget. iPhone clipboard and network access work while the app is active, as iOS restricts background activity. Interrupted transfers resume after a network reconnect while both apps stay open. Pair devices by QR code; local-network sessions use ephemeral P-256 ECDH and AES-256-GCM. Clipboard history is opt-in and encrypted on-device, with retention controls. Built with C# and .NET MAUI.',
       tags: ['Productivity', '.NET MAUI', 'End-to-end encryption', 'Cross-platform'],
       features: [
-        'Two-way clipboard sync and history',
-        'Send files and screenshots to one or all connected computers',
-        'Phone battery status in the menu bar or system tray',
-        'Forward Android notification codes to your clipboard',
-        'QR-code device pairing',
-        'Android screen mirroring via scrcpy',
+        'Two-way clipboard sync with optional, encrypted on-device history',
+        'Send clipboard items, files, and screenshots to one or all connected computers',
+        'Android one-time-code forwarding and phone battery sharing',
+        'Android Quick Settings tile and home-screen widget',
+        'Mirror an Android screen on Mac or Windows with scrcpy',
+        'Resume interrupted transfers after reconnecting while both apps remain open',
+        'QR-code pairing with encrypted local-network connections',
       ],
     },
     2: {
-      tagline: 'A polished, multi-tab NAS file manager for Windows and Android.',
+      tagline: 'Windows-first NAS file management with multi-tab sessions and a capable transfer queue.',
       description:
-        'Browse, transfer, and manage NAS files over WebDAV, FTP, and FTPS on Windows and Android, with multi-tab connections, media previews, and in-place text editing.',
-      longDescription: 'xConnect File Manager is a cross-platform NAS file manager for Windows and Android, built with .NET MAUI. Connect to WebDAV, FTP, and FTPS servers; keep multiple connections open in independent tabs; browse files in list or grid view with sorting, filters, and pinned folders; and upload or download with progress tracking. It also includes an image, video, and audio viewer and an in-place text editor. The Windows version adds tray integration and drag-and-drop uploads. Saved connection profiles use the platform credential store.',
-      tags: ['Windows', 'Android', '.NET MAUI', 'NAS', 'WebDAV', 'FTP', 'FTPS'],
+        'Connect to WebDAV, FTP, FTPS, or SFTP. Discover NAS devices on your network, manage independent tabs, search and filter files, queue transfers, and preview media or edit text files.',
+      longDescription:
+        'xConnect File Manager is a Windows-first NAS client built with .NET MAUI. Connect to WebDAV, FTP, FTPS, and SFTP servers; discover compatible devices on the local network; and keep independent connections open in tabs. Browse list or grid views with search, filters, sorting, pinned folders, paging, latency, and storage information. Batch file operations include undo for recent renames and moves. The transfer queue supports progress, speed, pause/resume, retry, time estimates, and conflict handling. Preview images, stream audio and video, and edit text files in place. Windows adds tray integration, drag-and-drop uploads, and completion notifications. Android support is in development.',
+      tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Multi-tab', 'Transfers', '.NET MAUI'],
       features: [
-        'Windows and Android support',
-        'Multi-tab connections with independent sessions',
-        'WebDAV, FTP, and FTPS support',
-        'List and grid views with sorting, filters, and pinned folders',
-        'Batch create, rename, copy, move, and delete operations',
-        'Uploads and downloads with progress and speed tracking',
-        'Image, video, and audio viewer plus in-place text editing',
-        'Windows tray integration and drag-and-drop uploads',
+        'Windows release available; Android support is in development',
+        'WebDAV, FTP, FTPS, and SFTP connections',
+        'Local NAS discovery and encrypted saved profiles',
+        'Independent tabs, list/grid views, search, filters, paging, and pinned folders',
+        'Batch file operations with undo for recent renames and moves',
+        'Queued transfers with progress, speed, pause/resume, retry, and conflict handling',
+        'Image slideshow, audio/video streaming, and in-place text editor',
+        'Windows tray, drag-and-drop uploads, and transfer notifications',
       ],
     },
     3: {
@@ -117,6 +120,9 @@ export const en: AppTranslations = {
       scientific: 'Scientific calculator with an editable expression and calculation tape',
       graphing: 'Function graphing with tracing, zooming, and a persistent calculation tape',
       programmer: 'Programmer tools with number-base conversion and an interactive bit field',
+      xconnectConnection: 'Connect to WebDAV, FTP, FTPS, or SFTP servers',
+      xconnectProfiles: 'Manage saved server profiles and discover NAS devices',
+      xconnectSettings: 'Configure appearance, language, workspace, and app lock',
     },
   },
 
@@ -339,7 +345,7 @@ export const en: AppTranslations = {
       projects: {
         title: 'Software Projects & Apps',
         description:
-          'Explore Calctron, Bridgely, and xConnect File Manager—Windows software by Tobias Brörmann, with Calctron for Android in development.',
+          'Explore Calctron, Bridgely, and xConnect File Manager by Tobias Brörmann. xConnect supports WebDAV, FTP, FTPS, and SFTP; Android releases are in development.',
       },
       terms: {
         title: 'Terms & Conditions',

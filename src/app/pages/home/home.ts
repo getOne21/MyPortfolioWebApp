@@ -20,7 +20,7 @@ import {
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
 import { MotionPreferenceService } from '../../services/motion-preference.service';
-import { AppProject } from '../../models/app.model';
+import { AppProject, Platform } from '../../models/app.model';
 
 interface OrbitTechDefinition {
   name: string;
@@ -82,6 +82,12 @@ export class Home implements OnDestroy {
     if (tech.color) return tech.color;
     const hex = tech.icon?.hex ?? 'FFFFFF';
     return hex === '000000' || hex === '0F0F11' ? 'var(--text-primary)' : `#${hex}`;
+  }
+
+  versionSummary(app: AppProject): string {
+    return (Object.entries(app.versions) as [Platform, string][])
+      .map(([platform, version]) => `${this.ts.t().platforms[platform]} ${version}`)
+      .join(' · ');
   }
 
   constructor() {

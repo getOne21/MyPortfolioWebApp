@@ -27,6 +27,7 @@ describe('AppDataService', () => {
     expect(svc.getById(1)?.downloads).toContainEqual(
       expect.objectContaining({ platform: 'ios' }),
     );
+    expect(svc.getById(1)?.versions).toEqual({ windows: '1.0', android: '1.2' });
   });
 
   it('links Bridgely for Windows to its Microsoft Store listing', () => {
@@ -48,10 +49,12 @@ describe('AppDataService', () => {
     expect(svc.getById(1)?.screenshots).toHaveLength(3);
   });
 
-  it('marks Android as coming soon for xConnect File Manager', () => {
+  it('includes xConnect screenshots and marks Android as coming soon', () => {
     const xConnect = svc.getById(2);
     expect(xConnect?.name).toBe('xConnect File Manager');
     expect(xConnect?.icon).toBe('/apps/xconnect.svg');
+    expect(xConnect?.versions).toEqual({ windows: '1.0' });
+    expect(xConnect?.screenshots).toHaveLength(3);
     expect(xConnect?.downloads).toEqual([
       { platform: 'windows', url: '#' },
       { platform: 'android', comingSoon: true },
@@ -61,7 +64,7 @@ describe('AppDataService', () => {
   it('adds Calctron for Windows with Android marked as coming soon', () => {
     const calctron = svc.getById(3);
     expect(calctron?.name).toBe('Calctron');
-    expect(calctron?.version).toBe('1.0.0');
+    expect(calctron?.versions).toEqual({ windows: '1.0.0' });
     expect(calctron?.icon).toBe('/apps/calctron.png');
     expect(calctron?.downloads).toEqual([
       {

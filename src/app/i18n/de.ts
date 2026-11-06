@@ -4,35 +4,38 @@ export const de: AppTranslations = {
   lang: 'de',
   appProjects: {
     1: {
-      tagline: 'Nahtlose Verbindung zwischen Android- oder iPhone und deinem Computer.',
+      tagline: 'Verbinde dein Android-Smartphone oder iPhone mit Mac oder Windows.',
       description:
-        'Verbinde Android und iPhone mit deinem Mac oder Windows-PC. Synchronisiere die Zwischenablage und sende Dateien sowie Screenshots an einen oder alle verbundenen Computer. Android unterstützt außerdem die Weiterleitung von 2FA-Codes aus Benachrichtigungen und Bildschirmspiegelung.',
-      longDescription: 'Bridgely verbindet Android- und iPhone-Geräte mit macOS- und Windows-Computern. Die Zwischenablage wird in beide Richtungen synchronisiert; auf dem iPhone ist dies aufgrund der iOS-Beschränkungen nur bei aktiver App möglich. Zwischenablageinhalte, Dateien und Screenshots können an einen ausgewählten oder an alle verbundenen Computer gesendet werden. Android kann außerdem Einmalcodes aus Benachrichtigungen weiterleiten, den Akkustand teilen und den Bildschirm über scrcpy spiegeln. Geräte werden per QR-Code gekoppelt; Verbindungen werden im lokalen Netzwerk mit ephemerem P-256-ECDH und AES-256-GCM verschlüsselt. Entwickelt mit C# und .NET MAUI.',
+        'Synchronisiere die Zwischenablage in beide Richtungen und sende Dateien oder Screenshots an einen oder alle verbundenen Computer. Android bietet Code-Weiterleitung, Akkustand und Startbildschirm-Widget; der Android-Bildschirm lässt sich am Mac oder unter Windows mit scrcpy spiegeln. Für den iPhone-Zugriff muss Bridgely geöffnet sein.',
+      longDescription:
+        'Bridgely 1.2 verbindet Android und iPhone mit Mac und Windows. Beide Desktop-Apps bieten Zwischenablageverlauf, Dateiübertragung, Telefonstatus und Android-Bildschirmspiegelung mit scrcpy. Zwischenablageinhalte, Dateien und Screenshots lassen sich an einen ausgewählten oder alle verbundenen Computer senden. Android bietet einen Hintergrunddienst, Weiterleitung von Einmalcodes aus Benachrichtigungen, eine Schnelleinstellungskachel und ein Startbildschirm-Widget. Auf dem iPhone funktionieren Zwischenablage- und Netzwerkzugriff nur bei aktiver App, da iOS Hintergrundaktivitäten einschränkt. Unterbrochene Übertragungen werden nach einer Netzwerkunterbrechung fortgesetzt, solange beide Apps geöffnet bleiben. Geräte werden per QR-Code gekoppelt; Verbindungen im lokalen Netzwerk nutzen ephemeres P-256-ECDH und AES-256-GCM. Der Zwischenablageverlauf ist optional, lokal verschlüsselt und mit Aufbewahrungsregeln. Entwickelt mit C# und .NET MAUI.',
       tags: ['Produktivität', '.NET MAUI', 'Ende-zu-Ende-Verschlüsselung', 'Plattformübergreifend'],
       features: [
-        'Bidirektionale Zwischenablage mit Verlauf',
-        'Dateien und Screenshots an einen oder alle verbundenen Computer senden',
-        'Akkustand des Smartphones in Menüleiste oder System-Tray',
-        'Android-Benachrichtigungscodes in die Zwischenablage weiterleiten',
-        'Geräte per QR-Code koppeln',
-        'Android-Bildschirmspiegelung mit scrcpy',
+        'Bidirektionale Zwischenablage mit optionalem, verschlüsseltem lokalem Verlauf',
+        'Zwischenablageinhalte, Dateien und Screenshots an einen oder alle Computer senden',
+        'Android-Einmalcodes aus Benachrichtigungen und Akkustand des Smartphones',
+        'Android-Schnelleinstellungskachel und Startbildschirm-Widget',
+        'Android-Bildschirm auf Mac oder Windows mit scrcpy spiegeln',
+        'Unterbrochene Übertragungen nach erneuter Verbindung fortsetzen',
+        'QR-Kopplung und verschlüsselte Verbindungen im lokalen Netzwerk',
       ],
     },
     2: {
-      tagline: 'Ein ausgereifter NAS-Dateimanager mit mehreren Tabs für Windows und Android.',
+      tagline: 'Windows-orientierte NAS-Dateiverwaltung mit unabhängigen Tabs und leistungsfähiger Übertragungswarteschlange.',
       description:
-        'NAS-Dateien über WebDAV, FTP und FTPS unter Windows und Android durchsuchen, übertragen und verwalten – mit mehreren Tabs, Medienvorschau und integriertem Texteditor.',
-      longDescription: 'xConnect File Manager ist ein plattformübergreifender NAS-Dateimanager für Windows und Android, entwickelt mit .NET MAUI. Verbinde dich mit WebDAV-, FTP- und FTPS-Servern, verwalte mehrere unabhängige Verbindungen in Tabs, durchsuche Dateien in Listen- oder Rasteransicht mit Sortierung, Filtern und angehefteten Ordnern und lade Dateien mit Fortschrittsanzeige hoch oder herunter. Außerdem bietet die App einen Bild-, Video- und Audioplayer sowie einen integrierten Texteditor. Die Windows-Version bietet zusätzlich System-Tray-Integration und Drag-and-drop-Uploads. Gespeicherte Verbindungsprofile werden im sicheren Anmeldeinformationsspeicher der Plattform abgelegt.',
-      tags: ['Windows', 'Android', '.NET MAUI', 'NAS', 'WebDAV', 'FTP', 'FTPS'],
+        'Verbinde dich mit WebDAV, FTP, FTPS oder SFTP. Entdecke NAS-Geräte im lokalen Netzwerk, verwalte unabhängige Tabs, suche und filtere Dateien, stelle Übertragungen in die Warteschlange und zeige Medien oder Textdateien an.',
+      longDescription:
+        'xConnect File Manager ist ein Windows-orientierter NAS-Client mit .NET MAUI. Verbinde dich mit WebDAV-, FTP-, FTPS- und SFTP-Servern, entdecke kompatible Geräte im lokalen Netzwerk und verwalte unabhängige Verbindungen in Tabs. Durchsuche Listen- oder Rasteransichten mit Suche, Filtern, Sortierung, angehefteten Ordnern, Seitenladen, Latenz- und Speicherinformationen. Sammelaktionen für Dateien bieten Rückgängig für kürzliche Umbenennungen und Verschiebungen. Die Übertragungswarteschlange zeigt Fortschritt, Geschwindigkeit und Restzeit und unterstützt Pause/Fortsetzen, Wiederholen und Konfliktbehandlung. Außerdem bietet die App eine Bildershow, Audio-/Videostreaming und einen integrierten Texteditor. Windows ergänzt System-Tray, Drag-and-drop-Uploads und Abschlussbenachrichtigungen. Android-Unterstützung ist in Entwicklung.',
+      tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Mehrere Tabs', 'Übertragungen', '.NET MAUI'],
       features: [
-        'Unterstützung für Windows und Android',
-        'Mehrere Tabs mit unabhängigen Verbindungen',
-        'Unterstützung für WebDAV, FTP und FTPS',
-        'Listen- und Rasteransicht mit Sortierung, Filtern und angehefteten Ordnern',
-        'Dateien und Ordner gesammelt erstellen, umbenennen, kopieren, verschieben und löschen',
-        'Dateiübertragungen mit Fortschritts- und Geschwindigkeitsanzeige',
-        'Bild-, Video- und Audioplayer sowie integrierter Texteditor',
-        'Windows-Infobereich-Integration und Drag-and-drop-Uploads',
+        'Windows-Version verfügbar; Android-Unterstützung in Entwicklung',
+        'Verbindungen über WebDAV, FTP, FTPS und SFTP',
+        'Lokale NAS-Erkennung und verschlüsselt gespeicherte Profile',
+        'Unabhängige Tabs, Listen-/Rasteransicht, Suche, Filter, Seitenladen und Pins',
+        'Sammelaktionen mit Rückgängig für Umbenennen und Verschieben',
+        'Warteschlange mit Fortschritt, Geschwindigkeit, Pause/Fortsetzen, Wiederholen und Konfliktbehandlung',
+        'Bildershow, Audio-/Videostreaming und integrierter Texteditor',
+        'Windows-System-Tray, Drag-and-drop-Uploads und Abschlussbenachrichtigungen',
       ],
     },
     3: {
@@ -117,6 +120,9 @@ export const de: AppTranslations = {
       scientific: 'Wissenschaftlicher Rechner mit bearbeitbarem Ausdruck und Berechnungsverlauf',
       graphing: 'Funktionsgraphen mit Spur, Zoom und dauerhaft sichtbarem Verlauf',
       programmer: 'Programmierwerkzeuge mit Zahlensystemumrechnung und interaktivem Bitfeld',
+      xconnectConnection: 'Verbindungen mit WebDAV, FTP, FTPS oder SFTP einrichten',
+      xconnectProfiles: 'Gespeicherte Serverprofile verwalten und NAS-Geräte entdecken',
+      xconnectSettings: 'Darstellung, Sprache, Arbeitsbereich und App-Sperre einstellen',
     },
   },
 
@@ -339,7 +345,7 @@ export const de: AppTranslations = {
       projects: {
         title: 'Softwareprojekte & Apps',
         description:
-          'Entdecke Calctron, Bridgely und xConnect File Manager – Windows-Software von Tobias Brörmann; Calctron für Android ist in Entwicklung.',
+          'Entdecke Calctron, Bridgely und xConnect File Manager von Tobias Brörmann. xConnect unterstützt WebDAV, FTP, FTPS und SFTP; Android-Versionen sind in Entwicklung.',
       },
       terms: {
         title: 'Nutzungsbedingungen',

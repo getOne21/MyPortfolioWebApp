@@ -42,19 +42,21 @@ describe('TranslationService', () => {
 
   it('localizes app descriptions and features', () => {
     const svc = TestBed.inject(TranslationService);
-    expect(svc.t().appProjects[1].description).toContain('Android and iPhone');
+    expect(svc.t().appProjects[1].description).toContain('Android adds notification-code forwarding');
 
     svc.setLang('de');
-    expect(svc.t().appProjects[1].description).toContain('Android und iPhone');
-    expect(svc.t().appProjects[2].features).toContain('Mehrere Tabs mit unabhängigen Verbindungen');
+    expect(svc.t().appProjects[1].description).toContain('Android bietet Code-Weiterleitung');
+    expect(svc.t().appProjects[2].features).toContain('Windows-Version verfügbar; Android-Unterstützung in Entwicklung');
   });
 
-  it('lists xConnect for Windows and Android in both languages', () => {
+  it('describes xConnect SFTP support and planned Android release in both languages', () => {
     const svc = TestBed.inject(TranslationService);
-    expect(svc.t().appProjects[2].description).toContain('Windows and Android');
+    expect(svc.t().appProjects[2].description).toContain('SFTP');
+    expect(svc.t().appProjects[2].longDescription).toContain('Android support is in development');
 
     svc.setLang('de');
-    expect(svc.t().appProjects[2].description).toContain('Windows und Android');
+    expect(svc.t().appProjects[2].description).toContain('SFTP');
+    expect(svc.t().appProjects[2].longDescription).toContain('Android-Unterstützung ist in Entwicklung');
   });
 
   it('localizes Calctron and notes its planned Android release', () => {

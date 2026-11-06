@@ -45,7 +45,7 @@
             @if (app.isNew) { <span class="badge-new">{{ t().projects.new }}</span> }
           </div>
           <span class="card-category">
-            {{ catLabel(app.category) }} · {{ t().projects.version }} {{ app.version }}
+            {{ catLabel(app.category) }} · {{ t().projects.version }} {{ versionSummary(app) }}
           </span>
           <p class="card-tagline">{{ copy.tagline }}</p>
         </div>
@@ -122,6 +122,9 @@
                   <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
                   <span class="dl-info">
                     <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
+                    @if (app.versions[dl.platform]) {
+                      <span class="dl-version">v{{ app.versions[dl.platform] }}</span>
+                    }
                     @if (dl.fileSize) {
                       <span class="dl-size">{{ dl.fileSize }}</span>
                     }

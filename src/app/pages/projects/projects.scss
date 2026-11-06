@@ -295,6 +295,7 @@
     gap: 2px;
 
     .dl-label { font-weight: 600; color: var(--text-primary); }
+    .dl-version { font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
     .dl-size { font-size: 11px; color: var(--text-muted); }
     .dl-status { font-size: 11px; color: var(--text-muted); }
   }

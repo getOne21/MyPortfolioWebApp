@@ -54,6 +54,12 @@ export class Projects {
   getPlatformIcon(p: Platform):  string { return this.platformIcons[p] ?? 'download'; }
   getPlatformLabel(p: Platform): string { return this.platformLabels()[p]; }
 
+  versionSummary(app: AppProject): string {
+    return (Object.entries(app.versions) as [Platform, string][])
+      .map(([platform, version]) => `${this.getPlatformLabel(platform)} ${version}`)
+      .join(' · ');
+  }
+
   toggleExpand(id: number) { this.expandedId.update(v => (v === id ? null : id)); }
   filterBy(cat: string)    { this.selectedCategory.set(cat); }
 

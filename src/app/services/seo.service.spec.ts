@@ -26,7 +26,7 @@ describe('SeoService', () => {
 
     expect(document.title).toBe(`Softwareprojekte & Apps | ${SITE.name}`);
     expect(meta('name="description"')).toContain('Calctron');
-    expect(meta('name="description"')).toContain('Windows-Software');
+    expect(meta('name="description"')).toContain('SFTP');
     expect(meta('property="og:url"')).toBe(`${SITE.url}/de/projects`);
     expect(meta('property="og:locale"')).toBe('de_DE');
     expect(meta('property="og:image"')).toBe(SITE.url + SITE.ogImage);
