@@ -43,7 +43,7 @@ export class AppDataService {
         { src: '/apps/xconnect/screenshots/settings.webp', captionKey: 'xconnectSettings' },
       ],
       downloads: [
-        { platform: 'windows', url: '#' },
+        { platform: 'windows', url: 'https://apps.microsoft.com/store/detail/9P4JCWZFNPHT' },
         { platform: 'android', comingSoon: true },
       ],
     },

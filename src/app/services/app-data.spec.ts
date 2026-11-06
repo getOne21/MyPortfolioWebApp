@@ -56,7 +56,7 @@ describe('AppDataService', () => {
     expect(xConnect?.versions).toEqual({ windows: '1.0' });
     expect(xConnect?.screenshots).toHaveLength(3);
     expect(xConnect?.downloads).toEqual([
-      { platform: 'windows', url: '#' },
+      { platform: 'windows', url: 'https://apps.microsoft.com/store/detail/9P4JCWZFNPHT' },
       { platform: 'android', comingSoon: true },
     ]);
   });
