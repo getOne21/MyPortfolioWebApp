@@ -18,7 +18,7 @@ describe('Projects page screenshots', () => {
     ).find(card => card.querySelector('h2')?.textContent?.trim() === 'Bridgely');
     const versionText = bridgelyCard?.querySelector('.card-category')?.textContent;
 
-    expect(versionText).toContain('Windows 1.0');
+    expect(versionText).toContain('Windows 1.2');
     expect(versionText).toContain('Android 1.2');
   });
 
@@ -33,7 +33,7 @@ describe('Projects page screenshots', () => {
 
     expect(
       bridgelyCard?.querySelector('.download-btn.windows .dl-version')?.textContent?.trim()
-    ).toBe('v1.0');
+    ).toBe('v1.2');
     expect(bridgelyCard?.querySelector('.download-btn.android .dl-version')).toBeNull();
     expect(
       calctronCard?.querySelector('.download-btn.windows .dl-version')?.textContent?.trim()

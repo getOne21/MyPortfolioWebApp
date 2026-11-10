@@ -8,7 +8,7 @@ export class AppDataService {
       id: 1,
       name: 'Bridgely',
       category: 'Productivity',
-      versions: { windows: '1.0', android: '1.2' },
+      versions: { windows: '1.2', android: '1.2' },
       releaseDate: '2026-10-22',
       isNew: true,
       isFeatured: true,

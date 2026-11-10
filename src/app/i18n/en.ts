@@ -8,7 +8,7 @@ export const en: AppTranslations = {
       description:
         'Sync clipboard content both ways and send files or screenshots to one or all connected computers. Android adds notification-code forwarding, battery sharing, and a home-screen widget; mirror the Android screen on Mac or Windows with scrcpy. iPhone clipboard access requires Bridgely to be open.',
       longDescription:
-        'Bridgely 1.2 connects Android and iPhone with Mac and Windows. Both desktop apps share clipboard history, file transfer, phone status, and Android screen mirroring via scrcpy. Send clipboard items, files, and screenshots to one selected computer or all connected computers. Android adds a foreground service, notification-based one-time-code forwarding, a Quick Settings tile, and a home-screen widget. iPhone clipboard and network access work while the app is active, as iOS restricts background activity. Interrupted transfers resume after a network reconnect while both apps stay open. Pair devices by QR code; local-network sessions use ephemeral P-256 ECDH and AES-256-GCM. Clipboard history is opt-in and encrypted on-device, with retention controls. Built with C# and .NET MAUI.',
+        'Bridgely connects Android and iPhone with Mac and Windows. Both desktop apps share clipboard history, file transfer, phone status, and Android screen mirroring via scrcpy. Desktop settings add optional launch-at-sign-in controls on macOS 13+ and the installed Windows Store version. Send clipboard items, files, and screenshots to one selected computer or all connected computers. Android adds a foreground service, notification-based one-time-code forwarding, a Quick Settings tile, and a home-screen widget, with support starting at Android 8.0 (API 26). iPhone clipboard and network access work while the app is active, as iOS restricts background activity. Interrupted transfers resume after a network reconnect while both apps stay open. Pair devices by QR code; local-network sessions use ephemeral P-256 ECDH and AES-256-GCM. Clipboard history is opt-in and encrypted on-device, with retention controls. Built with C# and .NET MAUI.',
       tags: ['Productivity', '.NET MAUI', 'End-to-end encryption', 'Cross-platform'],
       features: [
         'Two-way clipboard sync with optional, encrypted on-device history',
@@ -17,6 +17,8 @@ export const en: AppTranslations = {
         'Android Quick Settings tile and home-screen widget',
         'Mirror an Android screen on Mac or Windows with scrcpy',
         'Resume interrupted transfers after reconnecting while both apps remain open',
+        'Optional desktop auto-start on macOS 13+ and the Windows Store version',
+        'Android 8.0 (API 26) or later',
         'QR-code pairing with encrypted local-network connections',
       ],
     },

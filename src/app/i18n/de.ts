@@ -8,7 +8,7 @@ export const de: AppTranslations = {
       description:
         'Synchronisiere die Zwischenablage in beide Richtungen und sende Dateien oder Screenshots an einen oder alle verbundenen Computer. Android bietet Code-Weiterleitung, Akkustand und Startbildschirm-Widget; der Android-Bildschirm lässt sich am Mac oder unter Windows mit scrcpy spiegeln. Für den iPhone-Zugriff muss Bridgely geöffnet sein.',
       longDescription:
-        'Bridgely 1.2 verbindet Android und iPhone mit Mac und Windows. Beide Desktop-Apps bieten Zwischenablageverlauf, Dateiübertragung, Telefonstatus und Android-Bildschirmspiegelung mit scrcpy. Zwischenablageinhalte, Dateien und Screenshots lassen sich an einen ausgewählten oder alle verbundenen Computer senden. Android bietet einen Hintergrunddienst, Weiterleitung von Einmalcodes aus Benachrichtigungen, eine Schnelleinstellungskachel und ein Startbildschirm-Widget. Auf dem iPhone funktionieren Zwischenablage- und Netzwerkzugriff nur bei aktiver App, da iOS Hintergrundaktivitäten einschränkt. Unterbrochene Übertragungen werden nach einer Netzwerkunterbrechung fortgesetzt, solange beide Apps geöffnet bleiben. Geräte werden per QR-Code gekoppelt; Verbindungen im lokalen Netzwerk nutzen ephemeres P-256-ECDH und AES-256-GCM. Der Zwischenablageverlauf ist optional, lokal verschlüsselt und mit Aufbewahrungsregeln. Entwickelt mit C# und .NET MAUI.',
+        'Bridgely verbindet Android und iPhone mit Mac und Windows. Beide Desktop-Apps bieten Zwischenablageverlauf, Dateiübertragung, Telefonstatus und Android-Bildschirmspiegelung mit scrcpy. In den Desktop-Einstellungen lässt sich der Autostart bei der Anmeldung unter macOS 13+ und in der installierten Windows-Store-Version aktivieren. Zwischenablageinhalte, Dateien und Screenshots lassen sich an einen ausgewählten oder alle verbundenen Computer senden. Android bietet einen Hintergrunddienst, Weiterleitung von Einmalcodes aus Benachrichtigungen, eine Schnelleinstellungskachel und ein Startbildschirm-Widget und wird ab Android 8.0 (API 26) unterstützt. Auf dem iPhone funktionieren Zwischenablage- und Netzwerkzugriff nur bei aktiver App, da iOS Hintergrundaktivitäten einschränkt. Unterbrochene Übertragungen werden nach einer Netzwerkunterbrechung fortgesetzt, solange beide Apps geöffnet bleiben. Geräte werden per QR-Code gekoppelt; Verbindungen im lokalen Netzwerk nutzen ephemeres P-256-ECDH und AES-256-GCM. Der Zwischenablageverlauf ist optional, lokal verschlüsselt und mit Aufbewahrungsregeln. Entwickelt mit C# und .NET MAUI.',
       tags: ['Produktivität', '.NET MAUI', 'Ende-zu-Ende-Verschlüsselung', 'Plattformübergreifend'],
       features: [
         'Bidirektionale Zwischenablage mit optionalem, verschlüsseltem lokalem Verlauf',
@@ -17,6 +17,8 @@ export const de: AppTranslations = {
         'Android-Schnelleinstellungskachel und Startbildschirm-Widget',
         'Android-Bildschirm auf Mac oder Windows mit scrcpy spiegeln',
         'Unterbrochene Übertragungen nach erneuter Verbindung fortsetzen',
+        'Optionaler Autostart ab macOS 13 und in der installierten Windows-Store-Version',
+        'Unterstützung ab Android 8.0 (API 26)',
         'QR-Kopplung und verschlüsselte Verbindungen im lokalen Netzwerk',
       ],
     },

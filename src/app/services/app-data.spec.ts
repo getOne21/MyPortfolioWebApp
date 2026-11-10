@@ -27,7 +27,7 @@ describe('AppDataService', () => {
     expect(svc.getById(1)?.downloads).toContainEqual(
       expect.objectContaining({ platform: 'ios' }),
     );
-    expect(svc.getById(1)?.versions).toEqual({ windows: '1.0', android: '1.2' });
+    expect(svc.getById(1)?.versions).toEqual({ windows: '1.2', android: '1.2' });
   });
 
   it('links Bridgely for Windows to its Microsoft Store listing', () => {

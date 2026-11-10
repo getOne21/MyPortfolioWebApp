@@ -43,9 +43,14 @@ describe('TranslationService', () => {
   it('localizes app descriptions and features', () => {
     const svc = TestBed.inject(TranslationService);
     expect(svc.t().appProjects[1].description).toContain('Android adds notification-code forwarding');
+    expect(svc.t().appProjects[1].longDescription).toContain('optional launch-at-sign-in');
+    expect(svc.t().appProjects[1].longDescription).toContain('Android 8.0 (API 26)');
 
     svc.setLang('de');
     expect(svc.t().appProjects[1].description).toContain('Android bietet Code-Weiterleitung');
+    expect(svc.t().appProjects[1].longDescription).not.toContain('Bridgely 1.2');
+    expect(svc.t().appProjects[1].longDescription).toContain('Autostart bei der Anmeldung');
+    expect(svc.t().appProjects[1].longDescription).toContain('Android 8.0 (API 26)');
     expect(svc.t().appProjects[2].features).toContain('Windows-Version verfügbar; Android-Unterstützung in Entwicklung');
   });
 
