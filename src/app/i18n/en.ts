@@ -25,9 +25,9 @@ export const en: AppTranslations = {
     2: {
       tagline: 'Windows-first NAS file management with multi-tab sessions and a capable transfer queue.',
       description:
-        'Connect to WebDAV, FTP, FTPS, or SFTP. Discover NAS devices on your network, manage independent tabs, search and filter files, queue transfers, and preview media or edit text files.',
+        'Connect to WebDAV, FTP, FTPS, or SFTP. Discover NAS devices on your network, manage independent tabs, search and filter files, queue transfers, and preview media or edit text files. Choose whether xConnect starts with Windows.',
       longDescription:
-        'xConnect File Manager is a Windows-first NAS client built with .NET MAUI. Connect to WebDAV, FTP, FTPS, and SFTP servers; discover compatible devices on the local network; and keep independent connections open in tabs. Browse list or grid views with search, filters, sorting, pinned folders, paging, latency, and storage information. Batch file operations include undo for recent renames and moves. The transfer queue supports progress, speed, pause/resume, retry, time estimates, and conflict handling. Preview images, stream audio and video, and edit text files in place. Windows adds tray integration, drag-and-drop uploads, and completion notifications. Android support is in development.',
+        'xConnect File Manager is a Windows-first NAS client built with .NET MAUI. Connect to WebDAV, FTP, FTPS, and SFTP servers; discover compatible devices on the local network; and keep independent connections open in tabs. Browse list or grid views with search, filters, sorting, pinned folders, paging, latency, and storage information. Batch file operations include undo for recent renames and moves. The transfer queue supports progress, speed, pause/resume, retry, time estimates, and conflict handling. Preview images, stream audio and video, and edit text files in place. Windows adds tray integration, drag-and-drop uploads, completion notifications, and an optional startup setting that reflects Windows startup status, including user and organization policy. Microsoft Store packages target x64 and ARM64. Android support is in development.',
       tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Multi-tab', 'Transfers', '.NET MAUI'],
       features: [
         'Windows release available; Android support is in development',
@@ -38,6 +38,8 @@ export const en: AppTranslations = {
         'Queued transfers with progress, speed, pause/resume, retry, and conflict handling',
         'Image slideshow, audio/video streaming, and in-place text editor',
         'Windows tray, drag-and-drop uploads, and transfer notifications',
+        'Optional Windows startup setting that reflects user and organization policy',
+        'Microsoft Store packages for x64 and ARM64',
       ],
     },
     3: {

@@ -58,10 +58,14 @@ describe('TranslationService', () => {
     const svc = TestBed.inject(TranslationService);
     expect(svc.t().appProjects[2].description).toContain('SFTP');
     expect(svc.t().appProjects[2].longDescription).toContain('Android support is in development');
+    expect(svc.t().appProjects[2].longDescription).toContain('organization policy');
+    expect(svc.t().appProjects[2].features).toContain('Microsoft Store packages for x64 and ARM64');
 
     svc.setLang('de');
     expect(svc.t().appProjects[2].description).toContain('SFTP');
     expect(svc.t().appProjects[2].longDescription).toContain('Android-Unterstützung ist in Entwicklung');
+    expect(svc.t().appProjects[2].longDescription).toContain('Unternehmensrichtlinien');
+    expect(svc.t().appProjects[2].features).toContain('Microsoft-Store-Pakete für x64 und ARM64');
   });
 
   it('localizes Calctron and notes its planned Android release', () => {

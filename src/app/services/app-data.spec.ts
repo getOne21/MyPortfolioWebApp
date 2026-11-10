@@ -53,7 +53,7 @@ describe('AppDataService', () => {
     const xConnect = svc.getById(2);
     expect(xConnect?.name).toBe('xConnect File Manager');
     expect(xConnect?.icon).toBe('/apps/xconnect.svg');
-    expect(xConnect?.versions).toEqual({ windows: '1.0' });
+    expect(xConnect?.versions).toEqual({ windows: '1.1' });
     expect(xConnect?.screenshots).toHaveLength(3);
     expect(xConnect?.downloads).toEqual([
       { platform: 'windows', url: 'https://apps.microsoft.com/store/detail/9P4JCWZFNPHT' },

@@ -32,7 +32,7 @@ export class AppDataService {
       id: 2,
       name: 'xConnect File Manager',
       category: 'Utilities',
-      versions: { windows: '1.0' },
+      versions: { windows: '1.1' },
       icon: '/apps/xconnect.svg',
       colorAccent: '#1565c0',
       gradientStart: '#0d1b2a',

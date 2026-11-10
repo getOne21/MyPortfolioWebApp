@@ -25,9 +25,9 @@ export const de: AppTranslations = {
     2: {
       tagline: 'Windows-orientierte NAS-Dateiverwaltung mit unabhängigen Tabs und leistungsfähiger Übertragungswarteschlange.',
       description:
-        'Verbinde dich mit WebDAV, FTP, FTPS oder SFTP. Entdecke NAS-Geräte im lokalen Netzwerk, verwalte unabhängige Tabs, suche und filtere Dateien, stelle Übertragungen in die Warteschlange und zeige Medien oder Textdateien an.',
+        'Verbinde dich mit WebDAV, FTP, FTPS oder SFTP. Entdecke NAS-Geräte im lokalen Netzwerk, verwalte unabhängige Tabs, suche und filtere Dateien, stelle Übertragungen in die Warteschlange und zeige Medien oder Textdateien an. Lege fest, ob xConnect mit Windows startet.',
       longDescription:
-        'xConnect File Manager ist ein Windows-orientierter NAS-Client mit .NET MAUI. Verbinde dich mit WebDAV-, FTP-, FTPS- und SFTP-Servern, entdecke kompatible Geräte im lokalen Netzwerk und verwalte unabhängige Verbindungen in Tabs. Durchsuche Listen- oder Rasteransichten mit Suche, Filtern, Sortierung, angehefteten Ordnern, Seitenladen, Latenz- und Speicherinformationen. Sammelaktionen für Dateien bieten Rückgängig für kürzliche Umbenennungen und Verschiebungen. Die Übertragungswarteschlange zeigt Fortschritt, Geschwindigkeit und Restzeit und unterstützt Pause/Fortsetzen, Wiederholen und Konfliktbehandlung. Außerdem bietet die App eine Bildershow, Audio-/Videostreaming und einen integrierten Texteditor. Windows ergänzt System-Tray, Drag-and-drop-Uploads und Abschlussbenachrichtigungen. Android-Unterstützung ist in Entwicklung.',
+        'xConnect File Manager ist ein Windows-orientierter NAS-Client mit .NET MAUI. Verbinde dich mit WebDAV-, FTP-, FTPS- und SFTP-Servern, entdecke kompatible Geräte im lokalen Netzwerk und verwalte unabhängige Verbindungen in Tabs. Durchsuche Listen- oder Rasteransichten mit Suche, Filtern, Sortierung, angehefteten Ordnern, Seitenladen, Latenz- und Speicherinformationen. Sammelaktionen für Dateien bieten Rückgängig für kürzliche Umbenennungen und Verschiebungen. Die Übertragungswarteschlange zeigt Fortschritt, Geschwindigkeit und Restzeit und unterstützt Pause/Fortsetzen, Wiederholen und Konfliktbehandlung. Außerdem bietet die App eine Bildershow, Audio-/Videostreaming und einen integrierten Texteditor. Windows ergänzt System-Tray, Drag-and-drop-Uploads, Abschlussbenachrichtigungen und eine optionale Autostart-Einstellung, deren Status Windows-Einstellungen sowie Benutzer- und Unternehmensrichtlinien berücksichtigt. Microsoft-Store-Pakete unterstützen x64 und ARM64. Android-Unterstützung ist in Entwicklung.',
       tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Mehrere Tabs', 'Übertragungen', '.NET MAUI'],
       features: [
         'Windows-Version verfügbar; Android-Unterstützung in Entwicklung',
@@ -38,6 +38,8 @@ export const de: AppTranslations = {
         'Warteschlange mit Fortschritt, Geschwindigkeit, Pause/Fortsetzen, Wiederholen und Konfliktbehandlung',
         'Bildershow, Audio-/Videostreaming und integrierter Texteditor',
         'Windows-System-Tray, Drag-and-drop-Uploads und Abschlussbenachrichtigungen',
+        'Optionaler Windows-Autostart mit Status gemäß Windows-Einstellungen und Benutzer- oder Unternehmensrichtlinien',
+        'Microsoft-Store-Pakete für x64 und ARM64',
       ],
     },
     3: {
