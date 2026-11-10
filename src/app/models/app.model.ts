@@ -13,6 +13,15 @@ export interface AppProjectCopy {
   longDescription: string;
   tags: string[];
   features: string[];
+  requirements: string[];
+  releases: AppReleaseNote[];
+}
+
+export interface AppReleaseNote {
+  platform: Platform;
+  version: string;
+  date?: string;
+  highlights: string[];
 }
 
 export type ProjectScreenshotKey =
@@ -33,6 +42,7 @@ export interface ProjectScreenshot {
 
 export interface AppProject {
   id: number;
+  slug: string;
   name: string;
   category: string;
   versions: Partial<Record<Platform, string>>;

@@ -46,4 +46,16 @@ describe('SeoService', () => {
     expect(link('link[hreflang="x-default"]')).toBe(`${SITE.url}/en/about`);
     expect(document.head.querySelectorAll('link[rel="canonical"]').length).toBe(1);
   });
+
+  it('sets app-specific SEO and canonical URLs on project detail pages', async () => {
+    const harness = await RouterTestingHarness.create();
+    await harness.navigateByUrl('/de/projects/xconnect-file-manager');
+
+    expect(document.title).toBe(`xConnect File Manager | ${SITE.name}`);
+    expect(meta('name="description"')).toContain('NAS-Geräte');
+    expect(meta('property="og:url"')).toBe(`${SITE.url}/de/projects/xconnect-file-manager`);
+    expect(link('link[rel="canonical"]')).toBe(`${SITE.url}/de/projects/xconnect-file-manager`);
+    expect(link('link[hreflang="en"]')).toBe(`${SITE.url}/en/projects/xconnect-file-manager`);
+    expect(link('link[hreflang="de"]')).toBe(`${SITE.url}/de/projects/xconnect-file-manager`);
+  });
 });

@@ -5,6 +5,7 @@ import { filter } from 'rxjs';
 
 import { SITE } from '../site.config';
 import type { PageKey } from '../app.routes';
+import { AppDataService } from './app-data';
 import { LANGS, Lang, TranslationService } from './translation.service';
 
 /** Keeps <title>, meta description, Open Graph/Twitter tags, canonical and hreflang links in sync with the route. */
@@ -15,6 +16,7 @@ export class SeoService {
   private readonly meta   = inject(Meta);
   private readonly doc    = inject(DOCUMENT);
   private readonly ts     = inject(TranslationService);
+  private readonly apps   = inject(AppDataService);
 
   constructor() {
     this.router.events
@@ -30,9 +32,14 @@ export class SeoService {
 
     const lang = this.ts.currentLang();
     const seo = this.ts.t().seo;
-    const { title, description } = seo.pages[page];
+    const projectSlug = route.data['projectSlug'] as string | undefined;
+    const project = projectSlug ? this.apps.getBySlug(projectSlug) : undefined;
+    const projectCopy = project ? this.ts.t().appProjects[project.id] : undefined;
+    const title = project ? project.name : seo.pages[page].title;
+    const description = projectCopy?.description ?? seo.pages[page].description;
     const fullTitle = page === 'home' ? title : `${title} | ${SITE.name}`;
-    const pageUrl = (l: Lang) => `${SITE.url}/${l}/${page}`;
+    const path = project ? `projects/${project.slug}` : page;
+    const pageUrl = (l: Lang) => `${SITE.url}/${l}/${path}`;
     const image = SITE.url + SITE.ogImage;
     const imageAlt = seo.imageAlt;
     const otherLocales = LANGS.filter(l => l !== lang).map(l => (l === 'de' ? 'de_DE' : 'en_GB'));

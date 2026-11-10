@@ -49,132 +49,13 @@
           </span>
           <p class="card-tagline">{{ copy.tagline }}</p>
         </div>
-        <button
-          class="expand-btn"
-          (click)="toggleExpand(app.id)"
-          [attr.aria-label]="expandedId() === app.id ? 'Collapse' : 'Expand'"
-        >
-          <mat-icon>{{ expandedId() === app.id ? 'expand_less' : 'expand_more' }}</mat-icon>
-        </button>
       </div>
 
-      <!-- Tags -->
-      <div class="card-tags">
-        @for (tag of copy.tags; track tag) {
-          <span class="tag"
-                [style.border-color]="app.colorAccent + '44'"
-                [style.color]="app.colorAccent">{{ tag }}</span>
-        }
-      </div>
-
-      <!-- Description -->
       <p class="card-desc">{{ copy.description }}</p>
-
-      @if (app.screenshots?.length) {
-        <section class="screenshot-gallery" [attr.aria-label]="t().projects.screenshotsTitle">
-          <h4>{{ t().projects.screenshotsTitle }}</h4>
-          <div class="screenshot-strip">
-            @for (screenshot of app.screenshots; track screenshot.src) {
-              <figure class="screenshot-card">
-                <button
-                  type="button"
-                  class="screenshot-trigger"
-                  (click)="openScreenshot(screenshot)"
-                  [attr.aria-label]="t().projects.viewScreenshot + ': ' + t().projects.screenshotCaptions[screenshot.captionKey]"
-                >
-                  <img
-                    [src]="screenshot.src"
-                    [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
-                    loading="lazy"
-                  >
-                  <span class="screenshot-zoom-hint" aria-hidden="true">
-                    <mat-icon>zoom_in</mat-icon>
-                  </span>
-                </button>
-                <figcaption>{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</figcaption>
-              </figure>
-            }
-          </div>
-        </section>
-      }
-
-      <!-- Download buttons -->
-      @if (app.downloads.length) {
-        <div class="download-section">
-          <h4 class="download-title">
-            <mat-icon>download</mat-icon>
-            {{ t().projects.downloadLabel }}
-          </h4>
-          <div class="download-grid">
-            @for (dl of app.downloads; track dl.platform) {
-              @if (dl.comingSoon) {
-                <button
-                  type="button"
-                  class="download-btn coming-soon"
-                  [class]="dl.platform"
-                  disabled
-                  [attr.aria-label]="app.name + ' — ' + getPlatformLabel(dl.platform) + ' — ' + t().projects.comingSoon"
-                >
-                  <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
-                  <span class="dl-info">
-                    <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
-                    <span class="dl-status">{{ t().projects.comingSoon }}</span>
-                  </span>
-                  <mat-icon class="coming-soon-icon" aria-hidden="true">schedule</mat-icon>
-                </button>
-              } @else {
-                <a
-                  [href]="dl.url"
-                  class="download-btn"
-                  [class]="dl.platform"
-                  [attr.aria-label]="t().projects.downloadLabel + ' ' + app.name + ' – ' + getPlatformLabel(dl.platform)"
-                >
-                  <mat-icon>{{ getPlatformIcon(dl.platform) }}</mat-icon>
-                  <span class="dl-info">
-                    <span class="dl-label">{{ getPlatformLabel(dl.platform) }}</span>
-                    @if (app.versions[dl.platform]) {
-                      <span class="dl-version">v{{ app.versions[dl.platform] }}</span>
-                    }
-                    @if (dl.fileSize) {
-                      <span class="dl-size">{{ dl.fileSize }}</span>
-                    }
-                  </span>
-                  <mat-icon class="dl-arrow">download</mat-icon>
-                </a>
-              }
-            }
-          </div>
-        </div>
-      }
-
-      <!-- Expanded details -->
-      @if (expandedId() === app.id) {
-        <div class="expanded-content">
-          <div class="expanded-grid">
-            <div class="expanded-about">
-              <h4>{{ t().projects.aboutLabel }}</h4>
-              <p>{{ copy.longDescription }}</p>
-            </div>
-            <div class="expanded-features">
-              <h4>{{ t().projects.featuresLabel }}</h4>
-              <ul>
-                @for (f of copy.features; track f) {
-                  <li>
-                    <mat-icon>check_circle</mat-icon>
-                    {{ f }}
-                  </li>
-                }
-              </ul>
-            </div>
-          </div>
-          @if (app.releaseDate) {
-            <div class="expanded-release">
-              <mat-icon>calendar_today</mat-icon>
-              {{ t().projects.releasedLabel }}: {{ formatDate(app.releaseDate) }}
-            </div>
-          }
-        </div>
-      }
+      <a class="card-details-button" [routerLink]="['/', currentLang(), 'projects', app.slug]">
+        {{ t().projects.viewDetails }}
+        <mat-icon aria-hidden="true">arrow_forward</mat-icon>
+      </a>
     </article>
   }
 
@@ -185,30 +66,3 @@
     </div>
   }
 </div>
-
-<dialog
-  #screenshotDialog
-  class="screenshot-lightbox"
-  aria-labelledby="screenshot-lightbox-title"
-  [attr.aria-modal]="activeScreenshot() ? 'true' : null"
-  (close)="clearActiveScreenshot()"
->
-  @if (activeScreenshot(); as screenshot) {
-    <div class="screenshot-lightbox-content">
-      <h2 id="screenshot-lightbox-title">{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</h2>
-      <button
-        type="button"
-        class="screenshot-lightbox-close"
-        [attr.aria-label]="t().projects.closeScreenshot"
-        (click)="closeScreenshot()"
-      >
-        <mat-icon aria-hidden="true">close</mat-icon>
-      </button>
-      <img
-        class="screenshot-lightbox-image"
-        [src]="screenshot.src"
-        [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
-      >
-    </div>
-  }
-</dialog>

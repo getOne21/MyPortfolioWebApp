@@ -47,6 +47,16 @@ describe('app routes', () => {
     expect(TestBed.inject(TranslationService).currentLang()).toBe('de');
   });
 
+  it('resolves app detail routes in both languages', async () => {
+    await setup('en');
+    await harness.navigateByUrl('/en/projects/bridgely');
+    expect(url()).toBe('/en/projects/bridgely');
+
+    await harness.navigateByUrl('/de/projects/xconnect-file-manager');
+    expect(url()).toBe('/de/projects/xconnect-file-manager');
+    expect(TestBed.inject(TranslationService).currentLang()).toBe('de');
+  });
+
   it('redirects unknown URLs to home', async () => {
     await setup('en');
     await harness.navigateByUrl('/does-not-exist');

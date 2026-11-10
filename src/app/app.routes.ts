@@ -18,6 +18,11 @@ const pageRoutes: Routes = [
     data: { page: 'about' },
     loadComponent: () => import('./pages/about/about').then(m => m.About),
   },
+  ...(['bridgely', 'xconnect-file-manager', 'calctron'] as const).map(slug => ({
+    path: `projects/${slug}`,
+    data: { page: 'projects', projectSlug: slug },
+    loadComponent: () => import('./pages/project-detail/project-detail').then(m => m.ProjectDetail),
+  })),
   {
     path: 'projects',
     data: { page: 'projects' },

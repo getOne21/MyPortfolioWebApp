@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { Projects } from './projects';
 
-describe('Projects page screenshots', () => {
+describe('Projects page overview', () => {
   beforeEach(() => {
     localStorage.clear();
-    TestBed.configureTestingModule({ imports: [Projects] });
+    TestBed.configureTestingModule({ imports: [Projects], providers: [provideRouter([])] });
   });
 
   it('shows Bridgely versions separately for Windows and Android', () => {
@@ -22,53 +23,37 @@ describe('Projects page screenshots', () => {
     expect(versionText).toContain('Android 1.2');
   });
 
-  it('shows the matching version on each downloadable platform button', () => {
+  it('keeps full project content on the detail pages', () => {
+    localStorage.setItem('portfolio-lang', 'en');
     const fixture = TestBed.createComponent(Projects);
     fixture.detectChanges();
     const cards = Array.from(
       fixture.nativeElement.querySelectorAll('.project-card') as NodeListOf<HTMLElement>
     );
-    const bridgelyCard = cards.find(card => card.querySelector('h2')?.textContent?.trim() === 'Bridgely');
-    const calctronCard = cards.find(card => card.querySelector('h2')?.textContent?.trim() === 'Calctron');
-
-    expect(
-      bridgelyCard?.querySelector('.download-btn.windows .dl-version')?.textContent?.trim()
-    ).toBe('v1.2');
-    expect(bridgelyCard?.querySelector('.download-btn.android .dl-version')).toBeNull();
-    expect(
-      calctronCard?.querySelector('.download-btn.windows .dl-version')?.textContent?.trim()
-    ).toBe('v1.0.0');
+    for (const card of cards) {
+      expect(card.querySelector('.card-desc')?.textContent?.trim().length).toBeLessThan(240);
+      expect(card.querySelector('.card-tags')).toBeNull();
+      expect(card.querySelector('.screenshot-gallery')).toBeNull();
+      expect(card.querySelector('.download-section')).toBeNull();
+      expect(card.querySelector('.expanded-content')).toBeNull();
+      expect(card.querySelector('.expand-btn')).toBeNull();
+    }
   });
 
-  it('shows Calctron screenshots before the project details are expanded', () => {
+  it('shows a visible details link for every project card', () => {
+    localStorage.setItem('portfolio-lang', 'en');
     const fixture = TestBed.createComponent(Projects);
     fixture.detectChanges();
 
-    const calctronCard = Array.from(
+    const cards = Array.from(
       fixture.nativeElement.querySelectorAll('.project-card') as NodeListOf<HTMLElement>
-    ).find(card => card.querySelector('h2')?.textContent?.trim() === 'Calctron');
-
-    expect(calctronCard?.querySelectorAll('.screenshot-card img')).toHaveLength(3);
-    expect(calctronCard?.querySelector('.expanded-content')).toBeNull();
+    );
+    expect(cards).toHaveLength(3);
+    for (const card of cards) {
+      const link = card.querySelector('.card-details-button') as HTMLAnchorElement;
+      expect(link.textContent).toContain('Project details');
+      expect(link.getAttribute('href')).toContain('/en/projects/');
+    }
   });
 
-  it('opens a screenshot in a zoom dialog and closes it with the dialog control', () => {
-    const fixture = TestBed.createComponent(Projects);
-    fixture.detectChanges();
-
-    const trigger = fixture.nativeElement.querySelector('.screenshot-trigger') as HTMLButtonElement;
-    trigger.click();
-    fixture.detectChanges();
-
-    const dialog = fixture.nativeElement.querySelector('.screenshot-lightbox') as HTMLDialogElement;
-    expect(dialog.open).toBe(true);
-    expect(dialog.querySelector('.screenshot-lightbox-image')).not.toBeNull();
-
-    const closeButton = dialog.querySelector('.screenshot-lightbox-close') as HTMLButtonElement;
-    closeButton.click();
-    fixture.detectChanges();
-
-    expect(dialog.open).toBe(false);
-    expect(fixture.componentInstance.activeScreenshot()).toBeNull();
-  });
 });

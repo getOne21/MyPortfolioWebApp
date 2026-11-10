@@ -1,0 +1,208 @@
+@if (app; as project) {
+  @let copy = t().appProjects[project.id];
+
+  <article
+    class="project-detail"
+    [style.--project-accent]="project.colorAccent"
+    [style.--project-gradient-start]="project.gradientStart"
+    [style.--project-gradient-end]="project.gradientEnd"
+  >
+    <a class="back-link" [routerLink]="['/', currentLang(), 'projects']">
+      <mat-icon aria-hidden="true">arrow_back</mat-icon>
+      {{ t().projects.backToProjects }}
+    </a>
+
+    <header class="detail-hero">
+      <div class="detail-identity">
+        <div class="detail-icon">
+          <img [src]="project.icon" alt="" width="104" height="104">
+        </div>
+        <div class="detail-heading">
+          <span class="detail-category">{{ catLabel(project.category) }}</span>
+          <h1>{{ project.name }}</h1>
+          <p class="detail-tagline">{{ copy.tagline }}</p>
+          <div class="detail-versions" [attr.aria-label]="t().projects.version">
+            @for (entry of versionEntries(project); track entry.platform) {
+              <span class="version-pill">
+                {{ getPlatformLabel(entry.platform) }} <strong>{{ entry.version }}</strong>
+              </span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-downloads">
+        @for (download of project.downloads; track download.platform) {
+          @if (download.comingSoon || !download.url) {
+            <button class="download-action is-disabled" type="button" disabled>
+              <mat-icon>{{ getPlatformIcon(download.platform) }}</mat-icon>
+              <span>
+                <strong>{{ getPlatformLabel(download.platform) }}</strong>
+                <small>{{ t().projects.comingSoon }}</small>
+              </span>
+              <mat-icon class="download-state" aria-hidden="true">schedule</mat-icon>
+            </button>
+          } @else {
+            <a class="download-action" [href]="download.url" target="_blank" rel="noopener noreferrer">
+              <mat-icon>{{ getPlatformIcon(download.platform) }}</mat-icon>
+              <span>
+                <strong>{{ getPlatformLabel(download.platform) }}</strong>
+                <small>
+                  {{ t().projects.downloadLabel }}
+                  @if (project.versions[download.platform]) {
+                    · v{{ project.versions[download.platform] }}
+                  }
+                </small>
+              </span>
+              <mat-icon class="download-state" aria-hidden="true">arrow_outward</mat-icon>
+            </a>
+          }
+        }
+      </div>
+    </header>
+
+    @if (project.screenshots?.length) {
+      <section class="detail-section screenshot-section" [attr.aria-label]="t().projects.screenshotsTitle">
+        <div class="section-heading">
+          <span class="section-index">01</span>
+          <h2>{{ t().projects.screenshotsTitle }}</h2>
+        </div>
+        <div class="detail-gallery">
+          @for (screenshot of project.screenshots; track screenshot.src) {
+            <figure>
+              <button
+                type="button"
+                class="detail-screenshot"
+                (click)="openScreenshot(screenshot)"
+                [attr.aria-label]="t().projects.viewScreenshot + ': ' + t().projects.screenshotCaptions[screenshot.captionKey]"
+              >
+                <img
+                  [src]="screenshot.src"
+                  [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+                  loading="lazy"
+                >
+                <span class="zoom-indicator" aria-hidden="true">
+                  <mat-icon>zoom_in</mat-icon>
+                </span>
+              </button>
+              <figcaption>{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</figcaption>
+            </figure>
+          }
+        </div>
+      </section>
+    }
+
+    <div class="detail-content-grid">
+      <section class="detail-section overview-section">
+        <div class="section-heading">
+          <span class="section-index">02</span>
+          <h2>{{ t().projects.aboutLabel }}</h2>
+        </div>
+        <p class="detail-description">{{ copy.longDescription }}</p>
+        <div class="detail-tags">
+          @for (tag of copy.tags; track tag) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+      </section>
+
+      <aside class="requirements-card">
+        <div class="section-heading">
+          <span class="section-index">03</span>
+          <h2>{{ t().projects.requirementsTitle }}</h2>
+        </div>
+        <ul>
+          @for (requirement of copy.requirements; track requirement) {
+            <li><mat-icon aria-hidden="true">check_circle</mat-icon>{{ requirement }}</li>
+          }
+        </ul>
+        <div class="platform-status">
+          @for (download of project.downloads; track download.platform) {
+            <span [class.is-coming-soon]="download.comingSoon">
+              <mat-icon aria-hidden="true">{{ getPlatformIcon(download.platform) }}</mat-icon>
+              {{ getPlatformLabel(download.platform) }}:
+              {{ download.comingSoon ? t().projects.comingSoon : t().projects.available }}
+            </span>
+          }
+        </div>
+      </aside>
+    </div>
+
+    <section class="detail-section features-section">
+      <div class="section-heading">
+        <span class="section-index">04</span>
+        <h2>{{ t().projects.featuresLabel }}</h2>
+      </div>
+      <ul class="feature-grid">
+        @for (feature of copy.features; track feature) {
+          <li>
+            <mat-icon aria-hidden="true">check</mat-icon>
+            <span>{{ feature }}</span>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <section class="detail-section releases-section">
+      <div class="section-heading">
+        <span class="section-index">05</span>
+        <h2>{{ t().projects.releasesTitle }}</h2>
+      </div>
+      <div class="release-list">
+        @for (release of copy.releases; track release.platform + release.version) {
+          <article class="release-entry">
+            <div class="release-marker" aria-hidden="true"></div>
+            <div class="release-heading">
+              <div>
+                <h3>{{ getPlatformLabel(release.platform) }} · {{ t().projects.version }} {{ release.version }}</h3>
+                @if (release.date) {
+                  <time [attr.datetime]="release.date">
+                    {{ t().projects.releaseDateLabel }} {{ formatDate(release.date) }}
+                  </time>
+                }
+              </div>
+            </div>
+            <ul>
+              @for (highlight of release.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </section>
+  </article>
+} @else {
+  <section class="not-found">
+    <mat-icon aria-hidden="true">search_off</mat-icon>
+    <h1>{{ t().projects.notFoundTitle }}</h1>
+    <p>{{ t().projects.notFoundBody }}</p>
+    <a [routerLink]="['/', currentLang(), 'projects']">{{ t().projects.backToProjects }}</a>
+  </section>
+}
+
+<dialog
+  #screenshotDialog
+  class="screenshot-lightbox"
+  aria-labelledby="detail-lightbox-title"
+  [attr.aria-modal]="activeScreenshot() ? 'true' : null"
+  (close)="clearActiveScreenshot()"
+>
+  @if (activeScreenshot(); as screenshot) {
+    <div class="lightbox-content">
+      <h2 id="detail-lightbox-title">{{ t().projects.screenshotCaptions[screenshot.captionKey] }}</h2>
+      <button
+        type="button"
+        class="lightbox-close"
+        [attr.aria-label]="t().projects.closeScreenshot"
+        (click)="closeScreenshot()"
+      >
+        <mat-icon aria-hidden="true">close</mat-icon>
+      </button>
+      <img
+        [src]="screenshot.src"
+        [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+      >
+    </div>
+  }
+</dialog>

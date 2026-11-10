@@ -23,6 +23,13 @@ describe('AppDataService', () => {
     expect(svc.getById(-1)).toBeUndefined();
   });
 
+  it('provides stable slugs for app detail pages', () => {
+    expect(svc.getBySlug('bridgely')?.id).toBe(1);
+    expect(svc.getBySlug('xconnect-file-manager')?.id).toBe(2);
+    expect(svc.getBySlug('calctron')?.id).toBe(3);
+    expect(svc.getBySlug('unknown')).toBeUndefined();
+  });
+
   it('includes an iPhone download for Bridgely', () => {
     expect(svc.getById(1)?.downloads).toContainEqual(
       expect.objectContaining({ platform: 'ios' }),

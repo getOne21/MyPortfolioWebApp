@@ -6,7 +6,7 @@ export const de: AppTranslations = {
     1: {
       tagline: 'Verbinde dein Android-Smartphone oder iPhone mit Mac oder Windows.',
       description:
-        'Synchronisiere die Zwischenablage in beide Richtungen und sende Dateien oder Screenshots an einen oder alle verbundenen Computer. Android bietet Code-Weiterleitung, Akkustand und Startbildschirm-Widget; der Android-Bildschirm lässt sich am Mac oder unter Windows mit scrcpy spiegeln. Für den iPhone-Zugriff muss Bridgely geöffnet sein.',
+        'Synchronisiere Zwischenablage, Dateien und Screenshots zwischen Smartphone und Computer. Android bietet Einmalcode-Weiterleitung und Bildschirmspiegelung; auf dem iPhone funktioniert die Synchronisierung bei geöffneter App.',
       longDescription:
         'Bridgely verbindet Android und iPhone mit Mac und Windows. Beide Desktop-Apps bieten Zwischenablageverlauf, Dateiübertragung, Telefonstatus und Android-Bildschirmspiegelung mit scrcpy. In den Desktop-Einstellungen lässt sich der Autostart bei der Anmeldung unter macOS 13+ und in der installierten Windows-Store-Version aktivieren. Zwischenablageinhalte, Dateien und Screenshots lassen sich an einen ausgewählten oder alle verbundenen Computer senden. Android bietet einen Hintergrunddienst, Weiterleitung von Einmalcodes aus Benachrichtigungen, eine Schnelleinstellungskachel und ein Startbildschirm-Widget und wird ab Android 8.0 (API 26) unterstützt. Auf dem iPhone funktionieren Zwischenablage- und Netzwerkzugriff nur bei aktiver App, da iOS Hintergrundaktivitäten einschränkt. Unterbrochene Übertragungen werden nach einer Netzwerkunterbrechung fortgesetzt, solange beide Apps geöffnet bleiben. Geräte werden per QR-Code gekoppelt; Verbindungen im lokalen Netzwerk nutzen ephemeres P-256-ECDH und AES-256-GCM. Der Zwischenablageverlauf ist optional, lokal verschlüsselt und mit Aufbewahrungsregeln. Entwickelt mit C# und .NET MAUI.',
       tags: ['Produktivität', '.NET MAUI', 'Ende-zu-Ende-Verschlüsselung', 'Plattformübergreifend'],
@@ -21,11 +21,33 @@ export const de: AppTranslations = {
         'Unterstützung ab Android 8.0 (API 26)',
         'QR-Kopplung und verschlüsselte Verbindungen im lokalen Netzwerk',
       ],
+      requirements: [
+        'Windows 10, Version 1809 (Build 17763) oder neuer.',
+        'Android 8.0 (API 26) oder neuer für die Android-Version.',
+      ],
+      releases: [
+        {
+          platform: 'windows',
+          version: '1.2',
+          highlights: [
+            'Optionale Autostart-Einstellungen für die Desktop-Apps unter macOS und aus dem Windows Store hinzugefügt.',
+            'Der Windows-Autostartstatus berücksichtigt jetzt Benutzer- und Unternehmensrichtlinien.',
+          ],
+        },
+        {
+          platform: 'android',
+          version: '1.2',
+          highlights: [
+            'Android-Unterstützung auf Android 8.0 (API 26) und neuer erweitert.',
+            'Berechtigungsdialog zum Speichern empfangener Dateien unter Android 8 und 9 ergänzt.',
+          ],
+        },
+      ],
     },
     2: {
       tagline: 'Windows-orientierte NAS-Dateiverwaltung mit unabhängigen Tabs und leistungsfähiger Übertragungswarteschlange.',
       description:
-        'Verbinde dich mit WebDAV, FTP, FTPS oder SFTP. Entdecke NAS-Geräte im lokalen Netzwerk, verwalte unabhängige Tabs, suche und filtere Dateien, stelle Übertragungen in die Warteschlange und zeige Medien oder Textdateien an. Lege fest, ob xConnect mit Windows startet.',
+        'Verbinde dich über WebDAV, FTP, FTPS oder SFTP, entdecke NAS-Geräte und arbeite mit mehreren Server-Tabs und einer Übertragungswarteschlange. Zeige Medien an oder bearbeite entfernte Textdateien.',
       longDescription:
         'xConnect File Manager ist ein Windows-orientierter NAS-Client mit .NET MAUI. Verbinde dich mit WebDAV-, FTP-, FTPS- und SFTP-Servern, entdecke kompatible Geräte im lokalen Netzwerk und verwalte unabhängige Verbindungen in Tabs. Durchsuche Listen- oder Rasteransichten mit Suche, Filtern, Sortierung, angehefteten Ordnern, Seitenladen, Latenz- und Speicherinformationen. Sammelaktionen für Dateien bieten Rückgängig für kürzliche Umbenennungen und Verschiebungen. Die Übertragungswarteschlange zeigt Fortschritt, Geschwindigkeit und Restzeit und unterstützt Pause/Fortsetzen, Wiederholen und Konfliktbehandlung. Außerdem bietet die App eine Bildershow, Audio-/Videostreaming und einen integrierten Texteditor. Windows ergänzt System-Tray, Drag-and-drop-Uploads, Abschlussbenachrichtigungen und eine optionale Autostart-Einstellung, deren Status Windows-Einstellungen sowie Benutzer- und Unternehmensrichtlinien berücksichtigt. Microsoft-Store-Pakete unterstützen x64 und ARM64. Android-Unterstützung ist in Entwicklung.',
       tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Mehrere Tabs', 'Übertragungen', '.NET MAUI'],
@@ -41,11 +63,24 @@ export const de: AppTranslations = {
         'Optionaler Windows-Autostart mit Status gemäß Windows-Einstellungen und Benutzer- oder Unternehmensrichtlinien',
         'Microsoft-Store-Pakete für x64 und ARM64',
       ],
+      requirements: ['Windows 10, Version 1903 (Build 18362) oder neuer.'],
+      releases: [
+        {
+          platform: 'windows',
+          version: '1.1',
+          date: '2026-11-10',
+          highlights: [
+            'Optionale Einstellung zum Start von xConnect bei der Windows-Anmeldung hinzugefügt.',
+            'Der Autostartstatus berücksichtigt Windows-Einstellungen, Task-Manager und Unternehmensrichtlinien.',
+            'Microsoft-Store-Pakete unterstützen jetzt x64 und ARM64.',
+          ],
+        },
+      ],
     },
     3: {
       tagline: 'Wissenschaftlicher Rechner mit Graphen, Programmierfunktionen und Retro-Instrumentenlook.',
       description:
-        'Calctron vereint wissenschaftliche Berechnungen, Funktionsgraphen, Programmieroperationen, Matrizen, Einheitenumrechnung und einen privaten Verlauf in einer nativen Windows-App.',
+        'Ein nativer Windows-Rechner für wissenschaftliche Berechnungen, Graphen, Programmierwerkzeuge, Matrizen und Einheitenumrechnung – mit Offline-Verlauf.',
       longDescription:
         'Calctron ist ein nativer Windows-Wissenschaftsrechner im Stil eines Präzisionsinstruments. Er verarbeitet bearbeitbare Ausdrücke, komplexe Zahlen, Variablen und Speicherwerte; zeichnet bis zu vier Funktionen mit numerischen Nullstellen und Schnittpunkten; bietet Programmierwerkzeuge für vier Zahlensysteme; berechnet Matrizen bis 8 × 8 und rechnet Einheiten aus acht Kategorien um. Der Offline-Verlauf speichert die letzten 100 Berechnungen; abgerufene Ausdrücke werden nie automatisch ausgeführt. Kein Konto, keine Cloud-Synchronisierung, Analyse- oder KI-Dienste. Eine Android-Version ist geplant.',
       tags: ['Windows', 'Wissenschaftlicher Rechner', 'Graphen', 'Programmierfunktionen', 'Matrizen', '.NET MAUI', 'Offline'],
@@ -57,6 +92,17 @@ export const de: AppTranslations = {
         'Einheiten für Länge, Masse, Temperatur, Fläche, Volumen, Geschwindigkeit, Zeit und Daten umrechnen',
         'Offline-Verlauf der letzten 100 Berechnungen mit Kopieren und erneutem Aufrufen',
         'Kein Konto, keine Cloud-Synchronisierung, Analyse- oder KI-Dienste',
+      ],
+      requirements: ['Windows 10, Version 1809 (Build 17763) oder neuer.'],
+      releases: [
+        {
+          platform: 'windows',
+          version: '1.0.0',
+          highlights: [
+            'Windows-Version mit wissenschaftlichen, grafischen und Programmierfunktionen, Matrizen und Einheitenumrechnung.',
+            'Native Microsoft-Store-Pakete für x64 und ARM64.',
+          ],
+        },
       ],
     },
   },
@@ -117,6 +163,14 @@ export const de: AppTranslations = {
     new: 'Neu',
     version: 'Version',
     screenshotsTitle: 'Screenshots',
+    viewDetails: 'Projektdetails',
+    backToProjects: 'Alle Projekte',
+    requirementsTitle: 'Systemanforderungen',
+    releasesTitle: 'Versionsverlauf',
+    releaseDateLabel: 'Veröffentlicht',
+    available: 'Verfügbar',
+    notFoundTitle: 'Projekt nicht gefunden',
+    notFoundBody: 'Diese Projektseite ist nicht verfügbar.',
     viewScreenshot: 'Screenshot in voller Größe anzeigen',
     closeScreenshot: 'Screenshot schließen',
     screenshotCaptions: {

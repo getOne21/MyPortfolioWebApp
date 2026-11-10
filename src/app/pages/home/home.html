@@ -97,7 +97,7 @@
               }
             </div>
             <div class="slide-actions">
-              <a class="btn-slide-primary" [routerLink]="['/', t().lang, 'projects']"
+              <a class="btn-slide-primary" [routerLink]="['/', t().lang, 'projects', app.slug]"
                  [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
                 <mat-icon>arrow_outward</mat-icon>
                 {{ t().carousel.viewProject }}
@@ -157,7 +157,7 @@
         @if (app.isNew) {
           <span class="badge-new-mini">{{ t().carousel.new }}</span>
         }
-        <a class="mini-cta" [routerLink]="['/', t().lang, 'projects']">
+        <a class="mini-cta" [routerLink]="['/', t().lang, 'projects', app.slug]">
           <mat-icon>arrow_forward</mat-icon>
         </a>
       </div>

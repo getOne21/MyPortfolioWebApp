@@ -6,7 +6,7 @@ export const en: AppTranslations = {
     1: {
       tagline: 'Keep your Android phone or iPhone connected to your Mac or Windows PC.',
       description:
-        'Sync clipboard content both ways and send files or screenshots to one or all connected computers. Android adds notification-code forwarding, battery sharing, and a home-screen widget; mirror the Android screen on Mac or Windows with scrcpy. iPhone clipboard access requires Bridgely to be open.',
+        'Share clipboard content, files, and screenshots between your phone and computer. Android adds one-time-code forwarding and screen mirroring; iPhone sync works while the app is open.',
       longDescription:
         'Bridgely connects Android and iPhone with Mac and Windows. Both desktop apps share clipboard history, file transfer, phone status, and Android screen mirroring via scrcpy. Desktop settings add optional launch-at-sign-in controls on macOS 13+ and the installed Windows Store version. Send clipboard items, files, and screenshots to one selected computer or all connected computers. Android adds a foreground service, notification-based one-time-code forwarding, a Quick Settings tile, and a home-screen widget, with support starting at Android 8.0 (API 26). iPhone clipboard and network access work while the app is active, as iOS restricts background activity. Interrupted transfers resume after a network reconnect while both apps stay open. Pair devices by QR code; local-network sessions use ephemeral P-256 ECDH and AES-256-GCM. Clipboard history is opt-in and encrypted on-device, with retention controls. Built with C# and .NET MAUI.',
       tags: ['Productivity', '.NET MAUI', 'End-to-end encryption', 'Cross-platform'],
@@ -21,11 +21,33 @@ export const en: AppTranslations = {
         'Android 8.0 (API 26) or later',
         'QR-code pairing with encrypted local-network connections',
       ],
+      requirements: [
+        'Windows 10 version 1809 (build 17763) or later.',
+        'Android 8.0 (API 26) or later for the Android release.',
+      ],
+      releases: [
+        {
+          platform: 'windows',
+          version: '1.2',
+          highlights: [
+            'Added optional sign-in launch controls for the macOS and Windows Store desktop apps.',
+            'Windows startup status now reflects user and organization policy.',
+          ],
+        },
+        {
+          platform: 'android',
+          version: '1.2',
+          highlights: [
+            'Expanded Android support to Android 8.0 (API 26) and later.',
+            'Added the storage permission flow needed to save received files on Android 8 and 9.',
+          ],
+        },
+      ],
     },
     2: {
       tagline: 'Windows-first NAS file management with multi-tab sessions and a capable transfer queue.',
       description:
-        'Connect to WebDAV, FTP, FTPS, or SFTP. Discover NAS devices on your network, manage independent tabs, search and filter files, queue transfers, and preview media or edit text files. Choose whether xConnect starts with Windows.',
+        'Connect to WebDAV, FTP, FTPS, or SFTP; discover NAS devices, work across server tabs, and queue transfers. Preview media or edit remote text files.',
       longDescription:
         'xConnect File Manager is a Windows-first NAS client built with .NET MAUI. Connect to WebDAV, FTP, FTPS, and SFTP servers; discover compatible devices on the local network; and keep independent connections open in tabs. Browse list or grid views with search, filters, sorting, pinned folders, paging, latency, and storage information. Batch file operations include undo for recent renames and moves. The transfer queue supports progress, speed, pause/resume, retry, time estimates, and conflict handling. Preview images, stream audio and video, and edit text files in place. Windows adds tray integration, drag-and-drop uploads, completion notifications, and an optional startup setting that reflects Windows startup status, including user and organization policy. Microsoft Store packages target x64 and ARM64. Android support is in development.',
       tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Multi-tab', 'Transfers', '.NET MAUI'],
@@ -41,11 +63,24 @@ export const en: AppTranslations = {
         'Optional Windows startup setting that reflects user and organization policy',
         'Microsoft Store packages for x64 and ARM64',
       ],
+      requirements: ['Windows 10 version 1903 (build 18362) or later.'],
+      releases: [
+        {
+          platform: 'windows',
+          version: '1.1',
+          date: '2026-11-10',
+          highlights: [
+            'Added an optional setting to start xConnect when you sign in to Windows.',
+            'Startup status reflects Windows settings, Task Manager, and organization policy.',
+            'Microsoft Store packages now target x64 and ARM64.',
+          ],
+        },
+      ],
     },
     3: {
       tagline: 'A scientific calculator with graphing, programmer tools, and a vintage instrument look.',
       description:
-        'Calctron brings scientific math, function graphing, programmer operations, matrices, unit conversion, and a private calculation tape into one native Windows app.',
+        'A native Windows calculator for scientific math, graphing, programmer tools, matrices, and unit conversion—with an offline calculation tape.',
       longDescription:
         'Calctron is a native Windows scientific calculator styled like a precision instrument. Work with editable expressions, complex numbers, variables, and memory; plot up to four functions and inspect numerical roots and intersections; use programmer tools across four number bases; calculate matrices up to 8 × 8; and convert units across eight categories. Its offline tape keeps the latest 100 calculations, and recalled expressions are never run automatically. No account, cloud sync, analytics, or AI service is required. An Android release is planned.',
       tags: ['Windows', 'Scientific calculator', 'Graphing', 'Programmer tools', 'Matrices', '.NET MAUI', 'Offline'],
@@ -57,6 +92,17 @@ export const en: AppTranslations = {
         'Unit conversion for length, mass, temperature, area, volume, speed, time, and data',
         'Offline tape of the latest 100 calculations, with copy and recall',
         'No account, cloud sync, analytics, or AI service',
+      ],
+      requirements: ['Windows 10 version 1809 (build 17763) or later.'],
+      releases: [
+        {
+          platform: 'windows',
+          version: '1.0.0',
+          highlights: [
+            'Windows release with scientific, graphing, programmer, matrix, and unit-conversion tools.',
+            'Native Microsoft Store packages for x64 and ARM64.',
+          ],
+        },
       ],
     },
   },
@@ -117,6 +163,14 @@ export const en: AppTranslations = {
     new: 'New',
     version: 'Version',
     screenshotsTitle: 'Screenshots',
+    viewDetails: 'Project details',
+    backToProjects: 'All projects',
+    requirementsTitle: 'System requirements',
+    releasesTitle: 'Version history',
+    releaseDateLabel: 'Released',
+    available: 'Available',
+    notFoundTitle: 'Project not found',
+    notFoundBody: 'This project page is not available.',
     viewScreenshot: 'View full-size screenshot',
     closeScreenshot: 'Close screenshot',
     screenshotCaptions: {

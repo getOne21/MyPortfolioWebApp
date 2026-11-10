@@ -65,6 +65,14 @@ export interface AppTranslations {
     new: string;
     version: string;
     screenshotsTitle: string;
+    viewDetails: string;
+    backToProjects: string;
+    requirementsTitle: string;
+    releasesTitle: string;
+    releaseDateLabel: string;
+    available: string;
+    notFoundTitle: string;
+    notFoundBody: string;
     viewScreenshot: string;
     closeScreenshot: string;
     screenshotCaptions: {

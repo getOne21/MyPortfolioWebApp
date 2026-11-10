@@ -6,6 +6,7 @@ export class AppDataService {
   private readonly apps: AppProject[] = [
     {
       id: 1,
+      slug: 'bridgely',
       name: 'Bridgely',
       category: 'Productivity',
       versions: { windows: '1.2', android: '1.2' },
@@ -30,6 +31,7 @@ export class AppDataService {
     },
     {
       id: 2,
+      slug: 'xconnect-file-manager',
       name: 'xConnect File Manager',
       category: 'Utilities',
       versions: { windows: '1.1' },
@@ -49,6 +51,7 @@ export class AppDataService {
     },
     {
       id: 3,
+      slug: 'calctron',
       name: 'Calctron',
       category: 'Utilities',
       versions: { windows: '1.0.0' },
@@ -78,5 +81,9 @@ export class AppDataService {
 
   getById(id: number): AppProject | undefined {
     return this.apps.find(a => a.id === id);
+  }
+
+  getBySlug(slug: string): AppProject | undefined {
+    return this.apps.find(app => app.slug === slug);
   }
 }

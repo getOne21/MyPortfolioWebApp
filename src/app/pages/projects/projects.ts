@@ -4,19 +4,17 @@ import {
   inject,
   computed,
   ChangeDetectionStrategy,
-  ElementRef,
-  viewChild,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 
 import { AppDataService } from '../../services/app-data';
 import { TranslationService } from '../../services/translation.service';
-import { AppProject, Platform, ProjectScreenshot } from '../../models/app.model';
+import { AppProject, Platform } from '../../models/app.model';
 
 @Component({
   selector: 'app-projects',
-  imports: [MatIconModule, MatButtonModule],
+  imports: [RouterLink, MatIconModule],
   templateUrl: './projects.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './projects.scss'
@@ -46,68 +44,11 @@ export class Projects {
     return cat === 'All' ? this.allApps : this.allApps.filter(a => a.category === cat);
   });
 
-  expandedId = signal<number | null>(null);
-  activeScreenshot = signal<ProjectScreenshot | null>(null);
-  private screenshotDialog = viewChild<ElementRef<HTMLDialogElement>>('screenshotDialog');
-
-  private readonly platformIcons: Record<Platform, string> = {
-    windows: 'computer',
-    android: 'phone_android',
-    ios:     'phone_iphone',
-    macos:   'laptop_mac',
-    linux:   'terminal',
-  };
-
-  /** Reactive label map so platform names update on language switch */
-  platformLabels = computed(() => this.t().platforms);
-
-  getPlatformIcon(p: Platform):  string { return this.platformIcons[p] ?? 'download'; }
-  getPlatformLabel(p: Platform): string { return this.platformLabels()[p]; }
-
   versionSummary(app: AppProject): string {
     return (Object.entries(app.versions) as [Platform, string][])
-      .map(([platform, version]) => `${this.getPlatformLabel(platform)} ${version}`)
+      .map(([platform, version]) => `${this.t().platforms[platform]} ${version}`)
       .join(' · ');
   }
 
-  openScreenshot(screenshot: ProjectScreenshot): void {
-    this.activeScreenshot.set(screenshot);
-    const dialog = this.screenshotDialog()?.nativeElement;
-    if (!dialog || dialog.open) return;
-
-    try {
-      if (typeof dialog.showModal === 'function') dialog.showModal();
-    } catch { /* Fall back when the platform does not implement showModal. */ }
-    if (!dialog.open) dialog.setAttribute('open', '');
-  }
-
-  closeScreenshot(): void {
-    const dialog = this.screenshotDialog()?.nativeElement;
-    if (!dialog?.open) return;
-
-    if (typeof dialog.close === 'function') {
-      try {
-        dialog.close();
-        if (!dialog.open) return;
-      } catch { /* Fall back when the platform does not implement close. */ }
-    }
-
-    dialog.removeAttribute('open');
-    this.activeScreenshot.set(null);
-  }
-
-  clearActiveScreenshot(): void {
-    this.activeScreenshot.set(null);
-  }
-
-  toggleExpand(id: number) { this.expandedId.update(v => (v === id ? null : id)); }
   filterBy(cat: string)    { this.selectedCategory.set(cat); }
-
-  /** Format a date string with the active locale */
-  formatDate(dateStr: string): string {
-    return new Date(dateStr).toLocaleDateString(
-      this.currentLang() === 'de' ? 'de-DE' : 'en-GB',
-      { year: 'numeric', month: 'long', day: 'numeric' }
-    );
-  }
 }

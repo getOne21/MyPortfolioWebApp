@@ -42,16 +42,29 @@ describe('TranslationService', () => {
 
   it('localizes app descriptions and features', () => {
     const svc = TestBed.inject(TranslationService);
-    expect(svc.t().appProjects[1].description).toContain('Android adds notification-code forwarding');
+    expect(svc.t().appProjects[1].description).toContain('Android adds one-time-code forwarding');
     expect(svc.t().appProjects[1].longDescription).toContain('optional launch-at-sign-in');
     expect(svc.t().appProjects[1].longDescription).toContain('Android 8.0 (API 26)');
 
     svc.setLang('de');
-    expect(svc.t().appProjects[1].description).toContain('Android bietet Code-Weiterleitung');
+    expect(svc.t().appProjects[1].description).toContain('Android bietet Einmalcode-Weiterleitung');
     expect(svc.t().appProjects[1].longDescription).not.toContain('Bridgely 1.2');
     expect(svc.t().appProjects[1].longDescription).toContain('Autostart bei der Anmeldung');
     expect(svc.t().appProjects[1].longDescription).toContain('Android 8.0 (API 26)');
     expect(svc.t().appProjects[2].features).toContain('Windows-Version verfügbar; Android-Unterstützung in Entwicklung');
+  });
+
+  it('provides localized release notes and requirements for every app', () => {
+    const svc = TestBed.inject(TranslationService);
+    for (const project of Object.values(svc.t().appProjects)) {
+      expect(project.requirements.length).toBeGreaterThan(0);
+      expect(project.releases.length).toBeGreaterThan(0);
+    }
+    expect(svc.t().appProjects[2].releases[0].version).toBe('1.1');
+
+    svc.setLang('de');
+    expect(svc.t().appProjects[2].releases[0].highlights[0]).toContain('Windows-Anmeldung');
+    expect(svc.t().appProjects[2].requirements[0]).toContain('Windows 10');
   });
 
   it('describes xConnect SFTP support and planned Android release in both languages', () => {
@@ -70,11 +83,11 @@ describe('TranslationService', () => {
 
   it('localizes Calctron and notes its planned Android release', () => {
     const svc = TestBed.inject(TranslationService);
-    expect(svc.t().appProjects[3].description).toContain('native Windows app');
+    expect(svc.t().appProjects[3].description).toContain('native Windows calculator');
     expect(svc.t().appProjects[3].longDescription).toContain('An Android release is planned');
 
     svc.setLang('de');
-    expect(svc.t().appProjects[3].description).toContain('Windows-App');
+    expect(svc.t().appProjects[3].description).toContain('Windows-Rechner');
     expect(svc.t().appProjects[3].longDescription).toContain('Eine Android-Version ist geplant');
   });
 });

@@ -38,6 +38,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects"/>
   </url>
   <url>
+    <loc>https://tb-builds.com/en/projects/bridgely</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/projects/bridgely"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/projects/bridgely"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects/bridgely"/>
+  </url>
+  <url>
+    <loc>https://tb-builds.com/de/projects/bridgely</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/projects/bridgely"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/projects/bridgely"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects/bridgely"/>
+  </url>
+  <url>
+    <loc>https://tb-builds.com/en/projects/xconnect-file-manager</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/projects/xconnect-file-manager"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/projects/xconnect-file-manager"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects/xconnect-file-manager"/>
+  </url>
+  <url>
+    <loc>https://tb-builds.com/de/projects/xconnect-file-manager</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/projects/xconnect-file-manager"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/projects/xconnect-file-manager"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects/xconnect-file-manager"/>
+  </url>
+  <url>
+    <loc>https://tb-builds.com/en/projects/calctron</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/projects/calctron"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/projects/calctron"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects/calctron"/>
+  </url>
+  <url>
+    <loc>https://tb-builds.com/de/projects/calctron</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/projects/calctron"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/projects/calctron"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tb-builds.com/en/projects/calctron"/>
+  </url>
+  <url>
     <loc>https://tb-builds.com/en/terms</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://tb-builds.com/en/terms"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://tb-builds.com/de/terms"/>
