@@ -23,6 +23,23 @@ describe('Projects page overview', () => {
     expect(versionText).toContain('Android 1.2');
   });
 
+  it('exposes the selected category through pressed state', () => {
+    const fixture = TestBed.createComponent(Projects);
+    fixture.detectChanges();
+
+    const chips = Array.from(
+      fixture.nativeElement.querySelectorAll('.filter-chip') as NodeListOf<HTMLButtonElement>
+    );
+    expect(chips[0].getAttribute('aria-pressed')).toBe('true');
+
+    const utilities = chips.find(chip => chip.textContent?.trim() === 'Utilities');
+    utilities?.click();
+    fixture.detectChanges();
+
+    expect(utilities?.getAttribute('aria-pressed')).toBe('true');
+    expect(fixture.nativeElement.querySelectorAll('.project-card')).toHaveLength(2);
+  });
+
   it('keeps full project content on the detail pages', () => {
     localStorage.setItem('portfolio-lang', 'en');
     const fixture = TestBed.createComponent(Projects);

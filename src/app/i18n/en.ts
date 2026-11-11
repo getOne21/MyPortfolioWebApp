@@ -111,6 +111,8 @@ export const en: AppTranslations = {
   },
 
   nav: {
+    primaryNavigation: 'Primary navigation',
+    skipToContent: 'Skip to main content',
     home: 'Home',
     about: 'About',
     projects: 'Projects',
@@ -120,6 +122,13 @@ export const en: AppTranslations = {
     downloadApps: 'Download Apps',
     style: 'Style',
     language: 'Language',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    themeNames: {
+      dark: 'Dark',
+      futuristic: 'Futuristic',
+      light: 'White Blue',
+    },
   },
 
   hero: {
@@ -137,6 +146,15 @@ export const en: AppTranslations = {
     subtitle: 'Hand-picked highlights from my portfolio',
     viewProject: 'View project',
     new: 'New',
+    regionLabel: 'Featured projects carousel',
+    regionRoleDescription: 'carousel',
+    slideRoleDescription: 'slide',
+    slideLabel: 'Project {index} of {total}',
+    slideAnnouncement: '{project}, project {index} of {total}',
+    previousSlide: 'Previous project',
+    nextSlide: 'Next project',
+    pauseRotation: 'Pause featured projects',
+    resumeRotation: 'Resume featured projects',
   },
 
   allApps: {

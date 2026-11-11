@@ -1,4 +1,4 @@
-import { Component, signal, inject, OnDestroy, ChangeDetectionStrategy, afterNextRender } from '@angular/core';
+import { Component, signal, inject, OnDestroy, ChangeDetectionStrategy, afterNextRender, effect } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -49,12 +49,20 @@ export class Home implements OnDestroy {
 
   t        = this.ts.t;
   catLabel = (key: string) => this.ts.catLabel(key);
+  reducedMotion = this.motion.reduced;
 
   featuredApps: AppProject[] = this.svc.getFeatured();
   allApps:      AppProject[] = this.svc.getAll();
 
   currentSlide = signal(0);
+  autoPlayPaused = signal(false);
+  rotationRunning = signal(false);
   private timer: ReturnType<typeof setInterval> | null = null;
+  private focusWithinCarousel = false;
+  private readonly motionEffect = effect(() => {
+    if (this.reducedMotion()) this.stopAutoPlay();
+    else this.startAutoPlay();
+  });
 
   private readonly orbitTechDefinitions: OrbitTechDefinition[] = [
     { name: 'JavaScript', icon: siJavascript },
@@ -100,22 +108,65 @@ export class Home implements OnDestroy {
 
   ngOnDestroy() { this.stopAutoPlay(); }
 
-  startAutoPlay() {
-    if (!this.browserReady || this.motion.reduced() || this.timer) return;
+  startAutoPlay(force = false) {
+    if (
+      !this.browserReady
+      || this.reducedMotion()
+      || this.autoPlayPaused()
+      || this.featuredApps.length < 2
+      || this.timer
+      || (this.focusWithinCarousel && !force)
+    ) return;
+
     this.timer = setInterval(() => this.next(), 5000);
+    this.rotationRunning.set(true);
   }
 
   stopAutoPlay() {
-    if (this.timer) { clearInterval(this.timer); this.timer = null; }
+    if (this.timer) clearInterval(this.timer);
+    this.timer = null;
+    this.rotationRunning.set(false);
   }
 
   next() { this.currentSlide.update(i => (i + 1) % this.featuredApps.length); }
   prev() { this.currentSlide.update(i => (i - 1 + this.featuredApps.length) % this.featuredApps.length); }
 
+  toggleAutoPlay() {
+    this.autoPlayPaused.update(paused => !paused);
+    if (this.autoPlayPaused()) this.stopAutoPlay();
+    else this.startAutoPlay(true);
+  }
+
   goTo(index: number) {
     this.currentSlide.set(index);
     this.stopAutoPlay();
     this.startAutoPlay();
+  }
+
+  onCarouselFocusIn() {
+    this.focusWithinCarousel = true;
+    this.stopAutoPlay();
+  }
+
+  onCarouselFocusOut(event: FocusEvent) {
+    const wrapper = event.currentTarget as HTMLElement;
+    if (event.relatedTarget instanceof Node && wrapper.contains(event.relatedTarget)) return;
+
+    this.focusWithinCarousel = false;
+    this.startAutoPlay();
+  }
+
+  slideLabel(index: number): string {
+    return this.t().carousel.slideLabel
+      .replace('{index}', String(index))
+      .replace('{total}', String(this.featuredApps.length));
+  }
+
+  currentSlideAnnouncement(): string {
+    return this.t().carousel.slideAnnouncement
+      .replace('{project}', this.currentApp.name)
+      .replace('{index}', String(this.currentSlide() + 1))
+      .replace('{total}', String(this.featuredApps.length));
   }
 
   get currentApp(): AppProject { return this.featuredApps[this.currentSlide()]; }

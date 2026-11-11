@@ -111,6 +111,8 @@ export const de: AppTranslations = {
   },
 
   nav: {
+    primaryNavigation: 'Hauptnavigation',
+    skipToContent: 'Zum Hauptinhalt springen',
     home: 'Startseite',
     about: 'Über mich',
     projects: 'Projekte',
@@ -120,6 +122,13 @@ export const de: AppTranslations = {
     downloadApps: 'Apps herunterladen',
     style: 'Stil',
     language: 'Sprache',
+    openMenu: 'Menü öffnen',
+    closeMenu: 'Menü schließen',
+    themeNames: {
+      dark: 'Dunkel',
+      futuristic: 'Futuristisch',
+      light: 'Weiß-Blau',
+    },
   },
 
   hero: {
@@ -137,6 +146,15 @@ export const de: AppTranslations = {
     subtitle: 'Ausgewählte Highlights aus meinem Portfolio',
     viewProject: 'Projekt ansehen',
     new: 'Neu',
+    regionLabel: 'Projekt-Highlights-Karussell',
+    regionRoleDescription: 'Karussell',
+    slideRoleDescription: 'Folie',
+    slideLabel: 'Projekt {index} von {total}',
+    slideAnnouncement: '{project}, Projekt {index} von {total}',
+    previousSlide: 'Vorheriges Projekt',
+    nextSlide: 'Nächstes Projekt',
+    pauseRotation: 'Projektwechsel anhalten',
+    resumeRotation: 'Projektwechsel fortsetzen',
   },
 
   allApps: {

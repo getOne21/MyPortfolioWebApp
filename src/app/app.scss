@@ -1,3 +1,25 @@
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 3000;
+  padding: 11px 16px;
+  transform: translateY(calc(-100% - 16px));
+  border: 2px solid var(--accent-1);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+
+  &:focus { transform: translateY(0); }
+}
+
 main {
   min-height: calc(100vh - 64px - 200px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
 }

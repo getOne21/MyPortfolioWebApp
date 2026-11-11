@@ -20,7 +20,6 @@ export class Navbar {
   t            = this.ts.t;
   currentLang  = this.ts.currentLang;
   currentTheme = this.theme.currentTheme;
-
   menuOpen     = signal(false);
   scrolled     = signal(false);
   dropdownOpen = signal(false);
@@ -34,25 +33,44 @@ export class Navbar {
     { key: 'imprint'  as const, path: 'imprint',  icon: 'info' },
   ];
 
-  themes: { value: Theme; label: string; icon: string; c1: string; c2: string }[] = [
-    { value: 'dark',       label: 'Dark',       icon: 'dark_mode',     c1: '#3b82f6', c2: '#27272a' },
-    { value: 'futuristic', label: 'Futuristic', icon: 'auto_fix_high', c1: '#00d4ff', c2: '#7c3aed' },
-    { value: 'light',      label: 'White Blue', icon: 'light_mode',    c1: '#2563eb', c2: '#ffffff' },
+  themes: { value: Theme; icon: string; c1: string; c2: string }[] = [
+    { value: 'dark',       icon: 'dark_mode',     c1: '#3b82f6', c2: '#27272a' },
+    { value: 'futuristic', icon: 'auto_fix_high', c1: '#00d4ff', c2: '#7c3aed' },
+    { value: 'light',      icon: 'light_mode',    c1: '#2563eb', c2: '#ffffff' },
   ];
 
   activeThemeEntry = computed(() =>
     this.themes.find(t => t.value === this.currentTheme()) ?? this.themes[0]
   );
 
+  themeLabel(value: Theme): string {
+    return this.t().nav.themeNames[value];
+  }
+
   @HostListener('window:scroll')
   onScroll() { this.scrolled.set(window.scrollY > 20); }
 
   private themeDropdown = viewChild<ElementRef<HTMLElement>>('themeDropdown');
+  private menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
 
   /** Close dropdown when clicking anywhere outside it */
   @HostListener('document:click', ['$event'])
   onDocumentClick(e: Event) {
     if (!this.themeDropdown()?.nativeElement.contains(e.target as Node)) this.dropdownOpen.set(false);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.dropdownOpen()) {
+      this.dropdownOpen.set(false);
+      this.themeDropdown()?.nativeElement.querySelector<HTMLButtonElement>('.theme-dropdown-btn')?.focus();
+      return;
+    }
+
+    if (this.menuOpen()) {
+      this.closeMenu();
+      this.menuButton()?.nativeElement.focus();
+    }
   }
 
   toggleMenu() { this.menuOpen.update(v => !v); }

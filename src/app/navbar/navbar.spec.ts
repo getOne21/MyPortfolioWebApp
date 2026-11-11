@@ -27,9 +27,52 @@ describe('Navbar language switch', () => {
     const navbar = TestBed.createComponent(Navbar);
     navbar.detectChanges();
 
-    const hrefs = Array.from(navbar.nativeElement.querySelectorAll('.nav-link') as NodeListOf<HTMLAnchorElement>)
-      .map(a => a.getAttribute('href'));
+    const links = Array.from(navbar.nativeElement.querySelectorAll('.nav-link') as NodeListOf<HTMLAnchorElement>);
+    const hrefs = links.map(a => a.getAttribute('href'));
     expect(hrefs).toEqual(['/de/home', '/de/about', '/de/projects', '/de/terms', '/de/privacy', '/de/imprint']);
+    expect(navbar.nativeElement.querySelector('.lang-btn[aria-pressed="true"]')?.textContent?.trim()).toBe('DE');
+  });
+
+  it('exposes the mobile menu state and closes it with Escape', async () => {
+    await RouterTestingHarness.create('/en/home');
+    const navbar = TestBed.createComponent(Navbar);
+    navbar.detectChanges();
+
+    const menuButton = navbar.nativeElement.querySelector('.burger') as HTMLButtonElement;
+    const focusMenuButton = vi.spyOn(menuButton, 'focus');
+    expect(menuButton.getAttribute('aria-expanded')).toBe('false');
+    expect(menuButton.getAttribute('aria-label')).toBe('Open menu');
+
+    menuButton.click();
+    navbar.detectChanges();
+    expect(menuButton.getAttribute('aria-expanded')).toBe('true');
+    expect(navbar.nativeElement.querySelector('#mobile-menu')).not.toBeNull();
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    navbar.detectChanges();
+    expect(navbar.componentInstance.menuOpen()).toBe(false);
+    expect(focusMenuButton).toHaveBeenCalled();
+  });
+
+  it('exposes the desktop theme disclosure state and returns focus on Escape', async () => {
+    await RouterTestingHarness.create('/en/home');
+    const navbar = TestBed.createComponent(Navbar);
+    navbar.detectChanges();
+
+    const themeButton = navbar.nativeElement.querySelector('.theme-dropdown-btn') as HTMLButtonElement;
+    const focusThemeButton = vi.spyOn(themeButton, 'focus');
+    expect(themeButton.getAttribute('aria-expanded')).toBe('false');
+    expect(themeButton.getAttribute('aria-controls')).toBe('theme-panel');
+
+    themeButton.click();
+    navbar.detectChanges();
+    expect(themeButton.getAttribute('aria-expanded')).toBe('true');
+    expect(navbar.nativeElement.querySelector('#theme-panel[hidden]')).toBeNull();
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    navbar.detectChanges();
+    expect(themeButton.getAttribute('aria-expanded')).toBe('false');
+    expect(focusThemeButton).toHaveBeenCalled();
   });
 
   it('shows style and language dropdowns in the mobile menu', async () => {

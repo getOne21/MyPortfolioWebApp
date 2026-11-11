@@ -672,23 +672,61 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 28px;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  position: relative;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  place-items: center;
   border: none;
-  background: var(--bg-secondary);
+  border-radius: 50%;
+  background: transparent;
   cursor: pointer;
-  transition: width 0.3s, background 0.3s, border-radius 0.3s;
+  --dot-accent: var(--bg-secondary);
 
-  &.active {
-    width: 28px;
-    border-radius: 4px;
-    background: var(--accent-1);
+  &::before {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dot-accent);
+    content: '';
+    transition: width 0.25s ease, border-radius 0.25s ease;
   }
+
+  &[aria-current="true"]::before {
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  &:focus-visible { outline: 2px solid var(--accent-1); outline-offset: 1px; }
+}
+
+.carousel-rotation-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent-1) 25%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+  color: var(--text-secondary);
+  cursor: pointer;
+
+  mat-icon { width: 18px; height: 18px; font-size: 18px; }
+  &:hover { border-color: var(--accent-1); color: var(--accent-1); }
+  &:focus-visible { outline: 2px solid var(--accent-1); outline-offset: 2px; }
 }
 
 /* ── All Apps grid ── */

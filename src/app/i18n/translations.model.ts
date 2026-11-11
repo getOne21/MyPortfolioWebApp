@@ -11,6 +11,8 @@ export interface AppTranslations {
   appProjects: Record<number, AppProjectCopy>;
 
   nav: {
+    primaryNavigation: string;
+    skipToContent: string;
     home: string;
     about: string;
     projects: string;
@@ -20,6 +22,13 @@ export interface AppTranslations {
     downloadApps: string;
     style: string;
     language: string;
+    openMenu: string;
+    closeMenu: string;
+    themeNames: {
+      dark: string;
+      futuristic: string;
+      light: string;
+    };
   };
 
   hero: {
@@ -36,6 +45,15 @@ export interface AppTranslations {
     subtitle: string;
     viewProject: string;
     new: string;
+    regionLabel: string;
+    regionRoleDescription: string;
+    slideRoleDescription: string;
+    slideLabel: string;
+    slideAnnouncement: string;
+    previousSlide: string;
+    nextSlide: string;
+    pauseRotation: string;
+    resumeRotation: string;
   };
 
   allApps: {

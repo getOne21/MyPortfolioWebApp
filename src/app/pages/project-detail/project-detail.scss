@@ -89,7 +89,7 @@
 }
 
 .detail-category {
-  color: var(--project-accent);
+  color: var(--project-accent-text, var(--project-accent));
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.14em;
@@ -187,7 +187,7 @@
 }
 
 .section-index {
-  color: var(--project-accent);
+  color: var(--project-accent-text, var(--project-accent));
   font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 700;
@@ -267,7 +267,7 @@
     padding: 6px 10px;
     border: 1px solid color-mix(in srgb, var(--project-accent) 22%, transparent);
     border-radius: 999px;
-    color: var(--project-accent);
+    color: var(--project-accent-text, var(--project-accent));
     font-size: 11px;
   }
 }

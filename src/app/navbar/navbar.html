@@ -1,4 +1,4 @@
-<nav class="navbar" [class.scrolled]="scrolled()">
+<nav class="navbar" [class.scrolled]="scrolled()" [attr.aria-label]="t().nav.primaryNavigation">
   <div class="nav-container">
 
     <!-- Logo -->
@@ -11,8 +11,8 @@
     <ul class="nav-links">
       @for (link of navLinks; track link.path) {
         <li>
-          <a [routerLink]="['/', currentLang(), link.path]" routerLinkActive="active" class="nav-link">
-            <mat-icon>{{ link.icon }}</mat-icon>
+          <a [routerLink]="['/', currentLang(), link.path]" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link">
+            <mat-icon aria-hidden="true">{{ link.icon }}</mat-icon>
             <span>{{ t().nav[link.key] }}</span>
           </a>
         </li>
@@ -22,15 +22,19 @@
     <!-- Language selector -->
     <div class="lang-selector">
       <button
+        type="button"
         class="lang-btn"
         [class.active]="currentLang() === 'de'"
+        [attr.aria-pressed]="currentLang() === 'de'"
         (click)="setLang('de')"
         aria-label="Deutsch"
       >DE</button>
       <span class="lang-divider">|</span>
       <button
+        type="button"
         class="lang-btn"
         [class.active]="currentLang() === 'en'"
+        [attr.aria-pressed]="currentLang() === 'en'"
         (click)="setLang('en')"
         aria-label="English"
       >EN</button>
@@ -39,70 +43,88 @@
     <!-- Theme dropdown (desktop) -->
     <div #themeDropdown class="theme-dropdown" [class.open]="dropdownOpen()">
       <button
+        type="button"
         class="theme-dropdown-btn"
         (click)="openDropdown($event)"
-        [title]="activeThemeEntry().label"
-        [attr.aria-label]="t().nav.style"
+        [title]="themeLabel(activeThemeEntry().value)"
+        [attr.aria-label]="t().nav.style + ': ' + themeLabel(activeThemeEntry().value)"
+        [attr.aria-expanded]="dropdownOpen()"
+        aria-controls="theme-panel"
       >
-        <mat-icon>{{ activeThemeEntry().icon }}</mat-icon>
+        <mat-icon aria-hidden="true">{{ activeThemeEntry().icon }}</mat-icon>
         <span class="theme-swatches-mini">
           <span class="swatch-mini" [style.background]="activeThemeEntry().c1"></span>
           <span class="swatch-mini" [style.background]="activeThemeEntry().c2"></span>
         </span>
-        <mat-icon class="chevron">expand_more</mat-icon>
+        <mat-icon class="chevron" aria-hidden="true">expand_more</mat-icon>
       </button>
 
-      @if (dropdownOpen()) {
-        <div class="theme-panel">
-          @for (theme of themes; track theme.value) {
-            <button
-              class="theme-option"
-              [class.active]="currentTheme() === theme.value"
-              (click)="selectTheme(theme.value, $event)"
-            >
-              <span class="theme-swatches">
-                <span class="swatch" [style.background]="theme.c1"></span>
-                <span class="swatch" [style.background]="theme.c2"></span>
-              </span>
-              <mat-icon class="theme-opt-icon">{{ theme.icon }}</mat-icon>
-              <span class="theme-opt-label">{{ theme.label }}</span>
-              @if (currentTheme() === theme.value) {
-                <mat-icon class="theme-check">check</mat-icon>
-              }
-            </button>
-          }
-        </div>
-      }
+      <div
+        id="theme-panel"
+        class="theme-panel"
+        role="group"
+        [attr.aria-label]="t().nav.style"
+        [hidden]="!dropdownOpen()"
+      >
+        @for (theme of themes; track theme.value) {
+          <button
+            type="button"
+            class="theme-option"
+            [class.active]="currentTheme() === theme.value"
+            [attr.aria-pressed]="currentTheme() === theme.value"
+            (click)="selectTheme(theme.value, $event)"
+          >
+            <span class="theme-swatches">
+              <span class="swatch" [style.background]="theme.c1"></span>
+              <span class="swatch" [style.background]="theme.c2"></span>
+            </span>
+            <mat-icon class="theme-opt-icon" aria-hidden="true">{{ theme.icon }}</mat-icon>
+            <span class="theme-opt-label">{{ themeLabel(theme.value) }}</span>
+            @if (currentTheme() === theme.value) {
+              <mat-icon class="theme-check" aria-hidden="true">check</mat-icon>
+            }
+          </button>
+        }
+      </div>
     </div>
 
     <!-- CTA -->
     <a class="nav-cta" [routerLink]="['/', currentLang(), 'projects']" (click)="closeMenu()">
-      <mat-icon>download</mat-icon>
+      <mat-icon aria-hidden="true">download</mat-icon>
       <span>{{ t().nav.downloadApps }}</span>
     </a>
 
     <!-- Burger -->
-    <button class="burger" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Menu">
+    <button
+      #menuButton
+      type="button"
+      class="burger"
+      (click)="toggleMenu()"
+      [class.open]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? t().nav.closeMenu : t().nav.openMenu"
+      [attr.aria-expanded]="menuOpen()"
+    >
       <span></span><span></span><span></span>
     </button>
   </div>
 
   <!-- Mobile dropdown -->
   @if (menuOpen()) {
-    <div class="mobile-menu">
+    <div id="mobile-menu" class="mobile-menu">
       @for (link of navLinks; track link.path) {
         <a
           [routerLink]="['/', currentLang(), link.path]"
           routerLinkActive="active"
+          ariaCurrentWhenActive="page"
           class="mobile-link"
           (click)="closeMenu()"
         >
-          <mat-icon>{{ link.icon }}</mat-icon>
+          <mat-icon aria-hidden="true">{{ link.icon }}</mat-icon>
           {{ t().nav[link.key] }}
         </a>
       }
       <a class="mobile-link cta-mobile" [routerLink]="['/', currentLang(), 'projects']" (click)="closeMenu()">
-        <mat-icon>download</mat-icon>
+        <mat-icon aria-hidden="true">download</mat-icon>
         {{ t().nav.downloadApps }}
       </a>
 
@@ -118,7 +140,7 @@
             >
               @for (theme of themes; track theme.value) {
                 <option [value]="theme.value" [selected]="currentTheme() === theme.value">
-                  {{ theme.label }}
+                  {{ themeLabel(theme.value) }}
                 </option>
               }
             </select>

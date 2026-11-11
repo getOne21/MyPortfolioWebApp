@@ -61,12 +61,27 @@
     <p>{{ t().carousel.subtitle }}</p>
   </div>
 
-  <div class="carousel-wrapper" (mouseenter)="stopAutoPlay()" (mouseleave)="startAutoPlay()">
+  <div
+    class="carousel-wrapper"
+    role="region"
+    [attr.aria-label]="t().carousel.regionLabel"
+    [attr.aria-roledescription]="t().carousel.regionRoleDescription"
+    (mouseenter)="stopAutoPlay()"
+    (mouseleave)="startAutoPlay()"
+    (focusin)="onCarouselFocusIn()"
+    (focusout)="onCarouselFocusOut($event)"
+  >
     <div class="carousel-track">
       @for (app of featuredApps; track app.id; let i = $index) {
         @let copy = t().appProjects[app.id];
         <div
+          [id]="'featured-slide-' + i"
           class="carousel-slide"
+          role="group"
+          [attr.aria-roledescription]="t().carousel.slideRoleDescription"
+          [attr.aria-label]="slideLabel(i + 1)"
+          [attr.aria-hidden]="i === currentSlide() ? null : 'true'"
+          [attr.inert]="i === currentSlide() ? null : ''"
           [class.active]="i === currentSlide()"
           [class.prev]="i === (currentSlide() - 1 + featuredApps.length) % featuredApps.length"
           [style.--accent]="app.colorAccent"
@@ -111,26 +126,43 @@
 
     @if (featuredApps.length > 1) {
       <!-- Navigation arrows -->
-      <button class="carousel-arrow carousel-prev" (click)="prev()" aria-label="Previous">
-        <mat-icon>chevron_left</mat-icon>
+      <button type="button" class="carousel-arrow carousel-prev" (click)="prev()" [attr.aria-label]="t().carousel.previousSlide">
+        <mat-icon aria-hidden="true">chevron_left</mat-icon>
       </button>
-      <button class="carousel-arrow carousel-next" (click)="next()" aria-label="Next">
-        <mat-icon>chevron_right</mat-icon>
+      <button type="button" class="carousel-arrow carousel-next" (click)="next()" [attr.aria-label]="t().carousel.nextSlide">
+        <mat-icon aria-hidden="true">chevron_right</mat-icon>
       </button>
 
-      <!-- Dots -->
-      <div class="carousel-dots">
-        @for (app of featuredApps; track app.id; let i = $index) {
+      <div class="carousel-controls">
+        <div class="carousel-dots">
+          @for (app of featuredApps; track app.id; let i = $index) {
+            <button
+              type="button"
+              class="dot"
+              [class.active]="i === currentSlide()"
+              (click)="goTo(i)"
+              [style.--dot-accent]="i === currentSlide() ? currentApp.colorAccent : ''"
+              [attr.aria-label]="slideLabel(i + 1)"
+              [attr.aria-current]="i === currentSlide() ? 'true' : null"
+              [attr.aria-controls]="'featured-slide-' + i"
+            ></button>
+          }
+        </div>
+        @if (!reducedMotion()) {
           <button
-            class="dot"
-            [class.active]="i === currentSlide()"
-            (click)="goTo(i)"
-            [style.background]="i === currentSlide() ? currentApp.colorAccent : ''"
-            [attr.aria-label]="'Slide ' + (i + 1)"
-          ></button>
+            type="button"
+            class="carousel-rotation-toggle"
+            (click)="toggleAutoPlay()"
+            [attr.aria-label]="autoPlayPaused() ? t().carousel.resumeRotation : t().carousel.pauseRotation"
+          >
+            <mat-icon aria-hidden="true">{{ autoPlayPaused() ? 'play_arrow' : 'pause' }}</mat-icon>
+          </button>
         }
       </div>
     }
+    <span class="sr-only" aria-atomic="true" [attr.aria-live]="rotationRunning() ? 'off' : 'polite'">
+      {{ currentSlideAnnouncement() }}
+    </span>
   </div>
 </section>
 
@@ -157,8 +189,12 @@
         @if (app.isNew) {
           <span class="badge-new-mini">{{ t().carousel.new }}</span>
         }
-        <a class="mini-cta" [routerLink]="['/', t().lang, 'projects', app.slug]">
-          <mat-icon>arrow_forward</mat-icon>
+        <a
+          class="mini-cta"
+          [routerLink]="['/', t().lang, 'projects', app.slug]"
+          [attr.aria-label]="t().projects.viewDetails + ': ' + app.name"
+        >
+          <mat-icon aria-hidden="true">arrow_forward</mat-icon>
         </a>
       </div>
     }

@@ -13,8 +13,10 @@
   <div class="filter-inner">
     @for (chip of filterChips(); track chip.key) {
       <button
+        type="button"
         class="filter-chip"
         [class.active]="selectedCategory() === chip.key"
+        [attr.aria-pressed]="selectedCategory() === chip.key"
         (click)="filterBy(chip.key)"
       >
         {{ chip.label }}
@@ -61,7 +63,7 @@
 
   @if (filteredApps().length === 0) {
     <div class="empty-state">
-      <mat-icon>search_off</mat-icon>
+      <mat-icon aria-hidden="true">search_off</mat-icon>
       <p>{{ t().projects.noResults }}</p>
     </div>
   }
