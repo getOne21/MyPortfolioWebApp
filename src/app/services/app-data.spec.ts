@@ -30,6 +30,12 @@ describe('AppDataService', () => {
     expect(svc.getBySlug('unknown')).toBeUndefined();
   });
 
+  it('assigns a project-specific social preview image to each app', () => {
+    expect(svc.getById(1)?.socialImage).toBe('/apps/og/bridgely.png');
+    expect(svc.getById(2)?.socialImage).toBe('/apps/og/xconnect-file-manager.png');
+    expect(svc.getById(3)?.socialImage).toBe('/apps/og/calctron.png');
+  });
+
   it('includes an iPhone download for Bridgely', () => {
     expect(svc.getById(1)?.downloads).toContainEqual(
       expect.objectContaining({ platform: 'ios' }),

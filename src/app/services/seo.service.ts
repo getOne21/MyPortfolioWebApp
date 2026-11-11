@@ -40,8 +40,8 @@ export class SeoService {
     const fullTitle = page === 'home' ? title : `${title} | ${SITE.name}`;
     const path = project ? `projects/${project.slug}` : page;
     const pageUrl = (l: Lang) => `${SITE.url}/${l}/${path}`;
-    const image = SITE.url + SITE.ogImage;
-    const imageAlt = seo.imageAlt;
+    const image = SITE.url + (project?.socialImage ?? SITE.ogImage);
+    const imageAlt = projectCopy?.socialImageAlt ?? seo.imageAlt;
     const otherLocales = LANGS.filter(l => l !== lang).map(l => (l === 'de' ? 'de_DE' : 'en_GB'));
 
     this.title.setTitle(fullTitle);

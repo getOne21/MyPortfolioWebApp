@@ -1,14 +1,13 @@
 import { Component, signal, inject, computed, HostListener, ChangeDetectionStrategy, ElementRef, viewChild } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 
 import { Lang, TranslationService } from '../services/translation.service';
 import { ThemeService, Theme } from '../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, MatIconModule, MatButtonModule],
+  imports: [RouterLink, RouterLinkActive, MatIconModule],
   templateUrl: './navbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './navbar.scss'

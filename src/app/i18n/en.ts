@@ -7,6 +7,7 @@ export const en: AppTranslations = {
       tagline: 'Keep your Android phone or iPhone connected to your Mac or Windows PC.',
       description:
         'Share clipboard content, files, and screenshots between your phone and computer. Android adds one-time-code forwarding and screen mirroring; iPhone sync works while the app is open.',
+      socialImageAlt: 'Bridgely desktop app with a phone pairing screen',
       longDescription:
         'Bridgely connects Android and iPhone with Mac and Windows. Both desktop apps share clipboard history, file transfer, phone status, and Android screen mirroring via scrcpy. Desktop settings add optional launch-at-sign-in controls on macOS 13+ and the installed Windows Store version. Send clipboard items, files, and screenshots to one selected computer or all connected computers. Android adds a foreground service, notification-based one-time-code forwarding, a Quick Settings tile, and a home-screen widget, with support starting at Android 8.0 (API 26). iPhone clipboard and network access work while the app is active, as iOS restricts background activity. Interrupted transfers resume after a network reconnect while both apps stay open. Pair devices by QR code; local-network sessions use ephemeral P-256 ECDH and AES-256-GCM. Clipboard history is opt-in and encrypted on-device, with retention controls. Built with C# and .NET MAUI.',
       tags: ['Productivity', '.NET MAUI', 'End-to-end encryption', 'Cross-platform'],
@@ -48,6 +49,7 @@ export const en: AppTranslations = {
       tagline: 'Windows-first NAS file management with multi-tab sessions and a capable transfer queue.',
       description:
         'Connect to WebDAV, FTP, FTPS, or SFTP; discover NAS devices, work across server tabs, and queue transfers. Preview media or edit remote text files.',
+      socialImageAlt: 'xConnect File Manager connection screen for NAS servers',
       longDescription:
         'xConnect File Manager is a Windows-first NAS client built with .NET MAUI. Connect to WebDAV, FTP, FTPS, and SFTP servers; discover compatible devices on the local network; and keep independent connections open in tabs. Browse list or grid views with search, filters, sorting, pinned folders, paging, latency, and storage information. Batch file operations include undo for recent renames and moves. The transfer queue supports progress, speed, pause/resume, retry, time estimates, and conflict handling. Preview images, stream audio and video, and edit text files in place. Windows adds tray integration, drag-and-drop uploads, completion notifications, and an optional startup setting that reflects Windows startup status, including user and organization policy. Microsoft Store packages target x64 and ARM64. Android support is in development.',
       tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Multi-tab', 'Transfers', '.NET MAUI'],
@@ -81,6 +83,7 @@ export const en: AppTranslations = {
       tagline: 'A scientific calculator with graphing, programmer tools, and a vintage instrument look.',
       description:
         'A native Windows calculator for scientific math, graphing, programmer tools, matrices, and unit conversion—with an offline calculation tape.',
+      socialImageAlt: 'Calctron scientific calculator and graphing interface',
       longDescription:
         'Calctron is a native Windows scientific calculator styled like a precision instrument. Work with editable expressions, complex numbers, variables, and memory; plot up to four functions and inspect numerical roots and intersections; use programmer tools across four number bases; calculate matrices up to 8 × 8; and convert units across eight categories. Its offline tape keeps the latest 100 calculations, and recalled expressions are never run automatically. No account, cloud sync, analytics, or AI service is required. An Android release is planned.',
       tags: ['Windows', 'Scientific calculator', 'Graphing', 'Programmer tools', 'Matrices', '.NET MAUI', 'Offline'],

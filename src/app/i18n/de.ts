@@ -7,6 +7,7 @@ export const de: AppTranslations = {
       tagline: 'Verbinde dein Android-Smartphone oder iPhone mit Mac oder Windows.',
       description:
         'Synchronisiere Zwischenablage, Dateien und Screenshots zwischen Smartphone und Computer. Android bietet Einmalcode-Weiterleitung und Bildschirmspiegelung; auf dem iPhone funktioniert die Synchronisierung bei geöffneter App.',
+      socialImageAlt: 'Bridgely-Desktop-App mit Kopplungsansicht für ein Smartphone',
       longDescription:
         'Bridgely verbindet Android und iPhone mit Mac und Windows. Beide Desktop-Apps bieten Zwischenablageverlauf, Dateiübertragung, Telefonstatus und Android-Bildschirmspiegelung mit scrcpy. In den Desktop-Einstellungen lässt sich der Autostart bei der Anmeldung unter macOS 13+ und in der installierten Windows-Store-Version aktivieren. Zwischenablageinhalte, Dateien und Screenshots lassen sich an einen ausgewählten oder alle verbundenen Computer senden. Android bietet einen Hintergrunddienst, Weiterleitung von Einmalcodes aus Benachrichtigungen, eine Schnelleinstellungskachel und ein Startbildschirm-Widget und wird ab Android 8.0 (API 26) unterstützt. Auf dem iPhone funktionieren Zwischenablage- und Netzwerkzugriff nur bei aktiver App, da iOS Hintergrundaktivitäten einschränkt. Unterbrochene Übertragungen werden nach einer Netzwerkunterbrechung fortgesetzt, solange beide Apps geöffnet bleiben. Geräte werden per QR-Code gekoppelt; Verbindungen im lokalen Netzwerk nutzen ephemeres P-256-ECDH und AES-256-GCM. Der Zwischenablageverlauf ist optional, lokal verschlüsselt und mit Aufbewahrungsregeln. Entwickelt mit C# und .NET MAUI.',
       tags: ['Produktivität', '.NET MAUI', 'Ende-zu-Ende-Verschlüsselung', 'Plattformübergreifend'],
@@ -48,6 +49,7 @@ export const de: AppTranslations = {
       tagline: 'Windows-orientierte NAS-Dateiverwaltung mit unabhängigen Tabs und leistungsfähiger Übertragungswarteschlange.',
       description:
         'Verbinde dich über WebDAV, FTP, FTPS oder SFTP, entdecke NAS-Geräte und arbeite mit mehreren Server-Tabs und einer Übertragungswarteschlange. Zeige Medien an oder bearbeite entfernte Textdateien.',
+      socialImageAlt: 'xConnect File Manager mit Verbindungsansicht für NAS-Server',
       longDescription:
         'xConnect File Manager ist ein Windows-orientierter NAS-Client mit .NET MAUI. Verbinde dich mit WebDAV-, FTP-, FTPS- und SFTP-Servern, entdecke kompatible Geräte im lokalen Netzwerk und verwalte unabhängige Verbindungen in Tabs. Durchsuche Listen- oder Rasteransichten mit Suche, Filtern, Sortierung, angehefteten Ordnern, Seitenladen, Latenz- und Speicherinformationen. Sammelaktionen für Dateien bieten Rückgängig für kürzliche Umbenennungen und Verschiebungen. Die Übertragungswarteschlange zeigt Fortschritt, Geschwindigkeit und Restzeit und unterstützt Pause/Fortsetzen, Wiederholen und Konfliktbehandlung. Außerdem bietet die App eine Bildershow, Audio-/Videostreaming und einen integrierten Texteditor. Windows ergänzt System-Tray, Drag-and-drop-Uploads, Abschlussbenachrichtigungen und eine optionale Autostart-Einstellung, deren Status Windows-Einstellungen sowie Benutzer- und Unternehmensrichtlinien berücksichtigt. Microsoft-Store-Pakete unterstützen x64 und ARM64. Android-Unterstützung ist in Entwicklung.',
       tags: ['Windows', 'NAS', 'WebDAV', 'FTP', 'FTPS', 'SFTP', 'Mehrere Tabs', 'Übertragungen', '.NET MAUI'],
@@ -81,6 +83,7 @@ export const de: AppTranslations = {
       tagline: 'Wissenschaftlicher Rechner mit Graphen, Programmierfunktionen und Retro-Instrumentenlook.',
       description:
         'Ein nativer Windows-Rechner für wissenschaftliche Berechnungen, Graphen, Programmierwerkzeuge, Matrizen und Einheitenumrechnung – mit Offline-Verlauf.',
+      socialImageAlt: 'Wissenschaftlicher Rechner und Graphenansicht von Calctron',
       longDescription:
         'Calctron ist ein nativer Windows-Wissenschaftsrechner im Stil eines Präzisionsinstruments. Er verarbeitet bearbeitbare Ausdrücke, komplexe Zahlen, Variablen und Speicherwerte; zeichnet bis zu vier Funktionen mit numerischen Nullstellen und Schnittpunkten; bietet Programmierwerkzeuge für vier Zahlensysteme; berechnet Matrizen bis 8 × 8 und rechnet Einheiten aus acht Kategorien um. Der Offline-Verlauf speichert die letzten 100 Berechnungen; abgerufene Ausdrücke werden nie automatisch ausgeführt. Kein Konto, keine Cloud-Synchronisierung, Analyse- oder KI-Dienste. Eine Android-Version ist geplant.',
       tags: ['Windows', 'Wissenschaftlicher Rechner', 'Graphen', 'Programmierfunktionen', 'Matrizen', '.NET MAUI', 'Offline'],

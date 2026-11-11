@@ -11,6 +11,7 @@ export interface AppProjectCopy {
   tagline: string;
   description: string;
   longDescription: string;
+  socialImageAlt: string;
   tags: string[];
   features: string[];
   requirements: string[];
@@ -54,6 +55,7 @@ export interface AppProject {
   gradientEnd: string;
   /** App icon image path (under public/), drawn on top of the gradient tile */
   icon: string;
+  socialImage: string;
   isNew?: boolean;
   isFeatured?: boolean;
 }

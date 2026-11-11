@@ -54,6 +54,9 @@ describe('SeoService', () => {
     expect(document.title).toBe(`xConnect File Manager | ${SITE.name}`);
     expect(meta('name="description"')).toContain('NAS-Geräte');
     expect(meta('property="og:url"')).toBe(`${SITE.url}/de/projects/xconnect-file-manager`);
+    expect(meta('property="og:image"')).toBe(`${SITE.url}/apps/og/xconnect-file-manager.png`);
+    expect(meta('property="og:image:alt"')).toBe('xConnect File Manager mit Verbindungsansicht für NAS-Server');
+    expect(meta('name="twitter:image"')).toBe(`${SITE.url}/apps/og/xconnect-file-manager.png`);
     expect(link('link[rel="canonical"]')).toBe(`${SITE.url}/de/projects/xconnect-file-manager`);
     expect(link('link[hreflang="en"]')).toBe(`${SITE.url}/en/projects/xconnect-file-manager`);
     expect(link('link[hreflang="de"]')).toBe(`${SITE.url}/de/projects/xconnect-file-manager`);
