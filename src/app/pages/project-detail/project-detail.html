@@ -15,7 +15,7 @@
     <header class="detail-hero">
       <div class="detail-identity">
         <div class="detail-icon">
-          <img [src]="project.icon" alt="" width="104" height="104">
+          <img [src]="project.icon" alt="" width="104" height="104" decoding="async">
         </div>
         <div class="detail-heading">
           <span class="detail-category">{{ catLabel(project.category) }}</span>
@@ -79,7 +79,10 @@
                 <img
                   [src]="screenshot.src"
                   [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+                  [attr.width]="screenshot.width"
+                  [attr.height]="screenshot.height"
                   loading="lazy"
+                  decoding="async"
                 >
                 <span class="zoom-indicator" aria-hidden="true">
                   <mat-icon>zoom_in</mat-icon>
@@ -202,6 +205,9 @@
       <img
         [src]="screenshot.src"
         [alt]="t().projects.screenshotCaptions[screenshot.captionKey]"
+        [attr.width]="screenshot.width"
+        [attr.height]="screenshot.height"
+        decoding="async"
       >
     </div>
   }

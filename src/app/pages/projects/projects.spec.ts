@@ -19,8 +19,8 @@ describe('Projects page overview', () => {
     ).find(card => card.querySelector('h2')?.textContent?.trim() === 'Bridgely');
     const versionText = bridgelyCard?.querySelector('.card-category')?.textContent;
 
-    expect(versionText).toContain('Windows 1.2');
-    expect(versionText).toContain('Android 1.2');
+    expect(versionText).toContain('Windows 1.4');
+    expect(versionText).toContain('Android 1.4');
   });
 
   it('exposes the selected category through pressed state', () => {

@@ -26,7 +26,16 @@ export interface AppReleaseNote {
 }
 
 export type ProjectScreenshotKey =
-  | 'pairing'
+  | 'bridgelyHome'
+  | 'bridgelyClipboardHistory'
+  | 'bridgelyMore'
+  | 'bridgelyDevices'
+  | 'bridgelyTransfers'
+  | 'bridgelyDiagnostics'
+  | 'bridgelySettings'
+  | 'bridgelySyncSettings'
+  | 'bridgelyDeviceSettings'
+  | 'bridgelyAboutSecurity'
   | 'more'
   | 'settings'
   | 'scientific'
@@ -39,6 +48,8 @@ export type ProjectScreenshotKey =
 export interface ProjectScreenshot {
   src: string;
   captionKey: ProjectScreenshotKey;
+  width: number;
+  height: number;
 }
 
 export interface AppProject {

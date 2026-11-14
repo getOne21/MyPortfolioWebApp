@@ -42,15 +42,24 @@ describe('TranslationService', () => {
 
   it('localizes app descriptions and features', () => {
     const svc = TestBed.inject(TranslationService);
-    expect(svc.t().appProjects[1].description).toContain('Android adds one-time-code forwarding');
-    expect(svc.t().appProjects[1].longDescription).toContain('optional launch-at-sign-in');
-    expect(svc.t().appProjects[1].longDescription).toContain('Android 8.0 (API 26)');
+    const english = svc.t().appProjects[1];
+    expect(english.description).toContain('per-device controls');
+    expect(english.tagline).toContain('Mac and iPhone next');
+    expect(english.longDescription).toContain('macOS and iOS planned next');
+    expect(english.longDescription).toContain('optional launch-at-sign-in controls');
+    expect(english.longDescription).toContain('Android 8.0 (API 26)');
+    expect(english.features).toContain('Windows: tray access, drag-and-drop sending, desktop quick actions, and network diagnostics');
+    expect(english.features).toContain('Efficient binary file chunks when supported by both peers, with a fallback for older versions');
 
     svc.setLang('de');
-    expect(svc.t().appProjects[1].description).toContain('Android bietet Einmalcode-Weiterleitung');
-    expect(svc.t().appProjects[1].longDescription).not.toContain('Bridgely 1.2');
-    expect(svc.t().appProjects[1].longDescription).toContain('Autostart bei der Anmeldung');
-    expect(svc.t().appProjects[1].longDescription).toContain('Android 8.0 (API 26)');
+    const german = svc.t().appProjects[1];
+    expect(german.description).toContain('gezielter Gerätesteuerung');
+    expect(german.tagline).toContain('danach Mac und iPhone');
+    expect(german.longDescription).toContain('macOS und iOS sind als Nächstes geplant');
+    expect(german.longDescription).toContain('optionale Autostart-Einstellung');
+    expect(german.longDescription).toContain('Android 8.0 (API 26)');
+    expect(german.features).toContain('Windows: System-Tray, Drag-and-drop, Schnellaktionen und Netzwerkdiagnose');
+    expect(german.features).toContain('Effiziente binäre Dateiblöcke bei Unterstützung beider Geräte, mit Fallback für ältere Versionen');
     expect(svc.t().appProjects[2].features).toContain('Windows-Version verfügbar; Android-Unterstützung in Entwicklung');
   });
 
@@ -61,10 +70,16 @@ describe('TranslationService', () => {
       expect(project.releases.length).toBeGreaterThan(0);
     }
     expect(svc.t().appProjects[2].releases[0].version).toBe('1.1');
+    expect(svc.t().appProjects[1].releases.map(release => release.version)).toEqual(['1.4', '1.4']);
+    expect(svc.t().appProjects[1].releases[0].highlights[0]).toContain('network diagnostics');
+    expect(svc.t().appProjects[1].releases[1].highlights[0]).toContain('clipboard-image sharing');
 
     svc.setLang('de');
     expect(svc.t().appProjects[2].releases[0].highlights[0]).toContain('Windows-Anmeldung');
     expect(svc.t().appProjects[2].requirements[0]).toContain('Windows 10');
+    expect(svc.t().appProjects[1].releases.map(release => release.version)).toEqual(['1.4', '1.4']);
+    expect(svc.t().appProjects[1].releases[0].highlights[0]).toContain('Netzwerkdiagnose');
+    expect(svc.t().appProjects[1].releases[1].highlights[0]).toContain('Zwischenablagebildern');
   });
 
   it('describes xConnect SFTP support and planned Android release in both languages', () => {

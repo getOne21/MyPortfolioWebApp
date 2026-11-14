@@ -90,7 +90,7 @@
         >
           <div class="slide-visual">
             <div class="app-icon-large" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
-              <img [src]="app.icon" alt="" width="160" height="160">
+              <img [src]="app.icon" alt="" width="160" height="160" loading="lazy" decoding="async">
             </div>
             <div class="slide-rings">
               <div class="ring ring-1"></div>
@@ -179,7 +179,7 @@
       @let copy = t().appProjects[app.id];
       <div class="app-mini-card" [style.--accent]="app.colorAccent">
         <div class="mini-icon" [style.background]="'linear-gradient(135deg,' + app.gradientStart + ',' + app.gradientEnd + ')'">
-          <img [src]="app.icon" alt="" width="52" height="52">
+          <img [src]="app.icon" alt="" width="52" height="52" loading="lazy" decoding="async">
         </div>
         <div class="mini-info">
           <h4>{{ app.name }}</h4>

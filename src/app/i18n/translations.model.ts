@@ -94,7 +94,16 @@ export interface AppTranslations {
     viewScreenshot: string;
     closeScreenshot: string;
     screenshotCaptions: {
-      pairing: string;
+      bridgelyHome: string;
+      bridgelyClipboardHistory: string;
+      bridgelyMore: string;
+      bridgelyDevices: string;
+      bridgelyTransfers: string;
+      bridgelyDiagnostics: string;
+      bridgelySettings: string;
+      bridgelySyncSettings: string;
+      bridgelyDeviceSettings: string;
+      bridgelyAboutSecurity: string;
       more: string;
       settings: string;
       scientific: string;

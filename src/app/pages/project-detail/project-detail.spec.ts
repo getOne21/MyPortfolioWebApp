@@ -16,11 +16,16 @@ describe('ProjectDetail', () => {
 
     expect(document.querySelector('app-project-detail h1')?.textContent?.trim()).toBe('Bridgely');
     expect(document.querySelector('.detail-hero')?.firstElementChild?.classList.contains('detail-identity')).toBe(true);
-    expect(document.querySelectorAll('.detail-gallery figure')).toHaveLength(3);
+    expect(document.querySelectorAll('.detail-gallery figure')).toHaveLength(10);
+    const screenshot = document.querySelector('.detail-gallery img') as HTMLImageElement;
+    expect(screenshot.getAttribute('width')).toBe('1366');
+    expect(screenshot.getAttribute('height')).toBe('768');
+    expect(screenshot.getAttribute('loading')).toBe('lazy');
+    expect(screenshot.getAttribute('decoding')).toBe('async');
     expect(document.querySelector('.requirements-card')?.textContent).toContain('Windows 10 version 1809');
-    expect(document.querySelector('.detail-downloads')?.textContent).toContain('v1.2');
+    expect(document.querySelector('.detail-downloads')?.textContent).toContain('v1.4');
     expect(document.querySelectorAll('.release-entry')).toHaveLength(2);
-    expect(document.querySelector('.release-list')?.textContent).toContain('Android 8.0 (API 26)');
+    expect(document.querySelector('.release-list')?.textContent).toContain('network diagnostics');
   });
 
   it('renders the German detail page with localized release notes', async () => {

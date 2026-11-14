@@ -217,8 +217,8 @@
   img {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     transition: transform 0.35s ease;
   }
 
@@ -415,7 +415,6 @@
   .detail-icon { width: 84px; border-radius: 20px; }
   .detail-downloads { grid-template-columns: 1fr; }
   .detail-gallery { grid-template-columns: 1fr; gap: 18px; }
-  .detail-gallery img { aspect-ratio: 16 / 9; }
   .feature-grid { grid-template-columns: 1fr; }
   .requirements-card { padding: 20px; }
 }

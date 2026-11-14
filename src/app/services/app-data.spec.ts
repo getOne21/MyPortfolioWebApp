@@ -36,11 +36,11 @@ describe('AppDataService', () => {
     expect(svc.getById(3)?.socialImage).toBe('/apps/og/calctron.png');
   });
 
-  it('includes an iPhone download for Bridgely', () => {
-    expect(svc.getById(1)?.downloads).toContainEqual(
-      expect.objectContaining({ platform: 'ios' }),
-    );
-    expect(svc.getById(1)?.versions).toEqual({ windows: '1.2', android: '1.2' });
+  it('keeps Bridgely platform versions separate from download availability', () => {
+    const bridgely = svc.getById(1);
+    expect(bridgely?.downloads).toContainEqual(expect.objectContaining({ platform: 'ios' }));
+    expect(bridgely?.versions).toEqual({ windows: '1.4', android: '1.4' });
+    expect(bridgely?.downloads.find(download => download.platform === 'android')).toMatchObject({ comingSoon: true });
   });
 
   it('links Bridgely for Windows to its Microsoft Store listing', () => {
@@ -59,7 +59,13 @@ describe('AppDataService', () => {
   });
 
   it('includes the Windows screenshot gallery for Bridgely', () => {
-    expect(svc.getById(1)?.screenshots).toHaveLength(3);
+    const screenshots = svc.getById(1)?.screenshots ?? [];
+    expect(screenshots).toHaveLength(10);
+    expect(screenshots.every(screenshot => screenshot.width > 0 && screenshot.height > 0)).toBe(true);
+    expect(screenshots.map(screenshot => screenshot.src)).toContain(
+      '/apps/bridgely/screenshots/windows-sync-settings-1.4.webp',
+    );
+    expect(screenshots.map(screenshot => screenshot.captionKey)).toContain('bridgelyAboutSecurity');
   });
 
   it('includes xConnect screenshots and marks Android as coming soon', () => {
@@ -78,7 +84,7 @@ describe('AppDataService', () => {
     const calctron = svc.getById(3);
     expect(calctron?.name).toBe('Calctron');
     expect(calctron?.versions).toEqual({ windows: '1.0.0' });
-    expect(calctron?.icon).toBe('/apps/calctron.png');
+    expect(calctron?.icon).toBe('/apps/calctron.webp');
     expect(calctron?.downloads).toEqual([
       {
         platform: 'windows',
